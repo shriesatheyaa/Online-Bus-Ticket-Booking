@@ -5,6 +5,7 @@ package model;
  *
  */
 public class Reservation {
+<<<<<<< HEAD
 	private int id;
 	private int userId;
 	private int busId;
@@ -15,6 +16,19 @@ public class Reservation {
 	private int totalPrice;
 	private String paymentMode;
 	private String status;
+=======
+        private int id;
+        private int userId;
+        private int busId;
+        private int tripId;
+        private int sourceId;
+        private int destinationId;
+        private int noOfSeats;
+        private int totalPrice;
+        private String paymentMode;
+        private String status;
+        
+>>>>>>> 77437e3f65a03eaa487bad02719b5cc41984f2c7
 	public int getId() {
 		return id;
 	}

@@ -5,12 +5,21 @@ package model;
  *
  */
 public class User {
+<<<<<<< HEAD
 	private int id;
 	private String name;
 	private String email;
 	private double mobileNumber;
 	private String password;
 	
+=======
+        private int id;
+        private String name;
+        private String email;
+        private double mobileNumber;
+        private String password;
+    
+>>>>>>> 77437e3f65a03eaa487bad02719b5cc41984f2c7
 	public int getId() {
 		return id;
 	}
