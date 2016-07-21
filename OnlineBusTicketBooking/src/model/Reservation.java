@@ -5,21 +5,22 @@ package model;
  *
  */
 public class Reservation {
-    private int id;
-    private int userId;
-    private int busId;
-    private int tripId;
-    private int sourceId;
-    private int destinationId;
-    private int noOfSeats;
-    private int totalPrice;
-    private String paymentMode;
-    private String status;
+	private int id;
+	private int userId;
+	private int busId;
+	private int tripId;
+	private int sourceId;
+	private int destinationId;
+	private int noOfSeats;
+	private int totalPrice;
+	private String paymentMode;
+	private String status;
 	public int getId() {
 		return id;
 	}
+	
 	public void setId(int id) {
-		this.id = id;
+		this.id = id; 
 	}
 	public int getUserId() {
 		return userId;
