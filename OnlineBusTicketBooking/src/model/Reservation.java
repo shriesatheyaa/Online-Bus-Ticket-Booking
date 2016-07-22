@@ -15,7 +15,7 @@ public class Reservation {
 	private int tripId;
 	private int sourceId;
 	private int destinationId;
-	private int noOfSeats;
+	private int noOfSeatsBooked;
 	private int totalPrice;
 	private String paymentMode;
 	private String status;
@@ -57,11 +57,11 @@ public class Reservation {
 	public void setDestinationId(int destinationId) {
 		this.destinationId = destinationId;
 	}
-	public int getNoOfSeats() {
-		return noOfSeats;
+	public int getNoOfSeatsBooked() {
+		return noOfSeatsBooked;
 	}
-	public void setNoOfSeats(int noOfSeats) {
-		this.noOfSeats = noOfSeats;
+	public void setNoOfSeatsBooked(int noOfSeatsBooked) {
+		this.noOfSeatsBooked = noOfSeatsBooked;
 	}
 	public int getTotalPrice() {
 		return totalPrice;
