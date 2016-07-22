@@ -6,8 +6,9 @@ package model;
 import java.sql.Time;
 
 /**
+ * <p>Contains various attributes, its getters and setters of Trip</p> 
  * @author Shrie Satheyaa
- *
+ * @version 1.0
  */
 public class Trip {
     private int id;
@@ -17,89 +18,98 @@ public class Trip {
     private Time departureTime;
     private Time arrivalTime;
     private Double price;
-	/**
-	 * @return the id
-	 */
+    private int createdBy;
+    private Time createdAt;
+    private int modifiedBy;
+    private Time modifiedAt;
+
 	public int getId() {
 		return id;
 	}
-	/**
-	 * @param id the id to set
-	 */
+	
 	public void setId(int id) {
 		this.id = id;
 	}
-	/**
-	 * @return the busId
-	 */
+	
 	public int getBusId() {
 		return busId;
 	}
-	/**
-	 * @param busId the busId to set
-	 */
+	
 	public void setBusId(int busId) {
 		this.busId = busId;
 	}
-	/**
-	 * @return the sourceId
-	 */
+	
 	public int getSourceId() {
 		return sourceId;
 	}
-	/**
-	 * @param sourceId the sourceId to set
-	 */
+	
 	public void setSourceId(int sourceId) {
 		this.sourceId = sourceId;
 	}
-	/**
-	 * @return the destinationId
-	 */
+	
 	public int getDestinationId() {
 		return destinationId;
 	}
-	/**
-	 * @param destinationId the destinationId to set
-	 */
+	
 	public void setDestinationId(int destinationId) {
 		this.destinationId = destinationId;
 	}
-	/**
-	 * @return the departureTime
-	 */
+	
 	public Time getDepartureTime() {
 		return departureTime;
 	}
-	/**
-	 * @param departureTime the departureTime to set
-	 */
+	
 	public void setDepartureTime(Time departureTime) {
 		this.departureTime = departureTime;
 	}
-	/**
-	 * @return the arrivalTime
-	 */
+	
 	public Time getArrivalTime() {
 		return arrivalTime;
 	}
-	/**
-	 * @param arrivalTime the arrivalTime to set
-	 */
+	
 	public void setArrivalTime(Time arrivalTime) {
 		this.arrivalTime = arrivalTime;
 	}
-	/**
-	 * @return the price
-	 */
+	
 	public Double getPrice() {
 		return price;
 	}
-	/**
-	 * @param price the price to set
-	 */
+	
 	public void setPrice(Double price) {
 		this.price = price;
+	}
+
+	
+	public int getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(int createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public int getModifiedBy() {
+		return modifiedBy;
+	}
+
+	public void setModifiedBy(int modifiedBy) {
+		this.modifiedBy = modifiedBy;
+	}
+
+	public Time getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Time createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public Time getModifiedAt() {
+		return modifiedAt;
+	}
+
+	public void setModifiedAt(Time modifiedAt) {
+		this.modifiedAt = modifiedAt;
 	}
 	
     
