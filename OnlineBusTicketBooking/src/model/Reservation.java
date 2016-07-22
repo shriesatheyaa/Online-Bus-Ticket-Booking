@@ -1,25 +1,31 @@
 package model;
 
 /**
+ * Reservation model object
+ * 
+ * <p> Contains various attributes of Bus ticket reservation and its getters and setters
+ * 
  * @author Ideas2IT-sivaranjani
- *
+ * @created 
  */
 public class Reservation {
-    private int id;
-    private int userId;
-    private int busId;
-    private int tripId;
-    private int sourceId;
-    private int destinationId;
-    private int noOfSeats;
-    private int totalPrice;
-    private String paymentMode;
-    private String status;
+	private int id;
+	private int userId;
+	private int busId;
+	private int tripId;
+	private int sourceId;
+	private int destinationId;
+	private int noOfSeats;
+	private int totalPrice;
+	private String paymentMode;
+	private String status;
+	
 	public int getId() {
 		return id;
 	}
+	
 	public void setId(int id) {
-		this.id = id;
+		this.id = id; 
 	}
 	public int getUserId() {
 		return userId;
@@ -75,12 +81,4 @@ public class Reservation {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	@Override
-	public String toString() {
-		return "Reservation [id=" + id + ", userId=" + userId + ", busId=" + busId + ", tripId=" + tripId
-				+ ", sourceId=" + sourceId + ", destinationId=" + destinationId + ", noOfSeats=" + noOfSeats
-				+ ", totalPrice=" + totalPrice + ", paymentMode=" + paymentMode + ", status=" + status + "]";
-	}
-    
-    
 }

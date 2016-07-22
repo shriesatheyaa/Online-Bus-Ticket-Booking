@@ -1,16 +1,23 @@
 package model;
 
+import java.sql.Time;
+
 /**
+ * User model object
+ * 
+ * <p> Contains various attributes of a user and its getters and setters
+ * 
  * @author Ideas2IT-sivaranjani
- *
+ * @created 
  */
 public class User {
-    private int id;
-    private String name;
-    private String email;
-    private double mobileNumber;
-    private String password;
-    
+	private int id;
+	private String name;
+	private String email;
+	private double mobileNumber;
+	private String password;
+	private Time createdAt;
+	
 	public int getId() {
 		return id;
 	}
@@ -41,11 +48,10 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", email=" + email + ", mobileNumber=" + mobileNumber
-				+ ", password=" + password + "]";
+	public Time getCreatedAt() {
+		return createdAt;
 	}
-    
-    
+	public void setCreatedAt(Time createdAt) {
+		this.createdAt = createdAt;
+	}
 }
