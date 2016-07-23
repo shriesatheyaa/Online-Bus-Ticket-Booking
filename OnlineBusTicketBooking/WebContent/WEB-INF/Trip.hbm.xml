@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name="model.Trip" table="Trips">
+      <meta attribute="class-description">
+         This class contains the trip details of a bus. 
+      </meta>
+      <property name="id" type="int" column="id"/>      
+      <property name="busId" column="Bus_Id" type="int"/>
+      <property name="SourceId" column="client_name" type="string"/>
+      
+      <set name="seatVacancies" table="Seat_Vacancies" 
+				inverse="true" lazy="false" fetch="select" cascade="save-update">
+            <key>
+                <column name="Trip_Id" />
+            </key>
+            <one-to-many class="model.SeatVacancy" />
+      </set>
+      
+      <set name="reservations" table="Reservations" 
+				inverse="true" lazy="false" fetch="select" cascade="save-update">
+            <key>
+                <column name="Trip_Id" />
+            </key>
+            <one-to-many class="model.Reservation" />
+      </set>
+      
+      <many-to-one name="sourceCity" class="model.City" fetch="select">
+            <column name="Source_Id" />
+      </many-to-one>
+      
+      <many-to-one name="destinationCity" class="model.City" fetch="select">
+            <column name="Destination_Id" />
+      </many-to-one>
+      
+      <many-to-one name="bus" class="model.Bus" fetch="select">
+            <column name="Bus_Id" />
+      </many-to-one>
+      
+      <many-to-one name="createdBy" class="model.User" fetch="select">
+            <column name="Created_By" />
+      </many-to-one>
+      
+      <many-to-one name="modifiedBy" class="model.User" fetch="select">
+            <column name="Modified_By" />
+      </many-to-one>
+      
+   </class>
+</hibernate-mapping>

@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Set;
+import java.util.HashSet;
 import java.sql.Time;
 
 /*
@@ -18,6 +20,8 @@ public class Travels {
 	private Time createdAt;
 	private User modifiedBy;
 	private Time modifiedAt; 
+	private Set<Bus> buses = new HashSet<Bus>();
+    
 	public int getId() {
 		return id;
 	}
@@ -65,6 +69,12 @@ public class Travels {
 	}
 	public void setCreatedAt(Time createdAt) {
 		this.createdAt = createdAt;
+	}
+	public Set<Bus> getBuses() {
+		return buses;
+	}
+	public void setBuses(Set<Bus> buses) {
+		this.buses = buses;
 	}
 	@Override
 	public String toString() {

@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Set;
+import java.util.HashSet;
 import java.sql.Time;
 
 /*
@@ -19,7 +21,10 @@ public class Bus {
 	private User createdBy;
 	private Time createdAt;
 	private User modifiedBy;
-	private Time modifiedAt; 
+	private Time modifiedAt;
+	private Set<Reservation> reservations = new HashSet<Reservation>();
+	private Set<Trip> tripes = new HashSet<Trip>();
+	private Set<SeatVacancy> seatVacancies = new HashSet<SeatVacancy>();
 	public int getId() {
 		return id;
 	}
@@ -79,6 +84,24 @@ public class Bus {
 	}
 	public void setCreatedAt(Time createdAt) {
 		this.createdAt = createdAt;
+	}
+	public Set<Reservation> getReservations() {
+		return reservations;
+	}
+	public void setReservations(Set<Reservation> reservations) {
+		this.reservations = reservations;
+	} 
+	public Set<SeatVacancy> getSeatVacancies() {
+		return seatVacancies;
+	}
+	public void setSeatVacancies(Set<SeatVacancy> seatVacancies) {
+		this.seatVacancies = seatVacancies;
+	}
+	public Set<Trip> getTripes() {
+		return tripes;
+	}
+	public void setTripes(Set<Trip> tripes) {
+		this.tripes = tripes;
 	}
 	@Override
 	public String toString() {

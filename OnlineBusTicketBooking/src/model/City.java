@@ -1,4 +1,6 @@
 package model;
+import java.util.Set;
+import java.util.HashSet;
 import java.sql.Time;
 /*
  * City Model Object.
@@ -14,6 +16,7 @@ public class City {
 	private Time createdAt;
 	private User modifiedBy;
 	private Time modifiedAt; 
+	private Set<Trip> tripes = new HashSet<Trip>();
 	public int getId() {
 		return id;
 	}
@@ -49,6 +52,12 @@ public class City {
 	}
 	public void setCreatedAt(Time createdAt) {
 		this.createdAt = createdAt;
+	}
+	public Set<Trip> getTripes() {
+		return tripes;
+	}
+	public void setTripes(Set<Trip> tripes) {
+		this.tripes = tripes;
 	}
 	@Override
 	public String toString() {

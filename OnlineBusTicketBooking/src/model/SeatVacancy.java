@@ -11,9 +11,9 @@ import java.util.Date;
  */
 public class SeatVacancy {
     private Date dateOfTravel;
-    private int busId;
-    private int tripId;
     private int availableSeats;
+    private Trip trip;
+    private Bus bus;
 	/**
 	 * @return the dateOfTravel
 	 */
@@ -27,30 +27,6 @@ public class SeatVacancy {
 		this.dateOfTravel = dateOfTravel;
 	}
 	/**
-	 * @return the busId
-	 */
-	public int getBusId() {
-		return busId;
-	}
-	/**
-	 * @param busId the busId to set
-	 */
-	public void setBusId(int busId) {
-		this.busId = busId;
-	}
-	/**
-	 * @return the tripId
-	 */
-	public int getTripId() {
-		return tripId;
-	}
-	/**
-	 * @param tripId the tripId to set
-	 */
-	public void setTripId(int tripId) {
-		this.tripId = tripId;
-	}
-	/**
 	 * @return the availableSeats
 	 */
 	public int getAvailableSeats() {
@@ -61,5 +37,17 @@ public class SeatVacancy {
 	 */
 	public void setAvailableSeats(int availableSeats) {
 		this.availableSeats = availableSeats;
+	}
+	public Trip getTrip() {
+		return trip;
+	}
+	public void setTrip(Trip trip) {
+		this.trip = trip;
+	}
+	public Bus getBus() {
+		return bus;
+	}
+	public void setBus(Bus bus) {
+		this.bus = bus;
 	}
 }

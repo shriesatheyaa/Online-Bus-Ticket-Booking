@@ -4,6 +4,8 @@
 package model;
 
 import java.sql.Time;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * <p>Contains various attributes, its getters and setters of Trip</p> 
@@ -12,15 +14,18 @@ import java.sql.Time;
  */
 public class Trip {
     private int id;
-    private int busId;
-    private int sourceId;
-    private int destinationId;
     private Time departureTime;
     private Time arrivalTime;
     private Double price;
-    private int createdBy;
+    private City sourceCity;
+    private City destinationCity;
+    private Bus bus;
+    private Set<SeatVacancy> seatVacancies = new HashSet<SeatVacancy> ();
+    private Set<Reservation> reservations = new HashSet<Reservation> ();
+
+    private User createdBy;
     private Time createdAt;
-    private int modifiedBy;
+    private User modifiedBy;
     private Time modifiedAt;
 
 	public int getId() {
@@ -29,30 +34,6 @@ public class Trip {
 	
 	public void setId(int id) {
 		this.id = id;
-	}
-	
-	public int getBusId() {
-		return busId;
-	}
-	
-	public void setBusId(int busId) {
-		this.busId = busId;
-	}
-	
-	public int getSourceId() {
-		return sourceId;
-	}
-	
-	public void setSourceId(int sourceId) {
-		this.sourceId = sourceId;
-	}
-	
-	public int getDestinationId() {
-		return destinationId;
-	}
-	
-	public void setDestinationId(int destinationId) {
-		this.destinationId = destinationId;
 	}
 	
 	public Time getDepartureTime() {
@@ -80,19 +61,19 @@ public class Trip {
 	}
 
 	
-	public int getCreatedBy() {
+	public User getCreatedBy() {
 		return createdBy;
 	}
 
-	public void setCreatedBy(int createdBy) {
+	public void setCreatedBy(User createdBy) {
 		this.createdBy = createdBy;
 	}
 
-	public int getModifiedBy() {
+	public User getModifiedBy() {
 		return modifiedBy;
 	}
 
-	public void setModifiedBy(int modifiedBy) {
+	public void setModifiedBy(User modifiedBy) {
 		this.modifiedBy = modifiedBy;
 	}
 
@@ -111,6 +92,47 @@ public class Trip {
 	public void setModifiedAt(Time modifiedAt) {
 		this.modifiedAt = modifiedAt;
 	}
+
+	public City getSourceCity() {
+		return sourceCity;
+	}
+
+	public void setSourceCity(City sourceCity) {
+		this.sourceCity = sourceCity;
+	}
+
+	public City getDestinationCity() {
+		return destinationCity;
+	}
+
+	public void setDestinationCity(City destinationCity) {
+		this.destinationCity = destinationCity;
+	}
+
+	public Set<SeatVacancy> getSeatVacancies() {
+		return seatVacancies;
+	}
+
+	public void setSeatVacancies(Set<SeatVacancy> seatVacancies) {
+		this.seatVacancies = seatVacancies;
+	}
+
+	public Set<Reservation> getReservations() {
+		return reservations;
+	}
+
+	public void setReservations(Set<Reservation> reservations) {
+		this.reservations = reservations;
+	}
+
+	public Bus getBus() {
+		return bus;
+	}
+
+	public void setBus(Bus bus) {
+		this.bus = bus;
+	}
+
 	
     
 }
