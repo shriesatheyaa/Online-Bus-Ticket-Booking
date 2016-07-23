@@ -14,7 +14,7 @@ import java.sql.Time;
 public class Bus {
 	private int id;
 	private String registrationNumber;
-	private Travels travelsId;
+	private Travels travels;
 	private String  type;
 	private Boolean isAc;
 	private int totalNumberOfSeats;
@@ -23,7 +23,7 @@ public class Bus {
 	private User modifiedBy;
 	private Time modifiedAt;
 	private Set<Reservation> reservations = new HashSet<Reservation>();
-	private Set<Trip> tripes = new HashSet<Trip>();
+	private Set<Trip> trips = new HashSet<Trip>();
 	private Set<SeatVacancy> seatVacancies = new HashSet<SeatVacancy>();
 	public int getId() {
 		return id;
@@ -37,11 +37,11 @@ public class Bus {
 	public void setRegistrationNumber(String registrationNumber) {
 		this.registrationNumber = registrationNumber;
 	}
-	public Travels getTravelsId() {
-		return travelsId;
+	public Travels getTravels() {
+		return travels;
 	}
-	public void setTravelsId(Travels travelsId) {
-		this.travelsId = travelsId;
+	public void setTravelsId(Travels travels) {
+		this.travels = travels;
 	}
 	public String getType() {
 		return type;
@@ -90,22 +90,22 @@ public class Bus {
 	}
 	public void setReservations(Set<Reservation> reservations) {
 		this.reservations = reservations;
-	} 
+	}
 	public Set<SeatVacancy> getSeatVacancies() {
 		return seatVacancies;
 	}
 	public void setSeatVacancies(Set<SeatVacancy> seatVacancies) {
 		this.seatVacancies = seatVacancies;
 	}
-	public Set<Trip> getTripes() {
-		return tripes;
+	public Set<Trip> getTrips() {
+		return trips;
 	}
-	public void setTripes(Set<Trip> tripes) {
-		this.tripes = tripes;
+	public void setTrips(Set<Trip> trips) {
+		this.trips = trips;
 	}
 	@Override
 	public String toString() {
-		return "Bus [id=" + id + ", registrationNumber=" + registrationNumber + ", travelsId=" + travelsId + ", type="
+		return "Bus [id=" + id + ", registrationNumber=" + registrationNumber + ", travels=" + travels + ", type="
 				+ type + ", isAc=" + isAc + ", totalNumberOfSeats=" + totalNumberOfSeats + "]";
 	}
 	

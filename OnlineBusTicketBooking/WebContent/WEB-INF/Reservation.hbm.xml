@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+    <class name="model.Resrvation" table="Resrvations">
+        <meta attribute="class-description">
+            This class contains the Reservation details. 
+        </meta>
+        <id name="id" type="int" column="Id">
+        </id>
+        
+        <many-to-one name="user" class="model.User" fetch="select">
+            <column name="User_Id" not-null="false" />
+        </many-to-one>
+        
+        <many-to-one name="bus" class="model.Bus" fetch="select">
+            <column name="Bus_Id" not-null="false" />
+        </many-to-one>
+        
+        <many-to-one name="trip" class="model.Trip" fetch="select">
+            <column name="Trip_Id" not-null="false" />
+        </many-to-one>
+        
+        <many-to-one name="source" class="model.City" fetch="select">
+            <column name="Source_Id" not-null="false" />
+        </many-to-one>
+        
+        <many-to-one name="destination" class="model.City" fetch="select">
+            <column name="Destination_Id" not-null="false" />
+        </many-to-one>
+        
+        <property name="noOfSeatsBooked" column="No_Of_Seats_Booked" type="string"/>
+        <property name="totalPrice" column="Total_Price" type="string"/>
+        <property name="paymentMode" column="Payment_Mode" type="string"/>
+        <property name="status" column="Status" type="string"/>        
+        
+    </class>
+</hibernate-mapping>
