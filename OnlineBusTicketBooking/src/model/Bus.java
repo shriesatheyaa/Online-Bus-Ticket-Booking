@@ -90,7 +90,7 @@ public class Bus {
 	}
 	public void setReservations(Set<Reservation> reservations) {
 		this.reservations = reservations;
-	}
+	} 
 	public Set<SeatVacancy> getSeatVacancies() {
 		return seatVacancies;
 	}
