@@ -9,9 +9,12 @@
          This class contains the trip details of a bus. 
       </meta>
       <property name="id" type="int" column="id"/>      
-      <property name="busId" column="Bus_Id" type="int"/>
-      <property name="SourceId" column="client_name" type="string"/>
-      
+      <property name="departureTime" type="time" column="Departure_Time"/>
+      <property name="arrivalTime" type="time" column="Arrival_Time"/>
+      <property name="price" type="double" column="Price"/>
+      <property name="createdAt" type="time" column="Created_At"/>
+      <property name="modifiedAt" type="time" column="Modified_At"/>
+
       <set name="seatVacancies" table="Seat_Vacancies" 
 				inverse="true" lazy="false" fetch="select" cascade="save-update">
             <key>

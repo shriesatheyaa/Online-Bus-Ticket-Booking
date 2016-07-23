@@ -9,8 +9,6 @@
          This class contains the seat vacancy details of buses. 
       </meta>
       <property name="dateOfTravel" column="Date_Of_Travel" type="date"/>
-      <property name="busId" column="Bus_Id" type="int"/>
-      <property name="tripId" column="Trip_Id" type="int"/>
       <property name="availableSeats" column="Available_Seats" type="int"/>
 
       <many-to-one name="trip" class="model.Trip" fetch="select">
