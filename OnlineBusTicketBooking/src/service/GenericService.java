@@ -5,7 +5,6 @@ import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.text.ParseException;
 import java.io.IOException;
 
 import exception.DatabaseException;

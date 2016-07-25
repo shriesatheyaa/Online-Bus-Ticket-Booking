@@ -14,7 +14,7 @@ import java.sql.Time;
 public class Bus {
 	private int id;
 	private String registrationNumber;
-	private Travels travels;
+	private Travels travelsId;
 	private String  type;
 	private Boolean isAc;
 	private int totalNumberOfSeats;
@@ -23,7 +23,7 @@ public class Bus {
 	private User modifiedBy;
 	private Time modifiedAt;
 	private Set<Reservation> reservations = new HashSet<Reservation>();
-	private Set<Trip> trips = new HashSet<Trip>();
+	private Set<Trip> tripes = new HashSet<Trip>();
 	private Set<SeatVacancy> seatVacancies = new HashSet<SeatVacancy>();
 	
 	public Bus() {
@@ -41,11 +41,11 @@ public class Bus {
 	public void setRegistrationNumber(String registrationNumber) {
 		this.registrationNumber = registrationNumber;
 	}
-	public Travels getTravels() {
-		return travels;
+	public Travels getTravelsId() {
+		return travelsId;
 	}
-	public void setTravelsId(Travels travels) {
-		this.travels = travels;
+	public void setTravelsId(Travels travelsId) {
+		this.travelsId = travelsId;
 	}
 	public String getType() {
 		return type;
@@ -94,25 +94,30 @@ public class Bus {
 	}
 	public void setReservations(Set<Reservation> reservations) {
 		this.reservations = reservations;
-	}
+	} 
 	public Set<SeatVacancy> getSeatVacancies() {
 		return seatVacancies;
 	}
 	public void setSeatVacancies(Set<SeatVacancy> seatVacancies) {
 		this.seatVacancies = seatVacancies;
 	}
-	public Set<Trip> getTrips() {
-		return trips;
+	public Set<Trip> getTripes() {
+		return tripes;
 	}
-	public void setTrips(Set<Trip> trips) {
-		this.trips = trips;
+	public void setTripes(Set<Trip> tripes) {
+		this.tripes = tripes;
 	}
 	@Override
 	public String toString() {
+<<<<<<< HEAD
+		return "Bus [id=" + id + ", registrationNumber=" + registrationNumber + ", travelsId=" + travelsId + ", type="
+				+ type + ", isAc=" + isAc + ", totalNumberOfSeats=" + totalNumberOfSeats + "]";
+=======
 		return "Bus [id=" + id + ", registrationNumber=" + registrationNumber + ", travels=" + travels + ", type="
 				+ type + ", isAc=" + isAc + ", totalNumberOfSeats=" + totalNumberOfSeats + ", createdBy=" + createdBy
 				+ ", createdAt=" + createdAt + ", modifiedBy=" + modifiedBy + ", modifiedAt=" + modifiedAt
 				+ ", reservations=" + reservations + ", trips=" + trips + ", seatVacancies=" + seatVacancies + "]";
+>>>>>>> 6e56c1f9d16d89169f90a94307a5b85e3312ead3
 	}
 	
 	

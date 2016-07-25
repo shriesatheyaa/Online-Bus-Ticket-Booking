@@ -17,12 +17,16 @@ public class City {
 	private Time createdAt;
 	private User modifiedBy;
 	private Time modifiedAt; 
+<<<<<<< HEAD
+	private Set<Trip> tripes = new HashSet<Trip>();
+=======
 	private Set<Trip> sourceCityTrip = new HashSet<Trip>();
 	private Set<Trip> destinationCityTrip = new HashSet<Trip>();
 	
 	public City() {
 		
 	}
+>>>>>>> 6e56c1f9d16d89169f90a94307a5b85e3312ead3
 	public int getId() {
 		return id;
 	}
@@ -59,23 +63,15 @@ public class City {
 	public void setCreatedAt(Time createdAt) {
 		this.createdAt = createdAt;
 	}
-	public Set<Trip> getDestinationCityTrip() {
-		return destinationCityTrip;
+	public Set<Trip> getTripes() {
+		return tripes;
 	}
-	public void setDestinationCityTrip(Set<Trip> destinationCityTrip) {
-		this.destinationCityTrip = destinationCityTrip;
-	}
-	public Set<Trip> getSourceCityTrip() {
-		return sourceCityTrip;
-	}
-	public void setSourceCityTrip(Set<Trip> sourceCityTrip) {
-		this.sourceCityTrip = sourceCityTrip;
+	public void setTripes(Set<Trip> tripes) {
+		this.tripes = tripes;
 	}
 	@Override
 	public String toString() {
-		return "City [id=" + id + ", name=" + name + ", createdBy=" + createdBy + ", createdAt=" + createdAt
-				+ ", modifiedBy=" + modifiedBy + ", modifiedAt=" + modifiedAt + ", sourceCityTrip=" + sourceCityTrip
-				+ ", destinationCityTrip=" + destinationCityTrip + "]";
+		return "City [id=" + id + ", name=" + name + "]";
 	}
 	
 	
