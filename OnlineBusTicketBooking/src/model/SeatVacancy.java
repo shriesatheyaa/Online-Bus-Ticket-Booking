@@ -1,13 +1,11 @@
-/**
- * 
- */
 package model;
 
 import java.util.Date;
 
 /**
- * @author ideas2it
- *
+ * <p>Contains various attributes, its getters and setters of SeatVacancy</p> 
+ * @author Shrie Satheyaa
+ * @version 1.0
  */
 public class SeatVacancy {
     private Date dateOfTravel;

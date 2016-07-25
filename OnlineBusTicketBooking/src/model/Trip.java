@@ -11,6 +11,7 @@ import java.util.Set;
  * <p>Contains various attributes, its getters and setters of Trip</p> 
  * @author Shrie Satheyaa
  * @version 1.0
+ * @created 2016-07-23
  */
 public class Trip {
     private int id;
@@ -22,7 +23,6 @@ public class Trip {
     private Bus bus;
     private Set<SeatVacancy> seatVacancies = new HashSet<SeatVacancy> ();
     private Set<Reservation> reservations = new HashSet<Reservation> ();
-
     private User createdBy;
     private Time createdAt;
     private User modifiedBy;
