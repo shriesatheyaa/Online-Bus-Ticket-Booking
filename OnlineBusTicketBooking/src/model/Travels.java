@@ -22,6 +22,9 @@ public class Travels {
 	private Time modifiedAt; 
 	private Set<Bus> buses = new HashSet<Bus>();
     
+	public Travels() {
+		
+	}
 	public int getId() {
 		return id;
 	}
@@ -79,7 +82,9 @@ public class Travels {
 	@Override
 	public String toString() {
 		return "Travels [id=" + id + ", name=" + name + ", address=" + address + ", contactNumber=" + contactNumber
-				+ "]";
+				+ ", createdBy=" + createdBy + ", createdAt=" + createdAt + ", modifiedBy=" + modifiedBy
+				+ ", modifiedAt=" + modifiedAt + ", buses=" + buses + "]";
 	}
+	
 
 }

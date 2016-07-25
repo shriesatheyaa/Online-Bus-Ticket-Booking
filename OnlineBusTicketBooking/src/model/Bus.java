@@ -25,6 +25,10 @@ public class Bus {
 	private Set<Reservation> reservations = new HashSet<Reservation>();
 	private Set<Trip> trips = new HashSet<Trip>();
 	private Set<SeatVacancy> seatVacancies = new HashSet<SeatVacancy>();
+	
+	public Bus() {
+		
+	}
 	public int getId() {
 		return id;
 	}
@@ -106,7 +110,10 @@ public class Bus {
 	@Override
 	public String toString() {
 		return "Bus [id=" + id + ", registrationNumber=" + registrationNumber + ", travels=" + travels + ", type="
-				+ type + ", isAc=" + isAc + ", totalNumberOfSeats=" + totalNumberOfSeats + "]";
+				+ type + ", isAc=" + isAc + ", totalNumberOfSeats=" + totalNumberOfSeats + ", createdBy=" + createdBy
+				+ ", createdAt=" + createdAt + ", modifiedBy=" + modifiedBy + ", modifiedAt=" + modifiedAt
+				+ ", reservations=" + reservations + ", trips=" + trips + ", seatVacancies=" + seatVacancies + "]";
 	}
+	
 	
 }
