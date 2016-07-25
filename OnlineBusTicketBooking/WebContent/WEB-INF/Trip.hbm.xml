@@ -8,7 +8,7 @@
       <meta attribute="class-description">
          This class contains the trip details of a bus. 
       </meta>
-      <property name="id" type="int" column="id"/>      
+      <property name="id" type="int" column="Id"/>      
       <property name="departureTime" type="time" column="Departure_Time"/>
       <property name="arrivalTime" type="time" column="Arrival_Time"/>
       <property name="price" type="double" column="Price"/>
