@@ -16,7 +16,16 @@ public class City {
 	private Time createdAt;
 	private User modifiedBy;
 	private Time modifiedAt; 
+<<<<<<< HEAD
 	private Set<Trip> tripes = new HashSet<Trip>();
+=======
+	private Set<Trip> sourceCityTrip = new HashSet<Trip>();
+	private Set<Trip> destinationCityTrip = new HashSet<Trip>();
+	
+	public City() {
+		
+	}
+>>>>>>> 6e56c1f9d16d89169f90a94307a5b85e3312ead3
 	public int getId() {
 		return id;
 	}
