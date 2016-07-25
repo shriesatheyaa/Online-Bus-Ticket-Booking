@@ -19,6 +19,9 @@ public class City {
 	private Set<Trip> sourceCityTrip = new HashSet<Trip>();
 	private Set<Trip> destinationCityTrip = new HashSet<Trip>();
 	
+	public City() {
+		
+	}
 	public int getId() {
 		return id;
 	}
