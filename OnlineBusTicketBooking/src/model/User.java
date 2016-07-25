@@ -21,7 +21,7 @@ public class User {
 	private int id;
 	private String name;
 	private String email;
-	private double mobileNumber;
+	private long mobileNumber;
 	private String password;
 	private Time createdAt;
 	private Set<Reservation> reservations = new HashSet<Reservation> ();
@@ -29,6 +29,17 @@ public class User {
 	private Set<Bus> buses = new HashSet<Bus> ();
 	private Set<Travels> travels = new HashSet<Travels> ();
 	
+	public User() {
+		
+	}
+	
+	public User(String name, String email, long mobileNumber, String password) {
+		this.name = name;
+		this.email = email;
+		this.mobileNumber = mobileNumber;
+		this.password = password;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -51,11 +62,11 @@ public class User {
 		this.email = email;
 	}
 	
-	public double getMobileNumber() {
+	public long getMobileNumber() {
 		return mobileNumber;
 	}
 	
-	public void setMobileNumber(double mobileNumber) {
+	public void setMobileNumber(long mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
 	
