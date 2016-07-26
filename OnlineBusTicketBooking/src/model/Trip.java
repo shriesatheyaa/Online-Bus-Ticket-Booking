@@ -15,7 +15,7 @@ public class Trip {
     private int id;
     private int seatVaccancy;
     private Bus bus;
-    private Set<TripRoute> tripeRoutes = new HashSet<TripRoute> ();
+    private Set<TripRoute> tripRoutes = new HashSet<TripRoute> ();
     private User createdBy;
     private Time createdAt;
     private User modifiedBy;
@@ -71,12 +71,12 @@ public class Trip {
 		this.seatVaccancy = seatVaccancy;
 	}
 
-	public Set<TripRoute> getTripeRoutes() {
-		return tripeRoutes;
+	public Set<TripRoute> getTripRoutes() {
+		return tripRoutes;
 	}
 
-	public void setTripeRoutes(Set<TripRoute> tripeRoutes) {
-		this.tripeRoutes = tripeRoutes;
+	public void setTripRoutes(Set<TripRoute> tripRoutes) {
+		this.tripRoutes = tripRoutes;
 	}
 
 	public void setBus(Bus bus) {

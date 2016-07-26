@@ -17,8 +17,8 @@ public class City {
 	private Time createdAt;
 	private User modifiedBy;
 	private Time modifiedAt; 
-	private Set<Route> sourceCityRoute = new HashSet<Route>();
-	private Set<Route> destinationCityRoute = new HashSet<Route>();
+	private Set<Route> sourceCityRoutes = new HashSet<Route>();
+	private Set<Route> destinationCityRoutes = new HashSet<Route>();
 	public City() {
 		
 	}
@@ -58,17 +58,18 @@ public class City {
 	public void setCreatedAt(Time createdAt) {
 		this.createdAt = createdAt;
 	}
-	public Set<Route> getSourceCityRoute() {
-		return sourceCityRoute;
+	public Set<Route> getSourceCityRoutes() {
+		return sourceCityRoutes;
 	}
-	public void setSourceCityRoute(Set<Route> sourceCityRoute) {
-		this.sourceCityRoute = sourceCityRoute;
+	public void setSourceCityRoutes(Set<Route> sourceCityRoutes) {
+		this.sourceCityRoutes = sourceCityRoutes;
 	}
-	public Set<Route> getDestinationCityRoute() {
-		return destinationCityRoute;
+	public Set<Route> getDestinationCityRoutes() {
+		return destinationCityRoutes;
 	}
-	public void setDestinationCityRoute(Set<Route> destinationCityRoute) {
-		this.destinationCityRoute = destinationCityRoute;
+	public void setDestinationCityRoutes(Set<Route> destinationCityRoutes) {
+		this.destinationCityRoutes = destinationCityRoutes;
 	}
+	
 	
 }
