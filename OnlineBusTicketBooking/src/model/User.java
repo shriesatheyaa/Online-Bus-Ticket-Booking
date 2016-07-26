@@ -4,8 +4,6 @@ import java.sql.Time;
 import java.util.Set;
 import java.util.HashSet;
 
-import model.Reservation;
-
 /**
  * User model object
  * 

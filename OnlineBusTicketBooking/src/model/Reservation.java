@@ -1,8 +1,5 @@
 package model;
 
-import model.User;
-import model.TripRoute;
-
 /**
  * Reservation model object
  * 

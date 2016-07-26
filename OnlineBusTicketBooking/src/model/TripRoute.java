@@ -3,8 +3,6 @@ package model;
 import java.sql.Time;
 import java.util.Date;
 
-import model.Route;
-import model.Trip;
 
 /**
  * TripRoute model object
