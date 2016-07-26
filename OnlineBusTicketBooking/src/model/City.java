@@ -17,21 +17,11 @@ public class City {
 	private Time createdAt;
 	private User modifiedBy;
 	private Time modifiedAt; 
-<<<<<<< 010ee3f5fa3195d13e26bac3f2f25012bce3fd5a
-<<<<<<< HEAD
-	private Set<Trip> tripes = new HashSet<Trip>();
-=======
-	private Set<Trip> sourceCityTrip = new HashSet<Trip>();
-	private Set<Trip> destinationCityTrip = new HashSet<Trip>();
-	
-=======
 	private Set<Route> sourceCityRoute = new HashSet<Route>();
 	private Set<Route> destinationCityRoute = new HashSet<Route>();
->>>>>>> Modified Bus,City and their hbm.xml file for maintaining Associations
 	public City() {
 		
 	}
->>>>>>> 6e56c1f9d16d89169f90a94307a5b85e3312ead3
 	public int getId() {
 		return id;
 	}
@@ -68,21 +58,6 @@ public class City {
 	public void setCreatedAt(Time createdAt) {
 		this.createdAt = createdAt;
 	}
-<<<<<<< 010ee3f5fa3195d13e26bac3f2f25012bce3fd5a
-	public Set<Trip> getTripes() {
-		return tripes;
-	}
-	public void setTripes(Set<Trip> tripes) {
-		this.tripes = tripes;
-	}
-	@Override
-	public String toString() {
-		return "City [id=" + id + ", name=" + name + "]";
-	}
-	
-	
-
-=======
 	public Set<Route> getSourceCityRoute() {
 		return sourceCityRoute;
 	}
@@ -96,5 +71,4 @@ public class City {
 		this.destinationCityRoute = destinationCityRoute;
 	}
 	
->>>>>>> Modified Bus,City and their hbm.xml file for maintaining Associations
 }

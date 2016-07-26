@@ -1,6 +1,3 @@
-/**
- * 
- */
 package model;
 
 import java.sql.Time;
@@ -8,20 +5,17 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * <p>Contains various attributes, its getters and setters of Trip</p> 
+ * Trip Model Object.
+ * <p>Contains various attributes of Trip, and its getters and setters </p> 
  * @author Shrie Satheyaa
  * @version 1.0
  * @created 2016-07-23
  */
 public class Trip {
     private int id;
-    private Time departureTime;
-    private Time arrivalTime;
-    private Double price;
-    private City sourceCity;
-    private City destinationCity;
+    private int seatVaccancy;
     private Bus bus;
-    private Set<Reservation> reservations = new HashSet<Reservation> ();
+    private Set<TripRoute> tripeRoutes = new HashSet<TripRoute> ();
     private User createdBy;
     private Time createdAt;
     private User modifiedBy;
@@ -34,32 +28,6 @@ public class Trip {
 	public void setId(int id) {
 		this.id = id;
 	}
-	
-	public Time getDepartureTime() {
-		return departureTime;
-	}
-	
-	public void setDepartureTime(Time departureTime) {
-		this.departureTime = departureTime;
-	}
-	
-	public Time getArrivalTime() {
-		return arrivalTime;
-	}
-	
-	public void setArrivalTime(Time arrivalTime) {
-		this.arrivalTime = arrivalTime;
-	}
-	
-	public Double getPrice() {
-		return price;
-	}
-	
-	public void setPrice(Double price) {
-		this.price = price;
-	}
-
-	
 	public User getCreatedBy() {
 		return createdBy;
 	}
@@ -91,33 +59,24 @@ public class Trip {
 	public void setModifiedAt(Time modifiedAt) {
 		this.modifiedAt = modifiedAt;
 	}
-
-	public City getSourceCity() {
-		return sourceCity;
-	}
-
-	public void setSourceCity(City sourceCity) {
-		this.sourceCity = sourceCity;
-	}
-
-	public City getDestinationCity() {
-		return destinationCity;
-	}
-
-	public void setDestinationCity(City destinationCity) {
-		this.destinationCity = destinationCity;
-	}
-
-	public Set<Reservation> getReservations() {
-		return reservations;
-	}
-
-	public void setReservations(Set<Reservation> reservations) {
-		this.reservations = reservations;
-	}
-
 	public Bus getBus() {
 		return bus;
+	}
+
+	public int getSeatVaccancy() {
+		return seatVaccancy;
+	}
+
+	public void setSeatVaccancy(int seatVaccancy) {
+		this.seatVaccancy = seatVaccancy;
+	}
+
+	public Set<TripRoute> getTripeRoutes() {
+		return tripeRoutes;
+	}
+
+	public void setTripeRoutes(Set<TripRoute> tripeRoutes) {
+		this.tripeRoutes = tripeRoutes;
 	}
 
 	public void setBus(Bus bus) {
