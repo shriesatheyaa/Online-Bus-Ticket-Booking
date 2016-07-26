@@ -1,5 +1,8 @@
 package model;
 
+import model.User;
+import model.TripRoute;
+
 /**
  * Reservation model object
  * 
@@ -10,16 +13,27 @@ package model;
  */
 public class Reservation {
 	private int id;
-	private int userId;
-	private int busId;
-	private int tripId;
-	private int sourceId;
-	private int destinationId;
+	private User user;
+	private TripRoute tripRoute; 
 	private int noOfSeatsBooked;
 	private int totalPrice;
 	private String paymentMode;
 	private String status;
 	
+	public Reservation() {
+	}
+
+	public Reservation(String status, User user, int noOfSeatsBooked, String paymentMode,
+			int id, TripRoute tripRoute,int totalPrice) {
+		this.status = status;
+		this.user = user;
+		this.noOfSeatsBooked = noOfSeatsBooked;
+		this.paymentMode = paymentMode;
+		this.id = id;
+		this.tripRoute = tripRoute;
+		this.totalPrice = totalPrice;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -27,57 +41,51 @@ public class Reservation {
 	public void setId(int id) {
 		this.id = id; 
 	}
-	public int getUserId() {
-		return userId;
+	
+	public User getUser() {
+		return user;
 	}
-	public void setUserId(int userId) {
-		this.userId = userId;
+
+	public void setUser(User user) {
+		this.user = user;
 	}
-	public int getBusId() {
-		return busId;
+
+	public TripRoute getTripRoute() {
+		return tripRoute;
 	}
-	public void setBusId(int busId) {
-		this.busId = busId;
+
+	public void setTripRoute(TripRoute tripRoute) {
+		this.tripRoute = tripRoute;
 	}
-	public int getTripId() {
-		return tripId;
-	}
-	public void setTripId(int tripId) {
-		this.tripId = tripId;
-	}
-	public int getSourceId() {
-		return sourceId;
-	}
-	public void setSourceId(int sourceId) {
-		this.sourceId = sourceId;
-	}
-	public int getDestinationId() {
-		return destinationId;
-	}
-	public void setDestinationId(int destinationId) {
-		this.destinationId = destinationId;
-	}
+
 	public int getNoOfSeatsBooked() {
 		return noOfSeatsBooked;
 	}
+	
 	public void setNoOfSeatsBooked(int noOfSeatsBooked) {
 		this.noOfSeatsBooked = noOfSeatsBooked;
 	}
+	
 	public int getTotalPrice() {
 		return totalPrice;
 	}
+	
 	public void setTotalPrice(int totalPrice) {
 		this.totalPrice = totalPrice;
 	}
+	
 	public String getPaymentMode() {
 		return paymentMode;
 	}
+	
 	public void setPaymentMode(String paymentMode) {
 		this.paymentMode = paymentMode;
 	}
+	
 	public String getStatus() {
 		return status;
 	}
+	
 	public void setStatus(String status) {
 		this.status = status;
 	}
