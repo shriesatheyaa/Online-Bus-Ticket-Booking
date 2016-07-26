@@ -13,7 +13,7 @@ import java.util.Set;
  */
 public class Trip {
     private int id;
-    private int seatVaccancy;
+    private int seatVacancy;
     private Bus bus;
     private Set<TripRoute> tripRoutes = new HashSet<TripRoute> ();
     private User createdBy;
@@ -62,13 +62,12 @@ public class Trip {
 	public Bus getBus() {
 		return bus;
 	}
-
-	public int getSeatVaccancy() {
-		return seatVaccancy;
+	public int getSeatVacancy() {
+		return seatVacancy;
 	}
 
-	public void setSeatVaccancy(int seatVaccancy) {
-		this.seatVaccancy = seatVaccancy;
+	public void setSeatVacancy(int seatVacancy) {
+		this.seatVacancy = seatVacancy;
 	}
 
 	public Set<TripRoute> getTripRoutes() {
