@@ -10,5 +10,6 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="/home/sathishkumar/Downloads/spring-framework-4.1.6.RELEASE-dist.zip"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
