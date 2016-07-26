@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+    <class name="model.User" table="Users">
+        <meta attribute="class-description">
+            This class contains the User details. 
+        </meta>
+        <id name="id" type="int" column="Id">
+        </id>
+        <property name="name" column="Name" type="string"/>
+        <property name="email" column="Email" type="string"/>
+        <property name="mobileNumber" column="Mobile_Number" type="long"/>
+        <property name="password" column="Password" type="string"/>
+
+        <set name="reservations" table="Reservation" inverse="true" lazy="false" fetch="select">
+            <key column="User_Id"/>
+            <one-to-many class="model.Reservation"/>
+        </set>
+        
+        <set name="cities" table="City" inverse="true" lazy="false" fetch="select">
+            <key column="User_Id"/>
+            <one-to-many class="model.City"/>
+        </set>
+        
+        <set name="buses" table="Bus" inverse="true" lazy="false" fetch="select">
+            <key column="User_Id"/>
+            <one-to-many class="model.Bus"/>
+        </set>
+        
+        <set name="travels" table="Travels" inverse="true" lazy="false" fetch="select">
+            <key column="User_Id"/>
+            <one-to-many class="model.Travels"/>
+        </set>        
+        
+    </class>
+</hibernate-mapping>
