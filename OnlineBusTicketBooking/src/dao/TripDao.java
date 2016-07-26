@@ -11,7 +11,6 @@ import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 
-import model.City;
 import model.Trip;
 import exception.DatabaseException;
 
