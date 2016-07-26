@@ -17,19 +17,19 @@
        </many-to-one>
        <property name="createdAt" column="Created_At" type ="time" not-null="true"/>
        <property name="modifiedAt" column="Modified_At" type="time" not-null="false"/>
-       <set name="sourceCityTrip" table="Trips" 
+       <set name="sourceCityRoute" table="Routes" 
 	    inverse="true" lazy="false" fetch="select" cascade="save-update">
             <key>
-                <column name="Source_Id" not-null="false" />
+                <column name="Source_City_Id " not-null="false" />
             </key>
-            <one-to-many class="model.Trip" />
+            <one-to-many class="model.Route" />
        </set>
-        <set name="destinationCityTrip" table="Trips" 
+        <set name="destinationCityRoute" table="Routes" 
 	    inverse="true" lazy="false" fetch="select" cascade="save-update">
             <key>
-                <column name="Destination_Id" not-null="false" />
+                <column name="Destination_City_Id" not-null="false" />
             </key>
-            <one-to-many class="model.Trip" />
+            <one-to-many class="model.Route" />
        </set>
        
    

@@ -23,13 +23,6 @@
        </many-to-one>
        <property name="createdAt" column="Created_At" type ="time" not-null="true"/>
        <property name="modifiedAt" column="Modified_At" type="time" not-null="false"/>
-       <set name="reservations" table="Reservations" 
-	    inverse="true" lazy="false" fetch="select" cascade="save-update">
-            <key>
-                <column name="Bus_Id" not-null="false" />
-            </key>
-            <one-to-many class="model.Reservation" />
-       </set>
        <set name="trips" table="Trips" 
 	    inverse="true" lazy="false" fetch="select" cascade="save-update">
             <key>
@@ -37,14 +30,5 @@
             </key>
             <one-to-many class="model.Trip" />
        </set>
-       <set name="seatVacancies" table=" Seat_Vacancies" 
-	    inverse="true" lazy="false" fetch="select" cascade="save-update">
-            <key>
-                <column name="Bus_Id" not-null="false" />
-            </key>
-            <one-to-many class="model.SeatVacancy" />
-       </set>
-       
-   
-   </class>
+  </class>
 </hibernate-mapping>

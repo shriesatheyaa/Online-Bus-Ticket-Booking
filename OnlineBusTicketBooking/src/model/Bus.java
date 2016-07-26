@@ -22,9 +22,13 @@ public class Bus {
 	private Time createdAt;
 	private User modifiedBy;
 	private Time modifiedAt;
+<<<<<<< 010ee3f5fa3195d13e26bac3f2f25012bce3fd5a
 	private Set<Reservation> reservations = new HashSet<Reservation>();
 	private Set<Trip> tripes = new HashSet<Trip>();
 	private Set<SeatVacancy> seatVacancies = new HashSet<SeatVacancy>();
+=======
+	private Set<Trip> trips = new HashSet<Trip>();
+>>>>>>> Modified Bus,City and their hbm.xml file for maintaining Associations
 	
 	public Bus() {
 		
@@ -89,6 +93,7 @@ public class Bus {
 	public void setCreatedAt(Time createdAt) {
 		this.createdAt = createdAt;
 	}
+<<<<<<< 010ee3f5fa3195d13e26bac3f2f25012bce3fd5a
 	public Set<Reservation> getReservations() {
 		return reservations;
 	}
@@ -118,6 +123,13 @@ public class Bus {
 				+ ", createdAt=" + createdAt + ", modifiedBy=" + modifiedBy + ", modifiedAt=" + modifiedAt
 				+ ", reservations=" + reservations + ", trips=" + trips + ", seatVacancies=" + seatVacancies + "]";
 >>>>>>> 6e56c1f9d16d89169f90a94307a5b85e3312ead3
+=======
+	public Set<Trip> getTrips() {
+		return trips;
+	}
+	public void setTripes(Set<Trip> trips) {
+		this.trips = trips;
+>>>>>>> Modified Bus,City and their hbm.xml file for maintaining Associations
 	}
 	
 	
