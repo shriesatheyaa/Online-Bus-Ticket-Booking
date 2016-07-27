@@ -18,9 +18,9 @@ public class UserService {
 	
 	UserDao userDao = new UserDao();
 	
-	public void addUser(String name, String email, long mobileNumber, String password) 
+	public void addUser(User user) 
 			            throws DatabaseException {
-		userDao.insertUser(new User(name, email, mobileNumber, password));
+		userDao.insertUser(user);
 	}
 	
 	public boolean isValidUser(String email, String password) throws DatabaseException {
