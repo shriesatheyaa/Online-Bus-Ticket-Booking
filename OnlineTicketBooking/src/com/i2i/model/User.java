@@ -14,6 +14,8 @@ import java.util.HashSet;
  */
 
 public class User {
+
+
 	private int id;
 	private String name;
 	private String email;
@@ -87,6 +89,12 @@ public class User {
 
 	public void setReservations(Set<Reservation> reservations) {
 		this.reservations = reservations;
+	}
+
+	@Override
+	public String toString() {
+		return "User [name=" + name + ", email=" + email + ", mobileNumber=" + mobileNumber + ", password=" + password
+				+ "]";
 	}
 	
 	

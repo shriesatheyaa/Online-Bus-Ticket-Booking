@@ -17,11 +17,26 @@ public class ApplicationController {
 	//UserService userService =  new UserService();
 	 
 	@RequestMapping(value = "/UserLogin")
-	public ModelAndView getRegisterForm() {
+	public ModelAndView getRegisterForm(@ModelAttribute("user") User user, BindingResult result) {
 		/*Map<String, Object> model = new HashMap<String, Object>();
 		model.put("user", user);
 		System.out.println(user.getName());*/
 		return new ModelAndView("UserLogin");
+	}
+	
+	@RequestMapping("/saveUser")
+	public ModelAndView saveUserData(@ModelAttribute("user") User user, BindingResult result) {
+		System.out.println("Save User Data");
+		System.out.println(user);
+		return new ModelAndView("redirect:/Response.html");
+	}
+	
+	@RequestMapping(value = "/Response")
+	public ModelAndView getRegisterForm() {
+		/*Map<String, Object> model = new HashMap<String, Object>();
+		model.put("user", user);
+		System.out.println(user.getName());*/
+		return new ModelAndView("Response");
 	}
 	 
 	
