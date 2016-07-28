@@ -16,13 +16,12 @@ public class ApplicationController {
 		
 	//UserService userService =  new UserService();
 	 
-	@RequestMapping(value = "/UserLogin", method = RequestMethod.POST)
-	public ModelAndView getRegisterForm(@ModelAttribute("user") User user,
-			BindingResult result) {
-		Map<String, Object> model = new HashMap<String, Object>();
+	@RequestMapping(value = "/UserLogin")
+	public ModelAndView getRegisterForm() {
+		/*Map<String, Object> model = new HashMap<String, Object>();
 		model.put("user", user);
-		System.out.println(user.getName());
-		return new ModelAndView("UserLogin",model);
+		System.out.println(user.getName());*/
+		return new ModelAndView("UserLogin");
 	}
 	 
 	
