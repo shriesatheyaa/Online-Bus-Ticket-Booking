@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   
+   <class name="com.i2i.model.Travels" table="Travels">
+       <id name="id" type="int" column="Id" >
+       <generator class="increment"/> 
+       </id>
+       <property name="name" column="Name" type="string"/>
+       <property name="address" column="Address" type="string"/>
+       <property name="contactNumber" column="Contact_Number" type="long"/>
+       <many-to-one name="createdBy" class="com.i2i.model.User" fetch="select">
+           <column name="Created_By" not-null="false" />
+       </many-to-one>
+       <many-to-one name="modifiedBy" class="com.i2i.model.User" fetch="select">
+           <column name="Modified_By" not-null="false" />
+       </many-to-one>
+       <property name="createdAt" column="Created_At" type ="date" not-null="true"/>
+       <property name="modifiedAt" column="Modified_At" type="date" not-null="false"/>
+       <set name="buses" table="Buses" 
+	    inverse="true" lazy="false" fetch="select" cascade="save-update">
+            <key>
+                <column name="Travels_Id" not-null="false" />
+            </key>
+            <one-to-many class="com.i2i.model.Bus" />
+       </set>
+       
+   
+   </class>
+</hibernate-mapping>

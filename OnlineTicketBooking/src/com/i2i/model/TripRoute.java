@@ -2,6 +2,8 @@ package com.i2i.model;
 
 import java.sql.Time;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 
 /**
@@ -21,6 +23,11 @@ public class TripRoute {
 	private double price;
 	private Date dateOfTravel;
 	private boolean isActive;
+	private User createdBy;
+    private Date createdAt;
+    private User modifiedBy;
+    private Date modifiedAt;
+    private Set<Reservation> reservations = new HashSet<Reservation>();
 	
 	public int getId() {
 		return id;
@@ -78,11 +85,51 @@ public class TripRoute {
 		this.dateOfTravel = dateOfTravel;
 	}
 	
-	public boolean isActive() {
+	public boolean getIsActive() {
 		return isActive;
 	}
 	
-	public void setActive(boolean isActive) {
+	public void setIsActive(boolean isActive) {
 		this.isActive = isActive;
+	}
+
+	public User getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(User createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public User getModifiedBy() {
+		return modifiedBy;
+	}
+
+	public void setModifiedBy(User modifiedBy) {
+		this.modifiedBy = modifiedBy;
+	}
+
+	public Date getModifiedAt() {
+		return modifiedAt;
+	}
+
+	public void setModifiedAt(Date modifiedAt) {
+		this.modifiedAt = modifiedAt;
+	}
+
+	public Set<Reservation> getReservations() {
+		return reservations;
+	}
+
+	public void setReservations(Set<Reservation> reservations) {
+		this.reservations = reservations;
 	}
 }

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+    <class name="com.i2i.model.User" table="Users">
+        <meta attribute="class-description">
+            This class contains the User details. 
+        </meta>
+        <id name="id" type="int" column="Id">
+             <generator class="assigned"/>
+        </id>
+        <property name="name" column="Name" type="string"/>
+        <property name="email" column="Email" type="string"/>
+        <property name="mobileNumber" column="Mobile_Number" type="long"/>
+        <property name="password" column="Password" type="string"/>
+        <property name="createdAt" column="Created_At" type="timestamp"/>
+        
+        <set name="reservations" table="Reservations" inverse="true" lazy="false" fetch="select">
+            <key column="User_Id"/>
+            <one-to-many class="com.i2i.model.Reservation"/>
+        </set>
+        
+        <set name="cities" table="Cities" inverse="true" lazy="false" fetch="select">
+            <key column="Created_By"/>
+            <one-to-many class="com.i2i.model.City"/>
+        </set>
+        
+        <set name="buses" table="Buses" inverse="true" lazy="false" fetch="select">
+            <key column="Created_By"/>
+            <one-to-many class="com.i2i.model.Bus"/>
+        </set>
+        
+        <set name="travels" table="Travels" inverse="true" lazy="false" fetch="select">
+            <key column="Created_By"/>
+            <one-to-many class="com.i2i.model.Travels"/>
+        </set>   
+        <set name="trips" table="Trips" inverse="true" lazy="false" fetch="select">
+            <key column="Created_By"/>
+            <one-to-many class="com.i2i.model.Trip"/>
+        </set>     
+        <set name="tripRoutes" table="TripRoutes" inverse="true" lazy="false" fetch="select">
+            <key column="Created_By"/>
+            <one-to-many class="com.i2i.model.TripRoute"/>
+        </set>
+
+        
+    </class>
+</hibernate-mapping>

@@ -1,5 +1,6 @@
 package com.i2i.model;
 
+import java.sql.Date;
 import java.sql.Time;
 import java.util.HashSet;
 import java.util.Set;
@@ -17,57 +18,36 @@ public class Trip {
     private Bus bus;
     private Set<TripRoute> tripRoutes = new HashSet<TripRoute> ();
     private User createdBy;
-    private Time createdAt;
+    private Date createdAt;
     private User modifiedBy;
-    private Time modifiedAt;
+    private Date modifiedAt;
+    
+	public Trip() {
+		
+	}
 
 	public int getId() {
 		return id;
 	}
-	
+
 	public void setId(int id) {
 		this.id = id;
 	}
-	public User getCreatedBy() {
-		return createdBy;
-	}
 
-	public void setCreatedBy(User createdBy) {
-		this.createdBy = createdBy;
-	}
-
-	public User getModifiedBy() {
-		return modifiedBy;
-	}
-
-	public void setModifiedBy(User modifiedBy) {
-		this.modifiedBy = modifiedBy;
-	}
-
-	public Time getCreatedAt() {
-		return createdAt;
-	}
-
-	public void setCreatedAt(Time createdAt) {
-		this.createdAt = createdAt;
-	}
-
-	public Time getModifiedAt() {
-		return modifiedAt;
-	}
-
-	public void setModifiedAt(Time modifiedAt) {
-		this.modifiedAt = modifiedAt;
-	}
-	public Bus getBus() {
-		return bus;
-	}
 	public int getSeatVacancy() {
 		return seatVacancy;
 	}
 
 	public void setSeatVacancy(int seatVacancy) {
 		this.seatVacancy = seatVacancy;
+	}
+
+	public Bus getBus() {
+		return bus;
+	}
+
+	public void setBus(Bus bus) {
+		this.bus = bus;
 	}
 
 	public Set<TripRoute> getTripRoutes() {
@@ -78,10 +58,35 @@ public class Trip {
 		this.tripRoutes = tripRoutes;
 	}
 
-	public void setBus(Bus bus) {
-		this.bus = bus;
+	public User getCreatedBy() {
+		return createdBy;
 	}
 
-	
-    
+	public void setCreatedBy(User createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public User getModifiedBy() {
+		return modifiedBy;
+	}
+
+	public void setModifiedBy(User modifiedBy) {
+		this.modifiedBy = modifiedBy;
+	}
+
+	public Date getModifiedAt() {
+		return modifiedAt;
+	}
+
+	public void setModifiedAt(Date modifiedAt) {
+		this.modifiedAt = modifiedAt;
+	}    
 }

@@ -1,5 +1,6 @@
 package com.i2i.model;
 
+import java.sql.Date;
 import java.sql.Time;
 
 /**
@@ -13,30 +14,34 @@ public class Route {
     private City sourceCity;
     private City destinationCity;
     private User createdBy;
-    private Time createdAt;
+    private Date createdAt;
     private User modifiedBy;
-    private Time modifiedAt;
-	
+    private Date modifiedAt;
+    
+	public Route() {
+
+	}
+
 	public int getId() {
 		return id;
 	}
-	
+
 	public void setId(int id) {
 		this.id = id;
 	}
-	
+
 	public City getSourceCity() {
 		return sourceCity;
 	}
-	
+
 	public void setSourceCity(City sourceCity) {
 		this.sourceCity = sourceCity;
 	}
-	
+
 	public City getDestinationCity() {
 		return destinationCity;
 	}
-	
+
 	public void setDestinationCity(City destinationCity) {
 		this.destinationCity = destinationCity;
 	}
@@ -49,11 +54,11 @@ public class Route {
 		this.createdBy = createdBy;
 	}
 
-	public Time getCreatedAt() {
+	public Date getCreatedAt() {
 		return createdAt;
 	}
 
-	public void setCreatedAt(Time createdAt) {
+	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
 	}
 
@@ -65,12 +70,12 @@ public class Route {
 		this.modifiedBy = modifiedBy;
 	}
 
-	public Time getModifiedAt() {
+	public Date getModifiedAt() {
 		return modifiedAt;
 	}
 
-	public void setModifiedAt(Time modifiedAt) {
+	public void setModifiedAt(Date modifiedAt) {
 		this.modifiedAt = modifiedAt;
 	}
-    
+	   
 }
