@@ -3,64 +3,86 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!-- <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html lang="en">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    
+    <title>Online Bus Ticket Booking</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="css/freelancer.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    
+
 </head>
-<body>
-<center>
-<br><br><br><br><br><br>
-<div style="color: teal;font-size: 30px">Sign Up || Welcome</div>
-<br><br>
-<c:url var="userRegistration" value="saveUser.html"/>
-<form:form  modelAttribute="user" method="post" action="${userRegistration}">
-<table width="400px" height="150px">
-<tr>
-<td><form:label path="name">name </form:label> </td>
-<td><form:input  path="name"/></td>
-</tr>
-<tr>
-<td><form:label path="email">email</form:label></td>
-<td><form:input  path="email"/></td>
-</tr>
-<tr>
-<td><form:label path="mobileNumber">mobileNumber</form:label></td>
-<td><form:input path="mobileNumber"/></td>
-</tr>
-<tr>
-<td><form:label path="password">password</form:label></td>
-<td><form:input  path="password"/></td>
-</tr>
-<tr><td></td><td>
-<input type="submit" value="Register" />
-</td></tr>
-</table>
-</form:form>
-<br>
-</center>
-</body>
-</html>-->
-<!DOCTYPE html>
-<html >
-  <head>
-    <meta charset="UTF-8">
-    <title>Sign-Up/Login Form</title>
-    <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="css/style.css">
-  </head>
 
-  <body>
-  <h1>Online Bus Ticket Booking</h1>
+<body id="page-top" class="index">
 
-    <div class="form">
+    <!-- Navigation -->
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="#page-top"><img style="position:fixed; left:1px;top:24px"class="img-responsive" src="img/bus.gif" alt=""></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    
+                    <li class="page-scroll">
+                        <a href="login.jsp">login</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="signup.jsp">signup</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- Header -->
+    <header>
       
-    <!--  <ul class="tab-group">
-        <li class="tab active"><a href="#signup">Login</a></li>
-        <li
-      </ul>
-      
-      <div class="tab-content" active="true">-->
-        <div id="signup">   
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <img class="img-responsive" src="img/load.gif" alt="">
+                    <div class="intro-text" style="
+                                                   height: 100px;
+                                                   padding-bottom: 8px;
+                                                   padding-top: 0px;
+                                                  ">
+                        <span class="name">Start Journey</span>
+                        <hr class="star-light">
+                        <span class="skills">Welcome -Experience Travel Together</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+<div class="container-fluid"><br><br>
+  <div class="row">
+    <div class="col-lg-6" ">
+       <div id="signup">   
           <h1>LOGIN</h1>
           
           <c:url var="userRegistration" value="authenticate.html"/>
@@ -82,13 +104,22 @@
           </form:form>
 
         </div>
-        
-      </div><!-- tab-content -->
-      
-</div> <!-- /form -->
+    </div>
+    <div class="col-lg-6" >
+      <img src = "bg1.jpg">
+    </div>
+  </div>
+</div>
     
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-top page-scroll hidden-sm hidden-xs hidden-lg hidden-md">
+        <a class="btn btn-primary" href="#page-top">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+    </div>
+
     
-    
-    
-  </body>
+
+</body>
+
 </html>
