@@ -88,5 +88,12 @@ public class Trip {
 
 	public void setModifiedAt(Date modifiedAt) {
 		this.modifiedAt = modifiedAt;
+	}
+
+	@Override
+	public String toString() {
+		return "Trip [id=" + id + ", seatVacancy=" + seatVacancy +"]";
 	}    
+	
+	
 }

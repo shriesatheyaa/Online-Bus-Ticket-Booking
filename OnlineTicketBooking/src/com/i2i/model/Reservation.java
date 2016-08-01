@@ -86,4 +86,13 @@ public class Reservation {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+
+	@Override
+	public String toString() {
+		return "Reservation [id=" + id + ", user=" + user + ", tripRoute=" + tripRoute + ", noOfSeatsBooked="
+				+ noOfSeatsBooked + ", totalPrice=" + totalPrice + ", paymentMode=" + paymentMode + ", status=" + status
+				+ "]";
+	}
+	
+	
 }

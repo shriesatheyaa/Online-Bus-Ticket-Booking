@@ -3,6 +3,7 @@
  */
 package com.i2i.dao;
 
+import java.sql.Date;
 import java.util.List;
 
 import org.hibernate.HibernateException;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Repository;
 
 import com.i2i.exception.DatabaseException;
 import com.i2i.model.Route;
+import com.i2i.model.TripRoute;
 
 /**
  * <p>Dao which permits all tasks related to Trip Route related database tasks using Hibernate.
@@ -27,36 +29,35 @@ public class TripRouteDao extends GenericDao {
      * Retrieves a list of Trip Route records for given route object and date of travel from the database.
      * </p>
      *
-     * @param sourceCityName 
-     *     Name of the source city of the route which is to be retrieved. 
+     * @param route 
+     *     Route object for TripRoute which is to be retrieved. 
      * 
-     * @param destinationCityName 
-     *     Name of the destination city of the route which is to be retrieved. 
+     * @param dateOfTravel 
+     *     date of travel for Trip. 
      *     
      * @throws DatabaseException 
      *     If there is any interruption occurred in the database.
      */
-	public List<Route> retrieveTripRoutes (Route route, String destinationCityName) throws DatabaseException {
-	/*	System.out.println("Dao : " + sourceCityName +"  "+destinationCityName);
+	public List<TripRoute> retrieveTripRoutes (Route route, Date dateOfTravel) throws DatabaseException {
+		
 		System.out.println(factory);
-		Route route = null;
         Session session = createSession();
         Transaction transaction = null;
-        List<Route> routes = null;
+        List<TripRoute> tripRoutes = null;
         try{
             transaction = session.beginTransaction();
-            String hql = "FROM " + Route.class.getName() + " route WHERE route.sourceCity.name =:sourceCityName "+
-                          "and route.destinationCity.name =:destinationCityName";
+            String hql = "FROM " + TripRoute.class.getName() + " tripRoute WHERE tripRoute.route =:route "+
+                          "and tripRoute.dateOfTravel =:dateOfTravel";
             Query query = session.createQuery(hql);
-            query.setParameter("sourceCityName", sourceCityName);
-            query.setParameter("destinationCityName", destinationCityName);
-            routes = query.list();
+            query.setParameter("route", route);
+            query.setParameter("dateOfTravel", dateOfTravel);
+            tripRoutes = query.list();
             transaction.commit();
             System.out.println("Dao finished");
         } catch (HibernateException e) {
-            throw new DatabaseException("Some problem occured while retrieving route records with "+
-                                        sourceCityName +" and "+ destinationCityName + " records", e);
-        }*/
-        return null; 
+            throw new DatabaseException("Some problem occured while retrieving route records with route id"+
+                                        route.getId() +" and date:"+ dateOfTravel + " records", e);
+        }
+        return tripRoutes; 
 	} 
 }

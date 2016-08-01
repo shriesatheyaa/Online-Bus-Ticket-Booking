@@ -103,6 +103,6 @@ public class Travels {
 	public String toString() {
 		return "Travels [id=" + id + ", name=" + name + ", address=" + address + ", contactNumber=" + contactNumber
 				+ ", createdBy=" + createdBy + ", createdAt=" + createdAt + ", modifiedBy=" + modifiedBy
-				+ ", modifiedAt=" + modifiedAt + ", buses=" + buses + "]";
+				+ ", modifiedAt=" + modifiedAt + ","+"]";
 	}
 }

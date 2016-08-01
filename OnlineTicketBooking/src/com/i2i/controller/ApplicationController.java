@@ -1,5 +1,6 @@
 package com.i2i.controller;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -16,8 +17,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.i2i.exception.DatabaseException;
 import com.i2i.model.Route;
+import com.i2i.model.TripRoute;
 import com.i2i.model.User;
 import com.i2i.service.RouteService;
+import com.i2i.service.TripRouteService;
 import com.i2i.service.UserService;
 @Controller
 public class ApplicationController {
@@ -25,7 +28,8 @@ public class ApplicationController {
     UserService userService;
     @Autowired   
     RouteService routeService;
-     
+    @Autowired
+    TripRouteService tripRouteService;
     @RequestMapping(value = "/HomePage")
     public ModelAndView getHomePage() {
         return new ModelAndView("HomePage");
@@ -75,13 +79,13 @@ public class ApplicationController {
        
    }
    @RequestMapping(value = "/Search",method = RequestMethod.POST)
-   public ModelAndView test(@RequestParam("source") String source,@RequestParam("destination") String destination,@RequestParam("dateOfTravel") String dateOfTravel) {
+   public ModelAndView test(@RequestParam("source") String source,@RequestParam("destination") String destination,@RequestParam("date") String date) {
        /*Map<String, Object> model = new HashMap<String, Object>();
        model.put("user", user);
        System.out.println(user.getName());*/
        System.out.println(source);
        System.out.println(destination);
-       System.out.println(dateOfTravel);
+       System.out.println(date);
        List<Route> routes = null;
        try {
            routes = routeService.getRoute(source, destination);
@@ -89,13 +93,26 @@ public class ApplicationController {
     	   e.printStackTrace();
        }
        System.out.println(routes);
-       SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-       Date date = null;
+
+       DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+       Date TravelDate =null;
        try {
-		   date = simpleDateFormat.parse(dateOfTravel);
-	   } catch (ParseException e) {
-	       e.printStackTrace();
-	   }
+           TravelDate = df.parse(date);
+           System.out.println("dateOfTravel:"+TravelDate);
+       } catch (ParseException e) {
+           e.printStackTrace();
+       }
+       java.sql.Date dateOfTravel = new java.sql.Date(TravelDate.getTime());
+       System.out.println("sqlDate:"+dateOfTravel);
+       List<TripRoute> tripRoutes = null;
+       for (Route route : routes) {
+           try {
+        	   tripRoutes = tripRouteService.getTripRoutes(route, dateOfTravel);
+           } catch (DatabaseException e) {
+    	       e.printStackTrace();
+           }
+       }
+       System.out.println(tripRoutes);
       
        return new ModelAndView("SearchBus");
           

@@ -1,7 +1,7 @@
 package com.i2i.model;
 
+import java.sql.Date;
 import java.sql.Time;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -132,4 +132,16 @@ public class TripRoute {
 	public void setReservations(Set<Reservation> reservations) {
 		this.reservations = reservations;
 	}
+
+	@Override
+	public String toString() {
+		return "TripRoute [id=" + id + ", route=" + route + ", trip=" + trip + ", departureTime=" + departureTime
+				+ ", arrivalTime=" + arrivalTime + ", price=" + price + ", dateOfTravel=" + dateOfTravel + ", isActive="
+				+ isActive + ", reservations=" + reservations + "]";
+	}
+	
+	
 }
+
+
+ 

@@ -77,9 +77,11 @@ public class Route {
 	public void setModifiedAt(Date modifiedAt) {
 		this.modifiedAt = modifiedAt;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "Route: /n id:"+id+"/nsource City:" +sourceCity.getName()+ "/ndestination City:"+destinationCity.getName();
+		return "Route [id=" + id + ", sourceCity=" + sourceCity + ", destinationCity=" + destinationCity + "]";
 	}
+	
+	
 }
