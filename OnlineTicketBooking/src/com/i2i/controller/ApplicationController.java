@@ -5,6 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 
@@ -21,6 +23,7 @@ public class ApplicationController {
         model.put("user", user);
         System.out.println(user.getName());*/
         return new ModelAndView("UserLogin");
+        
     }
    
    @RequestMapping("/saveUser")
@@ -46,6 +49,27 @@ public class ApplicationController {
        }
        //return new ModelAndView("redirect:/Response.html");
    }
+   
+   @RequestMapping(value = "/SearchBus")
+   public ModelAndView getSearchForm() {
+       /*Map<String, Object> model = new HashMap<String, Object>();
+       model.put("user", user);
+       System.out.println(user.getName());*/
+       return new ModelAndView("SearchBus");
+       
+   }
+   @RequestMapping(value = "/test",method = RequestMethod.POST)
+   public ModelAndView test(@RequestParam("source") String source,@RequestParam("destination") String destination,@RequestParam("dateOfTravel") String dateOfTravel) {
+       /*Map<String, Object> model = new HashMap<String, Object>();
+       model.put("user", user);
+       System.out.println(user.getName());*/
+       System.out.println(source);
+       System.out.println(destination);
+       System.out.println(dateOfTravel);
+       return new ModelAndView("SearchBus");
+
+   }
+   
    
 }
    
