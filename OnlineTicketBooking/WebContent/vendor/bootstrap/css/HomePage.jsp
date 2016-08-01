@@ -19,25 +19,33 @@
     <!-- Custom Fonts -->
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-
-    
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">  
 
 </head>
+<style>
+ .body{
+background : url("img/bus.jpg");
+ }
+</style>
 
-<body id="page-top" class="index">
+<body id="page-top" >
 
     <!-- Navigation -->
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
+            <div class="navbar-header page-scroll" style="margin-bottom: -33px;">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand" href="#page-top"><img style="position:fixed; left:1px;top:24px"class="img-responsive" src="img/bus.gif" alt=""></a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src = "img/book_now.png">                       
             </div>
-
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
@@ -46,10 +54,11 @@
                     </li>
                     
                     <li class="page-scroll">
-                        <a href="login.jsp">login</a>
+                        <a href="loginPage.html">Login</a>
                     </li>
+                    
                     <li class="page-scroll">
-                        <a href="signup.jsp">signup</a>
+                        <a href="registerPage.html">SignUp</a>
                     </li>
                 </ul>
             </div>
@@ -78,48 +87,21 @@
             </div>
         </div>
     </header>
-
-<div class="container-fluid"><br><br>
-  <div class="row">
-    <div class="col-lg-6" ">
-       <div id="signup">   
-          <h1>LOGIN</h1>
-          
-          <c:url var="userRegistration" value="authenticate.html"/>
-          <form:form  modelAttribute="user" method="post" action="${userRegistration}">
-          
-            <div class="field-wrap">
-              <form:input path="email" type="email" placeholder="Enter Email-ID" autocomplete="off" />
-            </div>
-
-          
-          
-          <div class="field-wrap">
-            
-            <form:input path="password"  placeholder="Enter password" type="password" autocomplete="off"/>
-          </div>
-          
-          <button type="submit" class="button button-block"/>Get Started</button>
-          
-          </form:form>
-
-        </div>
-    </div>
-    <div class="col-lg-6" >
-      <img src = "bg1.jpg">
-    </div>
-  </div>
+      <div style="margin-top: 19px;" class="body" style="margin-top: 0px; border-top-width: 0px; border-top-style: solid;" >
+        <h1><center style="border-top-style: solid; border-top-width: 0px; margin-top: -20px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</center></h1>
+                <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1>
+                <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1>
+                <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1>
+                <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1>
+                <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1>
+                <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1>
+                <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1>
+                <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1>
+     </div>
 </div>
-    
-    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
-    <div class="scroll-top page-scroll hidden-sm hidden-xs hidden-lg hidden-md">
-        <a class="btn btn-primary" href="#page-top">
-            <i class="fa fa-chevron-up"></i>
-        </a>
-    </div>
-
-    
 
 </body>
 
 </html>
+
+

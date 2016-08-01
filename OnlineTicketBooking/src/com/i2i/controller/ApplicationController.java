@@ -17,13 +17,20 @@ public class ApplicationController {
     @Autowired   
     UserService userService;
      
-    @RequestMapping(value = "/UserLogin")
-    public ModelAndView getRegisterForm(@ModelAttribute("user") User user, BindingResult result) {
-        /*Map<String, Object> model = new HashMap<String, Object>();
-        model.put("user", user);
-        System.out.println(user.getName());*/
-        return new ModelAndView("UserLogin");
-        
+    @RequestMapping(value = "/HomePage")
+    public ModelAndView getHomePage() {
+        return new ModelAndView("HomePage");
+    }
+    
+    @RequestMapping(value = "/registerPage")
+    public ModelAndView getRegisterForm() {
+        return new ModelAndView("RegisterPage");
+    }
+     
+    @RequestMapping(value = "/loginPage")
+    public ModelAndView getLoginForm() {
+        return new ModelAndView("LoginPage");
+
     }
    
    @RequestMapping("/saveUser")
@@ -32,7 +39,7 @@ public class ApplicationController {
         System.out.println(userService);
         System.out.println(user);
         userService.addUser(user);
-        return new ModelAndView("UserLogin");
+        return new ModelAndView("LoginPage");
         //return new ModelAndView("redirect:/Response.html");
     }
    
@@ -43,9 +50,9 @@ public class ApplicationController {
        System.out.println(user);
        boolean isValid = userService.isValid(user.getEmail(), user.getPassword());
        if (isValid){
-           return new ModelAndView("UserRegister");
+           return new ModelAndView("SearchBus");
        } else {
-    	   return new ModelAndView("UserLogin");
+    	   return new ModelAndView("LoginPage");
        }
        //return new ModelAndView("redirect:/Response.html");
    }
@@ -68,8 +75,6 @@ public class ApplicationController {
        System.out.println(dateOfTravel);
        return new ModelAndView("SearchBus");
 
-   }
-   
-   
+   }   
 }
    
