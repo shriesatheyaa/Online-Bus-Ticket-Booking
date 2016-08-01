@@ -133,7 +133,6 @@ Online Bus Ticket Booking With Zero Booking Fee!!!!</h2>
     $( "#date" ).datepicker({
       changeMonth: true,//this option for allowing user to select month
       changeYear: true, //this option for allowing user to select from year range
-      changeYear: true ,//this option for allowing user to select from year range
       dateFormat: 'yy-mm-dd'
     });
   }
