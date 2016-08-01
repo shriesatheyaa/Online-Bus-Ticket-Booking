@@ -117,8 +117,9 @@ Online Bus Ticket Booking With Zero Booking Fee!!!!</h2>
     
     </table>
      <p style="position:absolute;left:2Px;top:250px;margin-bottom: 2cm;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pick a Date
-     <input name="date" id="date" style="position:absolute;left:2Px;color:black" type="text"  /></p>
      <input name="date" id="date"  onchange="dateofTavel()" style="position:absolute;left:2Px;color:black" type="text"  /></p>
+     </p>
+     
      <button style="position:absolute;left:2Px;top:380px;"type="submit" onClick="sourceAndDestinationEvaluation()" class="btn btn-danger" >Select My Trip</button>
      <script>
   $(document).ready(
