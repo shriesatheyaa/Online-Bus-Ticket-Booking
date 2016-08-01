@@ -94,44 +94,51 @@ public class ApplicationController {
        
    }
    @RequestMapping(value = "/Search",method = RequestMethod.POST)
-   public ModelAndView test(@RequestParam("source") String source,@RequestParam("destination") String destination,@RequestParam("date") String date) {
-       /*Map<String, Object> model = new HashMap<String, Object>();
-       model.put("user", user);
-       System.out.println(user.getName());*/
+   public ModelAndView test(@RequestParam("source") String source,
+		                    @RequestParam("destination") String destination,@RequestParam("date") String date) {
        System.out.println(source);
        System.out.println(destination);
 
        System.out.println(date);
-       List<Route> routes = null;
-       try {
-           routes = routeService.getRoute(source, destination);
-       } catch (DatabaseException e) {
-    	   e.printStackTrace();
-       }
-       System.out.println(routes);
-
-       DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-       Date TravelDate =null;
-       try {
-           TravelDate = df.parse(date);
-           System.out.println("dateOfTravel:"+TravelDate);
-       } catch (ParseException e) {
-           e.printStackTrace();
-       }
-       java.sql.Date dateOfTravel = new java.sql.Date(TravelDate.getTime());
-       System.out.println("sqlDate:"+dateOfTravel);
-       List<TripRoute> tripRoutes = null;
-       for (Route route : routes) {
-           try {
-        	   tripRoutes = tripRouteService.getTripRoutes(route, dateOfTravel);
-           } catch (DatabaseException e) {
-    	       e.printStackTrace();
+       if ((date !="")) {
+    	   DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+    	      Date travelDate =null;
+    	      try {
+    	          travelDate = df.parse(date);
+    	          System.out.println("dateOfTravel:"+travelDate);
+    	      } catch (ParseException e) {
+    	          e.printStackTrace();
+    	      }
+    	   
+           Date now = new Date();
+           
+           if (("-- Select Source --" != source) && ("-- Select Destination --" != destination)) {        	   
+               if ((source != destination) && ((travelDate.after(now)) || (travelDate.equals(now)))) {
+            	   java.sql.Date dateOfTravel = new java.sql.Date(travelDate.getTime());
+            	   System.out.println("sqlDate:"+dateOfTravel);
+                   List<Route> routes = null;
+                   try {
+                       routes = routeService.getRoute(source, destination);
+                   } catch (DatabaseException e) {
+    	               e.printStackTrace();
+                   }
+                   System.out.println(routes);
+        
+                   List<TripRoute> tripRoutes = null;
+                   for (Route route : routes) {
+                       try {
+        	               tripRoutes = tripRouteService.getTripRoutes(route, dateOfTravel);
+                       } catch (DatabaseException e) {
+    	                   e.printStackTrace();
+                       }
+                   }
+                   System.out.println(tripRoutes);
+               }    
            }
        }
-       System.out.println(tripRoutes);
-      
        return new ModelAndView("SearchBus");
 
-   }   
-}
+   }     
+}   
+
    
