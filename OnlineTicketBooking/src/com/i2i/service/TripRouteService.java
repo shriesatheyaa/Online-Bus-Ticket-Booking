@@ -22,7 +22,20 @@ import com.i2i.model.TripRoute;
 @Service("tripRouteService")
 public class TripRouteService {
     @Autowired
-    TripRouteDao tripRouteDao; 
+    TripRouteDao tripRouteDao;
+    
+    /*
+	 * <p>Gets TripRoute records for given route and Date of travel.
+	 * </p>
+	 * @param route 
+     *     Object of Route for which Trip Route object is to be found. 
+     * 
+     * @param dateOfTravel 
+     *     date of travel for Trip.  
+     *     
+     * @throws DatabaseException 
+     *     If there is any interruption occurred in the database.
+	 */
     public List<TripRoute> getTripRoutes (Route route, Date dateOfTravel) throws DatabaseException {
     	return tripRouteDao.retrieveTripRoutes(route, dateOfTravel);
     }

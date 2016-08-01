@@ -136,8 +136,6 @@ Online Bus Ticket Booking With Zero Booking Fee!!!!</h2>
       dateFormat: 'yy-mm-dd'
     });
   }
- 
-  
 );
   function sourceAndDestinationEvaluation() {
       var source = document.searchBus.source.value;
