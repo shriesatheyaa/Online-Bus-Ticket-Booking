@@ -1,7 +1,5 @@
 package com.i2i.dao;
 
-import java.util.List;
-
 import org.hibernate.HibernateException;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
@@ -11,8 +9,14 @@ import org.springframework.stereotype.Repository;
 import com.i2i.exception.DatabaseException;
 import com.i2i.model.User;
 
+/**
+ * <p>Dao which permits all tasks related to User related database tasks using Hibernate.
+ * </p>
+ * @author Shrie Satheyaa
+ * @created 2016-08-01
+ */
 @Repository ("userDao")
-public class UserDao extends GenericDao{
+public class UserDao extends GenericDao {
 	
     /**
      * <p>
@@ -58,12 +62,17 @@ public class UserDao extends GenericDao{
      */
 	public boolean authenticateUser(String email, String password) throws DatabaseException {
         Session session = createSession();
-		String sql = "SELECT * FROM Users WHERE Email = :email and Password= :password";
-		SQLQuery query = session.createSQLQuery(sql);
-		query.addEntity(User.class);
-		query.setParameter("email", email);
-		query.setParameter("password", password);
-		List results = query.list();
-		return(!results.isEmpty() );
+        try {
+        
+		    String sql = "SELECT * FROM Users WHERE Email = :email and Password= :password";
+	    	SQLQuery query = session.createSQLQuery(sql);
+ 		    query.addEntity(User.class);
+    		query.setParameter("email", email);
+	    	query.setParameter("password", password);
+		    User user = (User)query.list();
+     		return(null != user);
+        } catch (HibernateException e) {
+        	throw new DatabaseException("Some problem occured while getting " + email + " records", e);
+        }
     }
 }
