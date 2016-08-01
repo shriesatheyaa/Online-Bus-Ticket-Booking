@@ -1,5 +1,7 @@
 package com.i2i.dao;
 
+import java.util.List;
+
 import org.hibernate.HibernateException;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
@@ -69,8 +71,8 @@ public class UserDao extends GenericDao {
  		    query.addEntity(User.class);
     		query.setParameter("email", email);
 	    	query.setParameter("password", password);
-		    User user = (User)query.list();
-     		return(null != user);
+		    List<User> users = query.list();
+     		return(!users.isEmpty());
         } catch (HibernateException e) {
         	throw new DatabaseException("Some problem occured while getting " + email + " records", e);
         }

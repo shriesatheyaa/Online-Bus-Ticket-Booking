@@ -85,7 +85,7 @@ background : url("img/bg.jpg");
           <h1 style="color:black;"><center style="border-top-style: solid; border-top-width: 0px; margin-top: -20px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</center></h1>
           <h1><center>SIGN UP</center></h1>
           
-          <form id="user" action="authenticate.html" method="post">
+          <form id="user" action="saveUser.html" method="post">
             &nbsp;&nbsp;&nbsp;&nbsp;<br><br>
             <div class="form-group col-lg-12 col-xs-4 ">
               <center>
@@ -103,16 +103,16 @@ background : url("img/bg.jpg");
               </center>
             </div><br><br><br><br>
             <div class="form-group col-lg-12 col-xs-4"><center>
-                 <input id="password" name="password" style="padding-right: 95px; padding-left: 106px; margin-left: 12px;" placeholder="Enter Password" type="Enter Your Password" value="" autocomplete="off"/></h4>
+                 <input id="password" name="password" style="padding-right: 95px; padding-left: 106px; margin-left: 12px;" placeholder="Enter Your Password" type="password" value="" autocomplete="off"/></h4>
                            </div>
             </center>
             <br><br><br><br>
             <div class="form-group col-lg-12 col-xs-4 ">
               <center>
-              <input id="password" name="password" style="padding-right: 95px; padding-left: 106px; margin-left: 12px;" placeholder="Repeat Your Password" type="password" value="" autocomplete="off"/></h4>
+              <input id="password" name="repeatPassword" style="padding-right: 95px; padding-left: 106px; margin-left: 12px;" placeholder="Repeat Your Password" type="password" value="" autocomplete="off"/></h4>
               </center>
             </div><br><br><br><br>
-            <button type="button" style="margin-left: 420px;" class="btn btn-success col-lg-4">GET STARTED</button></center>
+            <button type="sumbit" style="margin-left: 420px;" class="btn btn-success col-lg-4">GET STARTED</button></center>
             <br><br><br></center><br><br><br><br>
           </form>
 

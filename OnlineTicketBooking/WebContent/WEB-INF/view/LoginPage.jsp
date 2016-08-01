@@ -101,7 +101,7 @@ background : url("img/bg.jpg");
             </center>
             
             <br><br><br><br>
-            <button type="button" style="margin-left: 420px;" class="btn btn-success col-lg-4">LET ME IN </button></center>
+            <button type="submit" style="margin-left: 420px;" class="btn btn-success col-lg-4">LET ME IN </button></center>
             <br><br><br></center><br><br><br><br>
           </form>
           <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1>
