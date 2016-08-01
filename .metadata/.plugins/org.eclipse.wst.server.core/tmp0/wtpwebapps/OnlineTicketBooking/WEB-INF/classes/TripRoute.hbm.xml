@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name="com.i2i.model.TripRoute" table="TripRoutes">
+      <meta attribute="class-description">
+         This class contains the trip details of a bus. 
+      </meta> 
+      <id name="id" type="int" column="Id">
+         <generator class="assigned"/>
+      </id>  
+      
+      <property name="departureTime" type="time" column="Departure_Time"/>
+      <property name="arrivalTime" type="time" column="Arrival_Time"/>
+      <property name="price" type="double" column="Price"/>
+      <property name="dateOfTravel" type="date" column="Date_Of_Travel"/>
+      <property name="isActive" type="boolean" column="Is_Active"/>
+      <property name="createdAt" type="date" column="Created_At"/>
+      <property name="modifiedAt" type="date" column="Modified_At"/>
+      
+        
+      <many-to-one name="route" class="com.i2i.model.Route" fetch="select">
+            <column name="Route_Id" />
+      </many-to-one>
+      
+      <many-to-one name="trip" class="com.i2i.model.Trip" fetch="select">
+            <column name="Trip_Id" />
+      </many-to-one>
+
+      <many-to-one name="createdBy" class="com.i2i.model.User" fetch="select">
+            <column name="Created_By" />
+      </many-to-one>
+      
+      <many-to-one name="modifiedBy" class="com.i2i.model.User" fetch="select">
+            <column name="Modified_By" />
+      </many-to-one>
+      
+      <set name="reservations" table="Reservations" inverse="true" lazy="false" fetch="select">
+            <key column="Trip_Route_Id"/>
+            <one-to-many class="com.i2i.model.Reservation"/>
+        </set>
+      
+   </class>
+</hibernate-mapping>

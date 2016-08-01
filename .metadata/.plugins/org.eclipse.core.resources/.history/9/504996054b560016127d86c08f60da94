@@ -1,0 +1,12 @@
+package com.i2i.service;
+
+import org.springframework.stereotype.Service;
+import com.i2i.model.City;
+@Service ("CityService")
+public class CityService {
+	
+	public List<City> getAllCities(){
+		 
+	}
+
+}

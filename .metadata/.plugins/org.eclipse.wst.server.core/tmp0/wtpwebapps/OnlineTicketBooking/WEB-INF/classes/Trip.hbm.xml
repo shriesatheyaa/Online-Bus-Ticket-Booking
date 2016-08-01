@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+    <class name="com.i2i.model.Trip" table="Trips">
+        <meta attribute="class-description">
+            This class contains the Trip details. 
+        </meta>
+        <id name="id" type="int" column="Id">
+         <generator class="assigned"/>
+        </id>
+        
+        <property name="seatVacancy" column="Seat_Vacancy" type="int"/>  
+        <property name="modifiedAt" column="Modified_At" type="date"/>  
+        <property name="createdAt" column="Created_At" type="date"/>  
+        
+        <many-to-one name="bus" class="com.i2i.model.Bus" fetch="select">
+            <column name="Bus_Id" />
+        </many-to-one>
+        
+        <many-to-one name="createdBy" class="com.i2i.model.User" fetch="select">
+            <column name="Created_By" not-null="false" />
+        </many-to-one>
+        
+        <many-to-one name="modifiedBy" class="com.i2i.model.User" fetch="select">
+            <column name="Modified_By" not-null="false" />
+        </many-to-one>     
+        
+        <set name="tripRoutes" table="TripRoutes" inverse="true" lazy="false" fetch="select">
+            <key column="Trip_Id"/>
+            <one-to-many class="com.i2i.model.TripRoute"/>
+        </set> 
+           
+    </class>
+</hibernate-mapping>

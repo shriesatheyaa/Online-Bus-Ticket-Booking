@@ -1,0 +1,4 @@
+#Tomcat publish data
+#Mon Aug 01 18:27:31 IST 2016
+org.eclipse.jst.jee.server\:/binary\:/home/user1/Online-Bus-Ticket-Booking/OnlineTicketBooking/WebContent/WEB-INF/lib/spring-web-4.1.6.RELEASE.jar=WEB-INF/lib/spring-web-4.1.6.RELEASE.jar
+org.eclipse.jst.jee.server\:/binary\:/home/user1/Online-Bus-Ticket-Booking/OnlineTicketBooking/WebContent/WEB-INF/lib/spring-web-4.1.6.RELEASE-sources.jar=WEB-INF/lib/spring-web-4.1.6.RELEASE-sources.jar
