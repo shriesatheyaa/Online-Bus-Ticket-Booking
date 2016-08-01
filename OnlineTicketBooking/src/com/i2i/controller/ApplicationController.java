@@ -1,5 +1,10 @@
 package com.i2i.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -9,13 +14,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-
+import com.i2i.exception.DatabaseException;
+import com.i2i.model.Route;
 import com.i2i.model.User;
+import com.i2i.service.RouteService;
 import com.i2i.service.UserService;
 @Controller
 public class ApplicationController {
     @Autowired   
     UserService userService;
+    @Autowired   
+    RouteService routeService;
      
     @RequestMapping(value = "/HomePage")
     public ModelAndView getHomePage() {
@@ -65,7 +74,7 @@ public class ApplicationController {
        return new ModelAndView("SearchBus");
        
    }
-   @RequestMapping(value = "/test",method = RequestMethod.POST)
+   @RequestMapping(value = "/Search",method = RequestMethod.POST)
    public ModelAndView test(@RequestParam("source") String source,@RequestParam("destination") String destination,@RequestParam("dateOfTravel") String dateOfTravel) {
        /*Map<String, Object> model = new HashMap<String, Object>();
        model.put("user", user);
@@ -73,8 +82,23 @@ public class ApplicationController {
        System.out.println(source);
        System.out.println(destination);
        System.out.println(dateOfTravel);
+       List<Route> routes = null;
+       try {
+           routes = routeService.getRoute(source, destination);
+       } catch (DatabaseException e) {
+    	   e.printStackTrace();
+       }
+       System.out.println(routes);
+       SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+       Date date = null;
+       try {
+		   date = simpleDateFormat.parse(dateOfTravel);
+	   } catch (ParseException e) {
+	       e.printStackTrace();
+	   }
+      
        return new ModelAndView("SearchBus");
-
+          
    }   
 }
    

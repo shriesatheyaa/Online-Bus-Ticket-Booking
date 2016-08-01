@@ -15,16 +15,16 @@ import com.i2i.exception.DatabaseException;
 import com.i2i.model.Route;
 
 /**
- * <p>Dao which permits all tasks related to Route related database tasks using Hibernate.
+ * <p>Dao which permits all tasks related to Trip Route related database tasks using Hibernate.
  * </p>
  * @author Shrie Satheyaa
  * @created 2016-08-01
  */
-@Repository("routeDao")
-public class RouteDao extends GenericDao {
+@Repository("tripRouteDao")
+public class TripRouteDao extends GenericDao {
 	/**
      * <p>
-     * Retrieves a specific Route record from the database.
+     * Retrieves a list of Trip Route records for given route object and date of travel from the database.
      * </p>
      *
      * @param sourceCityName 
@@ -36,8 +36,8 @@ public class RouteDao extends GenericDao {
      * @throws DatabaseException 
      *     If there is any interruption occurred in the database.
      */
-	public List<Route> retrieveRoute (String sourceCityName, String destinationCityName) throws DatabaseException {
-		System.out.println("Dao : " + sourceCityName +"  "+destinationCityName);
+	public List<Route> retrieveTripRoutes (Route route, String destinationCityName) throws DatabaseException {
+	/*	System.out.println("Dao : " + sourceCityName +"  "+destinationCityName);
 		System.out.println(factory);
 		Route route = null;
         Session session = createSession();
@@ -56,7 +56,7 @@ public class RouteDao extends GenericDao {
         } catch (HibernateException e) {
             throw new DatabaseException("Some problem occured while retrieving route records with "+
                                         sourceCityName +" and "+ destinationCityName + " records", e);
-        }
-        return routes;
-	}
+        }*/
+        return null; 
+	} 
 }

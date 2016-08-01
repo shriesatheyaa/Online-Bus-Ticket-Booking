@@ -82,7 +82,7 @@
 Online Bus Ticket Booking With Zero Booking Fee!!!!</h2>
 
  
-<form  id="searchBus" name="searchBus" action="test.html" method="post">
+<form  id="searchBus" name="searchBus" action="Search.html" method="post">
    <table style="margin-bottom: 2cm;">
     <tr>
         <td>
@@ -94,7 +94,7 @@ Online Bus Ticket Booking With Zero Booking Fee!!!!</h2>
         <option>Chennai</option>
         <option>Trichy</option>
         <option>Madurai</option>
-        <option>Tuticurin</option>
+        <option>Tuticorin</option>
       </select>
            </div>
          </td>
@@ -106,7 +106,7 @@ Online Bus Ticket Booking With Zero Booking Fee!!!!</h2>
         <option>Chennai</option>
         <option>Trichy</option>
         <option>Madurai</option>
-        <option>Tuticurin</option>
+        <option>Tuticorin</option>
       </select>
             </div>
         </td>
