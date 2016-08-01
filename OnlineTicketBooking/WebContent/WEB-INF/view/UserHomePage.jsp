@@ -19,16 +19,29 @@
     <!-- Custom Fonts -->
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">  
-
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css"> 
 </head>
 <style>
  .body{
-background : url("img/back.jpg");
+background : url("img/bus1.jpg");
  }
+  .carousel-inner img {
+      width: 100%; /* Set width to 100% */
+      margin: auto;
+      min-height:200px;
+  }
+
+  /* Hide the carousel text when the screen is less than 600 pixels wide */
+  @media (max-width: 600px) {
+    .carousel-caption {
+      display: none;
+    }
 </style>
 
-<body id="page-top"  >
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<body id="page-top" >
 
     <!-- Navigation -->
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
@@ -38,7 +51,10 @@ background : url("img/back.jpg");
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="#page-top"><img style="position:fixed; left:1px;top:24px"class="img-responsive" src="img/bus.gif" alt=""></a>         
+                <a class="navbar-brand" href="#page-top"><img style="position:fixed; left:1px;top:24px"class="img-responsive" src="img/bus.gif" alt=""></a>
+                <a class="navbar-brand" href="#page-top" style = "font-color:green; font-size:40px; font-family:Comic Sans MS;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                BUS STOP</a>                    
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -46,14 +62,13 @@ background : url("img/back.jpg");
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
-
                     
                     <li class="page-scroll">
-                        <a href="loginPage.html">Login</a>
+                        <a href="HomePage.html">Log Out</a>
                     </li>
                     
                     <li class="page-scroll">
-                        <a href="registerPage.html">SignUp</a>
+                        <a href="searchBusPage.html">Search Bus</a>
                     </li>
                 </ul>
             </div>
@@ -82,33 +97,43 @@ background : url("img/back.jpg");
             </div>
         </div>
     </header>
-     <div style="margin-top: 19px;" class="body" style="margin-top: 0px; border-top-width: 0px; border-top-style: solid; " >
-          <h1 style="color:black;"><center style="border-top-style: solid; border-top-width: 0px; margin-top: -20px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</center></h1>
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
 
-          
-          <h1><center>LOGIN</center></h1>
-          
-          <form id="user" action="authenticate.html" method="post">
-            &nbsp;&nbsp;&nbsp;&nbsp;<br><br>
-            <div class="form-group col-lg-12 col-xs-4 ">
-              <center>
-              <input id="email" name="email" style="padding-right: 95px; padding-left: 106px; margin-left: 12px;" placeholder="Enter Email - Id" type="email" value="" autocomplete="off"/></h4>
-              </center>
-            </div><br><br><br><br>
-            <div class="form-group col-lg-12 col-xs-4"><center>
-                 <input id="password" name="password" style="padding-right: 95px; padding-left: 106px; margin-left: 12px;" placeholder="Enter Password" type="password" value="" autocomplete="off"/></h4>
-                           </div>
-            </center>
-            
-            <br><br><br><br>
-            <button type="submit" style="margin-left: 420px;" class="btn btn-success col-lg-4">LET ME IN </button></center>
-            <br><br><br></center><br><br><br><br>
-          </form>
-          <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1>
-        </div>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="img/slide5.jpg" alt="Image">
+      </div>
+
+      <div class="item">
+        <img src="img/slide2.jpg" alt="Image">
+      </div>
+      
+      <div class="item">
+        <img src="img/slide6.jpg" alt="Image">
+      </div>
+
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+    </div>
 </div>
 </body>
-
 </html>
 
 

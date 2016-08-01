@@ -1,6 +1,7 @@
 package com.i2i.service;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -52,5 +53,16 @@ public class UserService {
 			e.printStackTrace();
 		}
 		return isValid;
+	}
+	
+	public List<User> getUserByMailId(String email) {
+		List<User> users = null;
+		try {
+			users = userDao.retrieveUserByMailId(email);
+		} catch (DatabaseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return users;
 	}
 }

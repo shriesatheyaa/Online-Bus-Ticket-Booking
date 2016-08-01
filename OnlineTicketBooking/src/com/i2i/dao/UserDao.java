@@ -77,4 +77,19 @@ public class UserDao extends GenericDao {
         	throw new DatabaseException("Some problem occured while getting " + email + " records", e);
         }
     }
+	
+	public List<User> retrieveUserByMailId(String email) throws DatabaseException {
+        Session session = createSession();
+        List<User> users = null;
+        try {
+        	String sql = "SELECT * FROM Users WHERE Email = :email";
+	    	SQLQuery query = session.createSQLQuery(sql);
+ 		    query.addEntity(User.class);
+    		query.setParameter("email", email);
+		    users = query.list();
+        } catch (HibernateException e) {
+            throw new DatabaseException("Some problem occured while retrieving records" + e.getMessage(), e); 
+        } 
+        return users;
+	}
 }

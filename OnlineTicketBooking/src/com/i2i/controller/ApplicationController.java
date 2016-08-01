@@ -45,6 +45,18 @@ public class ApplicationController {
         return new ModelAndView("LoginPage");
 
     }
+    
+    @RequestMapping(value = "/searchBusPage")
+    public ModelAndView getSearchPage() {
+        return new ModelAndView("SearchBus");
+
+    }
+    
+    @RequestMapping(value = "/UserHomePage")
+    public ModelAndView getUserHomePage() {
+        return new ModelAndView("UserHomePage");
+
+    }
    
    @RequestMapping("/saveUser")
     public ModelAndView saveUserData(@ModelAttribute("user") User user, BindingResult result) {
@@ -63,7 +75,10 @@ public class ApplicationController {
        System.out.println(user);
        boolean isValid = userService.isValid(user.getEmail(), user.getPassword());
        if (isValid){
-           return new ModelAndView("SearchBus");
+    	   /*Map<String, Object> model = new HashMap<String, Object>();
+           model.put("users", userService.getUserByMailId(user.getEmail()));
+           System.out.println(user);*/
+           return new ModelAndView("UserHomePage");
        } else {
     	   return new ModelAndView("LoginPage");
        }
@@ -85,6 +100,7 @@ public class ApplicationController {
        System.out.println(user.getName());*/
        System.out.println(source);
        System.out.println(destination);
+
        System.out.println(date);
        List<Route> routes = null;
        try {
@@ -115,7 +131,7 @@ public class ApplicationController {
        System.out.println(tripRoutes);
       
        return new ModelAndView("SearchBus");
-          
+
    }   
 }
    

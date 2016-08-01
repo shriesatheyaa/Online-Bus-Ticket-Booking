@@ -66,7 +66,11 @@
                     </li>
                     
                     <li class="page-scroll">
+
                       <p>  <a href="HomePage.html">Back</a></p>
+
+                      <p>  <a href="UserHomePage.html">Back</a></p>
+
                     </li>
                     
                 </ul>

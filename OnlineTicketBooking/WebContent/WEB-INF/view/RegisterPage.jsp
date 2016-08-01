@@ -24,7 +24,7 @@
 </head>
 <style>
  .body{
-background : url("img/bg.jpg");
+background : url("img/back.jpg");
  }
 </style>
 
