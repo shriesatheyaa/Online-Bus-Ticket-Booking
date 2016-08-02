@@ -63,6 +63,12 @@ public class ApplicationController {
         return new ModelAndView("UserHomePage");
 
     }
+    
+    @RequestMapping(value = "/NoBusAlertPage")
+    public ModelAndView getNoBusAlertPage() {
+        return new ModelAndView("NoBusAlertPage");
+
+    }
    
     @RequestMapping("/saveUser")
     public ModelAndView saveUserData(@ModelAttribute("user") User user, BindingResult result) {
@@ -78,21 +84,22 @@ public class ApplicationController {
 		}
     }
    
-    @RequestMapping("/authenticate")
-    public ModelAndView authenticateUser(@ModelAttribute("user") User user, BindingResult result) {
-       
-        if (user.getEmail() != "") {
-            if (user.getPassword() != ""){
-    	        boolean isValid;
-			    try {
-				    isValid = userService.isValid(user.getEmail(), user.getPassword());
-         	        if (isValid) {
-         	  		    Map<String, Object> model = new HashMap<String, Object>();
-         			    model.put("users", userService.getUserByMailId(user.getEmail()));
-	    	            return new ModelAndView("UserHomePage", model);
-	    	        } else {
-	    	            return new ModelAndView("ReLogin");
-	    	        }
+    
+   @RequestMapping("/authenticate")
+   public ModelAndView authenticateUser(@ModelAttribute("user") User user, BindingResult result) {
+       System.out.println("Authenticate");
+       System.out.println(userService);
+       System.out.println(user);
+       if (user.getEmail() != "") {
+           if (user.getPassword() != ""){
+    		   boolean isValid;
+			   try {
+				   isValid = userService.isValid(user.getEmail(), user.getPassword());
+         	       if (isValid) {
+	    	           return new ModelAndView("UserHomePage");
+	    	       } else {
+	    	           return new ModelAndView("ReLogin");
+	    	       }
          	       
 			    } catch (DatabaseException e) {
 				    GenericService.exceptionWriter(e);
@@ -110,10 +117,11 @@ public class ApplicationController {
    public ModelAndView getSearchForm() {
        return new ModelAndView("SearchBus");       
    }
-   @RequestMapping(value = "/Search",method = RequestMethod.POST)
+@RequestMapping(value = "/Search",method = RequestMethod.POST)
    public ModelAndView test(@RequestParam("source") String source,
 		                    @RequestParam("destination") String destination,@RequestParam("date") String date) {
 
+	   System.out.println("Date not empty");
        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
        Date travelDate =null;
        try {
@@ -121,6 +129,8 @@ public class ApplicationController {
            System.out.println("dateOfTravel:"+travelDate);
        } catch (ParseException e) {
            GenericService.exceptionWriter(e);
+           e.printStackTrace();
+           return new ModelAndView("ExceptionPage");
        }
    	   java.sql.Date dateOfTravel = new java.sql.Date(travelDate.getTime());
 	   Map<String, Object> model = new HashMap<String, Object>();
@@ -129,6 +139,8 @@ public class ApplicationController {
            routes = routeService.getRoute(source, destination);
        } catch (DatabaseException e) {
     	   GenericService.exceptionWriter(e);
+    	   e.printStackTrace();
+    	   return new ModelAndView("ExceptionPage");
        }
        System.out.println(routes);
        for (Route route : routes) {
@@ -136,13 +148,13 @@ public class ApplicationController {
         	   model.put("tripRoutes", tripRouteService.getTripRoutes(route, dateOfTravel));
            } catch (DatabaseException e) {
     	       GenericService.exceptionWriter(e);
+    	       e.printStackTrace();
+    	       return new ModelAndView("ExceptionPage");
            }
        }
        System.out.println(model);
-       if(null != model){
-    	   return new ModelAndView("ResultBus",model);
-       }
-       return new ModelAndView("NoBusAlertPage");
+       return new ModelAndView("ResultBus",model);
+       
    }   
    
    @RequestMapping(value = "/ConfirmBooking")

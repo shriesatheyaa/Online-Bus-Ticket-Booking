@@ -36,11 +36,13 @@
         
   color: white;
 } 
-  .form-control option {
-      font-size:large;
-      color:black;
-    }
-
+  
+table tr:nth-child(odd) {
+ background-color: #f1f1f1;
+}
+table tr:nth-child(even) {
+ background-color: #ffffff;
+}
 table {
     border-collapse: collapse;
     width: 100%;
@@ -52,9 +54,10 @@ th, td {
     color:black;
 }
 
-tr:nth-child(even){background-color: #f2f2f2}
+
 
 th {
+    text-align: center;
     background-color: #18BC9C;
     color: white;
 }
@@ -142,6 +145,11 @@ th {
   </c:forEach>
   
 </table>
+</c:if>
+<c:if test="${empty tripRoutes}">
+<div style="border-top-width: 200px; border-top-style: solid;">
+ <h1 style="color:black">Sorry!!! currently no Bus Available</h1>
+ </div>
 </c:if>
 
 </div>
