@@ -148,7 +148,7 @@ th {
 </c:if>
 <c:if test="${empty tripRoutes}">
 <div style="border-top-width: 200px; border-top-style: solid;">
- <h1 style="color:black">Sorry!!! currently no Bus Available</h1>
+ <h1 style="color:black">Sorry!!! currently no Buses Available</h1>
  </div>
 </c:if>
 
