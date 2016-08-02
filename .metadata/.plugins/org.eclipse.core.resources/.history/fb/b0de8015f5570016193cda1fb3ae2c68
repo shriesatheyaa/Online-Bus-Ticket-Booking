@@ -6,7 +6,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -65,13 +64,9 @@ public class ApplicationController {
         System.out.println("Save User Data");
         System.out.println(userService);
         System.out.println(user);
-        try {
-			userService.addUser(user);
-	        return new ModelAndView("LoginPage");
-		} catch (DatabaseException e) {
-			e.printStackTrace();
-			return new ModelAndView("ExceptionPage");
-		}
+        userService.addUser(user);
+        return new ModelAndView("LoginPage");
+        //return new ModelAndView("redirect:/Response.html");
     }
    
    @RequestMapping("/authenticate")
@@ -79,53 +74,32 @@ public class ApplicationController {
        System.out.println("Authenticate");
        System.out.println(userService);
        System.out.println(user);
-       
-       if (user.getEmail() != "") {
-           if (user.getPassword() != ""){
-    		   boolean isValid;
-			   try {
-				   isValid = userService.isValid(user.getEmail(), user.getPassword());
-         	       if (isValid) {
-	    	           return new ModelAndView("UserHomePage");
-	    	       } else {
-	    	           return new ModelAndView("ReLogin");
-	    	       }
-         	       
-			   } catch (DatabaseException e) {
-				   e.printStackTrace();
-				   return new ModelAndView("ExceptionPage");
-			   }
-			} else {
-        	   return new ModelAndView("LoginPage");
-            }
-        } else {
-    	    return new ModelAndView("LoginPage");
-        }
-    }
+       boolean isValid = userService.isValid(user.getEmail(), user.getPassword());
+       if (isValid){
+    	   /*Map<String, Object> model = new HashMap<String, Object>();
+           model.put("users", userService.getUserByMailId(user.getEmail()));
+           System.out.println(user);*/
+           return new ModelAndView("UserHomePage");
+       } else {
+    	   return new ModelAndView("LoginPage");
+       }
+       //return new ModelAndView("redirect:/Response.html");
+   }
    
    @RequestMapping(value = "/SearchBus")
    public ModelAndView getSearchForm() {
+       /*Map<String, Object> model = new HashMap<String, Object>();
+       model.put("user", user);
+       System.out.println(user.getName());*/
        return new ModelAndView("SearchBus");
        
    }
    @RequestMapping(value = "/Search",method = RequestMethod.POST)
-   public ModelAndView test(@RequestParam("source") String source,
-		                    @RequestParam("destination") String destination,@RequestParam("date") String date) {
-
-       System.out.println("Date not empty");
-       DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-       Date travelDate =null;
-       try {
-           travelDate = df.parse(date);
-           System.out.println("dateOfTravel:"+travelDate);
-       } catch (ParseException e) {
-           e.printStackTrace();
-       }
-   	   java.sql.Date dateOfTravel = new java.sql.Date(travelDate.getTime());
-   	   System.out.println("sqlDate:"+dateOfTravel);
+   public ModelAndView test(@RequestParam("source") String source,@RequestParam("destination") String destination,@RequestParam("date") String date) {
 	   Map<String, Object> model = new HashMap<String, Object>();
        System.out.println(source);
        System.out.println(destination);
+
        System.out.println(date);
        List<Route> routes = null;
        try {
@@ -134,29 +108,34 @@ public class ApplicationController {
     	   e.printStackTrace();
        }
        System.out.println(routes);
+
+       DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+       Date TravelDate =null;
+       try {
+           TravelDate = df.parse(date);
+           System.out.println("dateOfTravel:"+TravelDate);
+       } catch (ParseException e) {
+           e.printStackTrace();
+       }
+       java.sql.Date dateOfTravel = new java.sql.Date(TravelDate.getTime());
+       System.out.println("sqlDate:"+dateOfTravel);
        List<TripRoute> tripRoutes = null;
        for (Route route : routes) {
            try {
-        	  /* tripRoutes = tripRouteService.getTripRoutes(route, dateOfTravel);*/
-        	   model.put("tripRoutes", tripRouteService.getTripRoutes(route, dateOfTravel));
+        	   tripRoutes = tripRouteService.getTripRoutes(route, dateOfTravel);
            } catch (DatabaseException e) {
     	       e.printStackTrace();
            }
        }
-       System.out.println(model);
-       if(null != model){
-    	   return new ModelAndView("ResultBus",model);
+       System.out.println(tripRoutes);
+       for(TripRoute tripRoute : tripRoutes){
+    	   model.put("trip", tripRoute);
        }
-       return new ModelAndView("NoBusAlertPage");
        
-    	   
+       
+      
+       return new ModelAndView("SearchBus");
 
    }   
-   @RequestMapping(value = "/ConfirmBooking")
-   public ModelAndView getBookingForm(@RequestParam("tripRoutes")int tripRoute) {
-	   System.out.println(tripRoute);
-       return new ModelAndView("SearchBus");
-       
-   }
 }
    
