@@ -62,12 +62,14 @@ background : url("img/bus1.jpg");
                 BUS STOP</a>                     
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"><form>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
-                    
+                     <c:forEach items="${users}" var="user" >
+                     <input type = "hidden" value = "${user.id}"/>
+                     </c:forEach>
                     <li class="page-scroll">
                         <a href="HomePage.html">Log Out</a>
                     </li>
@@ -75,7 +77,7 @@ background : url("img/bus1.jpg");
                     <li class="page-scroll">
                         <a href="searchBusPage.html">Search Bus</a>
                     </li>
-                </ul>
+                </ul></form>
             </div>
             <!-- /.navbar-collapse -->
         </div>

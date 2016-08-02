@@ -86,7 +86,9 @@ public class ApplicationController {
 			   try {
 				   isValid = userService.isValid(user.getEmail(), user.getPassword());
          	       if (isValid) {
-	    	           return new ModelAndView("UserHomePage");
+         	  		Map<String, Object> model = new HashMap<String, Object>();
+         			model.put("users", userService.getUserByMailId(user.getEmail()));
+	    	        return new ModelAndView("UserHomePage", model);
 	    	       } else {
 	    	           return new ModelAndView("ReLogin");
 	    	       }

@@ -46,7 +46,6 @@ public class UserService {
 		try {
 			users = userDao.retrieveUserByMailId(email);
 		} catch (DatabaseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return users;
