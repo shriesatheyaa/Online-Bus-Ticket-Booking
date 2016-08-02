@@ -154,8 +154,7 @@ public class ApplicationController {
        }
        System.out.println(model);
        return new ModelAndView("ResultBus",model);
-       
-   }   
+   }         
    
    @RequestMapping(value = "/ConfirmBooking")
    public ModelAndView getBookingForm(@RequestParam("tripRoutes")int tripRoute) {
