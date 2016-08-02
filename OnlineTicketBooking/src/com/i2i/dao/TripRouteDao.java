@@ -35,7 +35,10 @@ public class TripRouteDao extends GenericDao {
      * 
      * @param dateOfTravel 
      *     date of travel for Trip. 
-     *     
+     * 
+     * @return tripRoutes
+     *    List of TripRoute objects retrieved
+     *    
      * @throws DatabaseException 
      *     If there is any interruption occurred in the database.
      */
@@ -61,4 +64,30 @@ public class TripRouteDao extends GenericDao {
         }
         return tripRoutes; 
 	} 
+	
+	/**
+     * Retrieves a Trip Route record for the given Id from database.
+     *
+     * @param id 
+     *    Id of the Trip Route to be retrieved
+     *
+     * @return tripRoute
+     *    TripRoute object retrieved
+     *
+     * @throws DatabaseException 
+     *    If there is any failure in retrieving the employee object.
+     */
+    public TripRoute retrieveTripRouteById (int id) throws DatabaseException {
+        Session session = createSession();
+        TripRoute tripRoute = null;
+        try {
+        	tripRoute = (TripRoute)session.get(TripRoute.class, id);
+        } catch (HibernateException e) {
+            throw new DatabaseException("Something went wrong while getting employee details of id:" 
+                                        + tripRoute.getId(),e); 
+        } finally {
+            closeSession(session); 
+        }
+        return tripRoute;
+    }
 }

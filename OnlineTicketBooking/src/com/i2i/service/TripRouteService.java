@@ -6,6 +6,8 @@ package com.i2i.service;
 import java.sql.Date;
 import java.util.List;
 
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,5 +40,21 @@ public class TripRouteService {
 	 */
     public List<TripRoute> getTripRoutes (Route route, Date dateOfTravel) throws DatabaseException {
     	return tripRouteDao.retrieveTripRoutes(route, dateOfTravel);
+    }
+    
+    /**
+     * Gets a Trip Route record for the given Id.
+     *
+     * @param id 
+     *    Id of the Trip Route to be found
+     *
+     * @return tripRoute
+     *    TripRoute object found
+     *
+     * @throws DatabaseException 
+     *    If there is any failure in retrieving the employee object.
+     */
+    public TripRoute getTripRouteById (int id) throws DatabaseException {
+        return tripRouteDao.retrieveTripRouteById(id);
     }
 }
