@@ -9,18 +9,18 @@
        <generator class="assigned"/> 
        </id>
 
-       <many-to-one name="sourceCity" class="com.i2i.model.City" fetch="select">
+       <many-to-one name="sourceCity" class="com.i2i.model.City" lazy = "false" fetch="select">
            <column name="Source_City_Id" not-null="false" />
        </many-to-one>
        
-       <many-to-one name="destinationCity" class="com.i2i.model.City" fetch="select">
+       <many-to-one name="destinationCity" class="com.i2i.model.City" lazy = "false" fetch="select">
            <column name="Destination_City_Id" not-null="false" />
        </many-to-one>
        
-       <many-to-one name="createdBy" class="com.i2i.model.User" fetch="select">
+       <many-to-one name="createdBy" class="com.i2i.model.User" lazy = "false" fetch="select">
            <column name="Created_By" not-null="false" />
        </many-to-one>
-       <many-to-one name="modifiedBy" class="com.i2i.model.User" fetch="select">
+       <many-to-one name="modifiedBy" class="com.i2i.model.User" lazy = "false" fetch="select">
            <column name="Modified_By" not-null="false" />
        </many-to-one>
        <property name="createdAt" column="Created_At" type ="date" not-null="true"/>

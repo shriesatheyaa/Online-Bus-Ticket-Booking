@@ -16,15 +16,15 @@
         <property name="modifiedAt" column="Modified_At" type="date"/>  
         <property name="createdAt" column="Created_At" type="date"/>  
         
-        <many-to-one name="bus" class="com.i2i.model.Bus" fetch="select">
+        <many-to-one name="bus" class="com.i2i.model.Bus" lazy = "false" fetch="select">
             <column name="Bus_Id" />
         </many-to-one>
         
-        <many-to-one name="createdBy" class="com.i2i.model.User" fetch="select">
+        <many-to-one name="createdBy" class="com.i2i.model.User" lazy = "false" fetch="select">
             <column name="Created_By" not-null="false" />
         </many-to-one>
         
-        <many-to-one name="modifiedBy" class="com.i2i.model.User" fetch="select">
+        <many-to-one name="modifiedBy" class="com.i2i.model.User" lazy = "false" fetch="select">
             <column name="Modified_By" not-null="false" />
         </many-to-one>     
         

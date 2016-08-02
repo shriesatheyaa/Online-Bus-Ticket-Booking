@@ -21,14 +21,20 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css"> 
 </head>
-        <script type="text/javascript">
+       <!-- <script type="text/javascript">
 	    window.onload = function() {
 	       alert("!!!Welcome to your Booking Page !!!");
 	   	}
-	</script>
+	</script> --> 
 <style>
+
+  .form-control option {
+      font-size:large;
+      color:black;
+    }
+
  .body{
-background : url("img/bus1.jpg");
+background-color : black;
  }
   .carousel-inner img {
       width: 100%; /* Set width to 100% */
@@ -41,6 +47,16 @@ background : url("img/bus1.jpg");
     .carousel-caption {
       display: none;
     }
+    
+    p {
+    
+    color : white; 
+    }
+    
+    #main {
+    
+    }
+    
 </style>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -68,6 +84,7 @@ background : url("img/bus1.jpg");
                         <a href="#page-top"></a>
                     </li>
                      <c:forEach items="${users}" var="user" >
+                     <c:out value = "${user.name}"/>
                      <input type = "hidden" value = "${user.id}"/>
                      </c:forEach>
                     <li class="page-scroll">
@@ -84,85 +101,25 @@ background : url("img/bus1.jpg");
         <!-- /.container-fluid -->
     </nav>
 
-    <!-- Header -->
-    <header>
+    
       
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                     <div style="border-top-width: 125px; border-top-style: solid;">
-<c:if test="${!empty tripRoutes}">
-<table style="border-top-width: 7px; border-top-style: solid;">
-  <tr style="border-top-width: 32px; border-top-style: solid;">
-    <th>Travels</th>
-    <th width="40%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DepatureTime &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ArrivalTime</th>
-    <th width="20%">AvailableSeats</th>
-    <th width="20%">Price</th>
+                      <div  id = "main" class = "body" style="border-top-width: 125px; border-top-style: solid; background-color : black;">
+                      
+                      WELCOME
+                   <c:forEach items = "${tripRoute}" var = "tripRoute">WELCOME
+                         <form id ="booking_info" action = "payment.html" method = "post">
+                             <c:out value="${tripRoute.trip.bus.travels.id}"/>
+                             <c:out value="${tripRoute.trip.bus.travels.name}"/>
+                             
+                             
+                             <c:out value="${tripRoute.departureTime}"/>
+                             <c:out value="${tripRoute.arrivalTime}"/>
+                             <c:out value="${tripRoute.trip.seatVacancy}"/>
+                             <input type = "submit" value = "Pay Now">
+                         </form>
+                    </c:forEach> 
+                     </div>  
 
-    <th></th>
-  </tr>
-  <c:forEach items="${tripRoutes}" var="tripRoutes">
-  <form:form id = "tripRoute" action="ConfirmBooking.html" method="post" >
-  <input type="hidden" id ="tripRoutes" name="tripRoutes" value="${tripRoutes.id}"  />
-  <b></b><tr style="border-top-style: solid; border-top-width: 26px;">
-    <td width="20%"><i class="fa fa-bus" style="font-size:24px;color:black"></i><span style="padding-left:20px"><b><c:out value="${tripRoutes.trip.bus.travels.name}"/></b></span></br><span style="padding-left:40px"><c:out value="${tripRoutes.trip.bus.type}"/></span></br>
-         <c:if test="${tripRoutes.trip.bus.isAc}">
-         <span style="padding-left:40px"> <b>AC</b></span>
-           </c:if>
-  </td>
-    <td id=""><i class="fa fa-clock-o" style="font-size:24px;color:black"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<c:out value="${tripRoutes.departureTime}"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<c:out value="${tripRoutes.arrivalTime}"/></td>
-    <td><i class="material-icons" style="font-size:24px:color:black"></i><img height="30" width="20"  src="img/seat.png" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<c:out value="${tripRoutes.trip.seatVacancy}"/></td>
-    <td><i class="fa fa-inr" style="font-size:26px;color:black"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<c:out value="${tripRoutes.price}"/></td> 
-    <td><button class="button button2">Book</button></td>
-  </tr></b>
-  </form:form>
-  </c:forEach>
-  
-</table>
-</c:if>
-
-</div>
-                </div>
-            </div>
-        </div>
-    </header>
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-
-    </ol>
-
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox">
-      <div class="item active">
-        <img src="img/slide5.jpg" alt="Image">
-      </div>
-
-      <div class="item">
-        <img src="img/slide2.jpg" alt="Image">
-      </div>
-      
-      <div class="item">
-        <img src="img/slide6.jpg" alt="Image">
-      </div>
-
-    </div>
-
-    <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-    </div>
-</div>
 </body>
 </html>
-
 

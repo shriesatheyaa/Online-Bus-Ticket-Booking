@@ -21,19 +21,19 @@
       <property name="modifiedAt" type="date" column="Modified_At"/>
       
         
-      <many-to-one name="route" class="com.i2i.model.Route" fetch="select">
+      <many-to-one name="route" class="com.i2i.model.Route" lazy = "false" fetch="select">
             <column name="Route_Id" />
       </many-to-one>
       
-      <many-to-one name="trip" class="com.i2i.model.Trip" fetch="select">
+      <many-to-one name="trip" class="com.i2i.model.Trip" lazy = "false" fetch="select">
             <column name="Trip_Id" />
       </many-to-one>
 
-      <many-to-one name="createdBy" class="com.i2i.model.User" fetch="select">
+      <many-to-one name="createdBy" class="com.i2i.model.User" lazy = "false" fetch="select">
             <column name="Created_By" />
       </many-to-one>
       
-      <many-to-one name="modifiedBy" class="com.i2i.model.User" fetch="select">
+      <many-to-one name="modifiedBy" class="com.i2i.model.User" lazy = "false" fetch="select">
             <column name="Modified_By" />
       </many-to-one>
       

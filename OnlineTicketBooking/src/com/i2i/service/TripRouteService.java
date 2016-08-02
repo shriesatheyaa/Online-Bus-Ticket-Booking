@@ -55,6 +55,7 @@ public class TripRouteService {
      *    If there is any failure in retrieving the employee object.
      */
     public TripRoute getTripRouteById (int id) throws DatabaseException {
+    	System.out.println("Service :"+ id);
         return tripRouteDao.retrieveTripRouteById(id);
     }
 }

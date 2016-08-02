@@ -12,13 +12,13 @@
        <property name="type" column="Type" type="string"/>
        <property name="totalNumberOfSeats" column="Total_Number_Of_Seats" type="int"/>
        <property name="isAc" column="Is_AC" type="boolean"/>
-       <many-to-one name="travels" class="com.i2i.model.Travels" fetch="select">
+       <many-to-one name="travels" class="com.i2i.model.Travels" lazy = "false" fetch="select">
             <column name="Travels_Id" not-null="false" />
        </many-to-one>
-       <many-to-one name="createdBy" class="com.i2i.model.User" fetch="select">
+       <many-to-one name="createdBy" class="com.i2i.model.User" lazy = "false" fetch="select">
            <column name="Created_By" not-null="false" />
        </many-to-one>
-       <many-to-one name="modifiedBy" class="com.i2i.model.User" fetch="select">
+       <many-to-one name="modifiedBy" class="com.i2i.model.User" lazy = "false" fetch="select">
            <column name="Modified_By" not-null="false" />
        </many-to-one>
        <property name="createdAt" column="Created_At" type ="date" not-null="true"/>

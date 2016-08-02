@@ -3,6 +3,7 @@ package com.i2i.controller;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -129,7 +130,7 @@ public class ApplicationController {
            System.out.println("dateOfTravel:"+travelDate);
        } catch (ParseException e) {
            GenericService.exceptionWriter(e);
-           e.printStackTrace();
+
            return new ModelAndView("ExceptionPage");
        }
    	   java.sql.Date dateOfTravel = new java.sql.Date(travelDate.getTime());
@@ -139,7 +140,6 @@ public class ApplicationController {
            routes = routeService.getRoute(source, destination);
        } catch (DatabaseException e) {
     	   GenericService.exceptionWriter(e);
-    	   e.printStackTrace();
     	   return new ModelAndView("ExceptionPage");
        }
        System.out.println(routes);
@@ -148,19 +148,37 @@ public class ApplicationController {
         	   model.put("tripRoutes", tripRouteService.getTripRoutes(route, dateOfTravel));
            } catch (DatabaseException e) {
     	       GenericService.exceptionWriter(e);
-    	       e.printStackTrace();
     	       return new ModelAndView("ExceptionPage");
            }
        }
        System.out.println(model);
        return new ModelAndView("ResultBus",model);
    }         
+
    
-   @RequestMapping(value = "/ConfirmBooking")
-   public ModelAndView getBookingForm(@RequestParam("tripRoutes")int tripRoute) {
-	   System.out.println(tripRoute);
-       return new ModelAndView("SearchBus");
-       
+   @RequestMapping(value = "/ConfirmBooking",method = RequestMethod.POST)
+   public ModelAndView getBookingForm(@RequestParam("tripRoutes")int tripRouteId) {
+	   System.out.println(tripRouteId);
+	   Map<String, Object> model = new HashMap<String, Object>();
+	   List<TripRoute> tripRoutes = new ArrayList<TripRoute>();
+	   
+	   try {
+		   System.out.println(tripRouteService.getTripRouteById(tripRouteId));
+		   tripRoutes.add(tripRouteService.getTripRouteById(tripRouteId));
+		   model.put("tripRoute", tripRoutes );
+		   System.out.println("MODEL : " + model);
+	       return new ModelAndView("PayNow",model);  
+		
+	   } catch (DatabaseException e) {
+	    	e.printStackTrace();
+	    	return new ModelAndView("ExceptionPage");	    	
+	   }
+   }
+   
+   @RequestMapping(value = "/payment")
+   public ModelAndView getPaymentPage() {
+       return new ModelAndView("UserHomePage");
+
    }
 }
    

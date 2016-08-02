@@ -16,7 +16,7 @@ public class Travels {
 	private int id;
 	private String name;
 	private String address;
-	private double contactNumber;
+	private long contactNumber;
 	private User createdBy;
 	private Date createdAt;
 	private User modifiedBy;
@@ -51,11 +51,11 @@ public class Travels {
 		this.address = address;
 	}
 
-	public double getContactNumber() {
+	public long getContactNumber() {
 		return contactNumber;
 	}
 
-	public void setContactNumber(double contactNumber) {
+	public void setContactNumber(long contactNumber) {
 		this.contactNumber = contactNumber;
 	}
 
