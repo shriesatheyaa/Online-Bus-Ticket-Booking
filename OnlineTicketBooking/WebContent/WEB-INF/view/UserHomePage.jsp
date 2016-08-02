@@ -21,6 +21,11 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css"> 
 </head>
+        <script type="text/javascript">
+	    window.onload = function() {
+	       alert("!!!Welcome to your Home Page !!!");
+	   	}
+	</script>
 <style>
  .body{
 background : url("img/bus1.jpg");
@@ -51,10 +56,10 @@ background : url("img/bus1.jpg");
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="#page-top"><img style="position:fixed; left:1px;top:24px"class="img-responsive" src="img/bus.gif" alt=""></a>
-                <a class="navbar-brand" href="#page-top" style = "font-color:green; font-size:40px; font-family:Comic Sans MS;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                BUS STOP</a>                    
+                 <a class="navbar-brand" href="#page-top"><img style="position:fixed; left:1px;top:7px"class="img-responsive" src="img/logo_bus_stop.png" alt="" width = "85px" height = "85px"></a>
+                <a class="navbar-brand" href="#page-top" style = "font-color:green; font-size:40px; font-family:Comic Sans MS;">
+                &nbsp;
+                BUS STOP</a>                     
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

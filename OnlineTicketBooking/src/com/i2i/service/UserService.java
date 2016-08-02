@@ -27,32 +27,18 @@ public class UserService {
 	
 	@Autowired 
 	UserDao userDao;
-	public void addUser(User user) {
+	public void addUser(User user) throws DatabaseException {
 		Date createdAt = new Date();
 		user.setCreatedAt(createdAt);
 		System.out.println("User: " + user);
-		try {
-			userDao.insertUser(user);
-		} catch (DatabaseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		userDao.insertUser(user);
 	}
 	
-	public boolean isValid(String email, String password){
+	public boolean isValid(String email, String password) throws DatabaseException{
 		boolean isValid = false;
-		try {
-			 System.out.println("Email : " +email);
-			 System.out.println("Password : " +password);
-			 isValid = userDao.authenticateUser(email, password);
-			 if (isValid) {
-				 System.out.println("WELCOME");				 
-			 }
-		} catch (DatabaseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return isValid;
+		System.out.println("Email : " +email);
+		System.out.println("Password : " +password);
+		return userDao.authenticateUser(email, password);
 	}
 	
 	public List<User> getUserByMailId(String email) {

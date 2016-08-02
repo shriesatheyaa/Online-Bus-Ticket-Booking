@@ -38,10 +38,10 @@ background : url("img/back.jpg");
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="#page-top"><img style="position:fixed; left:1px;top:24px"class="img-responsive" src="img/bus.gif" alt=""></a>
-                <a class="navbar-brand" href="#page-top" style = "font-color:green; font-size:40px; font-family:Comic Sans MS;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                BUS STOP</a>         
+                 <a class="navbar-brand" href="#page-top"><img style="position:fixed; left:1px;top:7px"class="img-responsive" src="img/logo_bus_stop.png" alt="" width = "85px" height = "85px"></a>
+                <a class="navbar-brand" href="#page-top" style = "font-color:green; font-size:40px; font-family:Comic Sans MS;">
+                &nbsp;
+                BUS STOP</a>           
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -85,13 +85,18 @@ background : url("img/back.jpg");
             </div>
         </div>
     </header>
+        <script type="text/javascript">
+	    window.onload = function() {
+	       alert("!!!User name or Password You have entered is wrong...Check and Try Again !!!");
+	   	}
+	</script>
      <div style="margin-top: 19px;" class="body" style="margin-top: 0px; border-top-width: 0px; border-top-style: solid; " >
           <h1 style="color:black;"><center style="border-top-style: solid; border-top-width: 0px; margin-top: -20px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</center></h1>
 
-          <h3><center> Email Id or Password you have entered is wrong <br> Please Try Again!!</center> </h3>
+         
           <h1><center>LOGIN</center></h1>
           
-          <form id="user" action="authenticate.html" method="post">
+          <form id="user" action="authenticate.html" method="post" onsubmit = "return validate()">
             &nbsp;&nbsp;&nbsp;&nbsp;<br><br>
             <div class="form-group col-lg-12 col-xs-4 ">
               <center>
@@ -104,7 +109,7 @@ background : url("img/back.jpg");
             </center>
             
             <br><br><br><br>
-            <button type="submit" style="margin-left: 420px;" class="btn btn-success col-lg-4" onClick = validate()>LET ME IN </button></center>
+            <button type="submit" style="margin-left: 420px;" class="btn btn-success col-lg-4" >LET ME IN </button></center>
             <br><br><br></center><br><br><br><br>
               <script>
   function validate() {
@@ -113,8 +118,10 @@ background : url("img/back.jpg");
       
       if (email == "") {
     	  alert("Email Id Should not be left blank!!!");
+    	  return false;
       } else if (password == ""){
     	  alert("Password Should not be left blank!!!");
+    	  return false;
       }      
   }  
   </script>

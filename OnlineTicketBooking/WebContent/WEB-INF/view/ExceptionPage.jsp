@@ -53,7 +53,7 @@ background : url("img/bus1.jpg");
                 <a class="navbar-brand" href="#page-top"><img style="position:fixed; left:1px;top:7px"class="img-responsive" src="img/logo_bus_stop.png" alt="" width = "85px" height = "85px"></a>
                 <a class="navbar-brand" href="#page-top" style = "font-color:green; font-size:40px; font-family:Comic Sans MS;">
                 &nbsp;
-                BUS STOP</a>                    
+                BUS STOP</a>                     
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -96,6 +96,11 @@ background : url("img/bus1.jpg");
             </div>
         </div>
     </header>
+    <script type="text/javascript">
+	    window.onload = function() {
+	       alert("!!!Some Problem Occured Please Try Agin Later !!!");
+	   	}
+	</script>
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
@@ -136,3 +141,10 @@ background : url("img/bus1.jpg");
 </html>
 
 
+
+
+<html>
+	<head>
+
+	</head>
+</html>

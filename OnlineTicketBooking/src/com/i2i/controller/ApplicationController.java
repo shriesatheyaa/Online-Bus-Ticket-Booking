@@ -63,9 +63,13 @@ public class ApplicationController {
         System.out.println("Save User Data");
         System.out.println(userService);
         System.out.println(user);
-        userService.addUser(user);
-        return new ModelAndView("LoginPage");
-        //return new ModelAndView("redirect:/Response.html");
+        try {
+			userService.addUser(user);
+	        return new ModelAndView("LoginPage");
+		} catch (DatabaseException e) {
+			e.printStackTrace();
+			return new ModelAndView("ExceptionPage");
+		}
     }
    
    @RequestMapping("/authenticate")
@@ -75,20 +79,27 @@ public class ApplicationController {
        System.out.println(user);
        
        if (user.getEmail() != "") {
-    	   if (user.getPassword() != ""){
-    		   boolean isValid = userService.isValid(user.getEmail(), user.getPassword());
-    	       if (isValid) {
-    	           return new ModelAndView("UserHomePage");
-    	       } else {
-    	    	   return new ModelAndView("ReLogin");
-    	       }
-    	   } else {
+           if (user.getPassword() != ""){
+    		   boolean isValid;
+			   try {
+				   isValid = userService.isValid(user.getEmail(), user.getPassword());
+         	       if (isValid) {
+	    	           return new ModelAndView("UserHomePage");
+	    	       } else {
+	    	           return new ModelAndView("ReLogin");
+	    	       }
+         	       
+			   } catch (DatabaseException e) {
+				   e.printStackTrace();
+				   return new ModelAndView("ExceptionPage");
+			   }
+			} else {
         	   return new ModelAndView("LoginPage");
-           }
-       } else {
-    	   return new ModelAndView("LoginPage");
-       }
-   }
+            }
+        } else {
+    	    return new ModelAndView("LoginPage");
+        }
+    }
    
    @RequestMapping(value = "/SearchBus")
    public ModelAndView getSearchForm() {
@@ -99,6 +110,7 @@ public class ApplicationController {
    @RequestMapping(value = "/Search",method = RequestMethod.POST)
    public ModelAndView test(@RequestParam("source") String source,
 		                    @RequestParam("destination") String destination,@RequestParam("date") String date) {
+
        System.out.println("Date not empty");
        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
        Date travelDate =null;
