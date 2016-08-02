@@ -21,6 +21,7 @@ import com.i2i.exception.DatabaseException;
 import com.i2i.model.Route;
 import com.i2i.model.TripRoute;
 import com.i2i.model.User;
+import com.i2i.service.GenericService;
 import com.i2i.service.RouteService;
 import com.i2i.service.TripRouteService;
 import com.i2i.service.UserService;
@@ -28,10 +29,13 @@ import com.i2i.service.UserService;
 public class ApplicationController {
     @Autowired   
     UserService userService;
+    
     @Autowired   
     RouteService routeService;
+    
     @Autowired
     TripRouteService tripRouteService;
+    
     @RequestMapping(value = "/HomePage")
     public ModelAndView getHomePage() {
         return new ModelAndView("HomePage");
@@ -60,7 +64,7 @@ public class ApplicationController {
 
     }
    
-   @RequestMapping("/saveUser")
+    @RequestMapping("/saveUser")
     public ModelAndView saveUserData(@ModelAttribute("user") User user, BindingResult result) {
         System.out.println("Save User Data");
         System.out.println(userService);
@@ -69,36 +73,33 @@ public class ApplicationController {
 			userService.addUser(user);
 	        return new ModelAndView("LoginPage");
 		} catch (DatabaseException e) {
-			e.printStackTrace();
+			GenericService.exceptionWriter(e);
 			return new ModelAndView("ExceptionPage");
 		}
     }
    
-   @RequestMapping("/authenticate")
-   public ModelAndView authenticateUser(@ModelAttribute("user") User user, BindingResult result) {
-       System.out.println("Authenticate");
-       System.out.println(userService);
-       System.out.println(user);
+    @RequestMapping("/authenticate")
+    public ModelAndView authenticateUser(@ModelAttribute("user") User user, BindingResult result) {
        
-       if (user.getEmail() != "") {
-           if (user.getPassword() != ""){
-    		   boolean isValid;
-			   try {
-				   isValid = userService.isValid(user.getEmail(), user.getPassword());
-         	       if (isValid) {
-         	  		Map<String, Object> model = new HashMap<String, Object>();
-         			model.put("users", userService.getUserByMailId(user.getEmail()));
-	    	        return new ModelAndView("UserHomePage", model);
-	    	       } else {
-	    	           return new ModelAndView("ReLogin");
-	    	       }
+        if (user.getEmail() != "") {
+            if (user.getPassword() != ""){
+    	        boolean isValid;
+			    try {
+				    isValid = userService.isValid(user.getEmail(), user.getPassword());
+         	        if (isValid) {
+         	  		    Map<String, Object> model = new HashMap<String, Object>();
+         			    model.put("users", userService.getUserByMailId(user.getEmail()));
+	    	            return new ModelAndView("UserHomePage", model);
+	    	        } else {
+	    	            return new ModelAndView("ReLogin");
+	    	        }
          	       
-			   } catch (DatabaseException e) {
-				   e.printStackTrace();
-				   return new ModelAndView("ExceptionPage");
-			   }
+			    } catch (DatabaseException e) {
+				    GenericService.exceptionWriter(e);
+				    return new ModelAndView("ExceptionPage");
+			    } 
 			} else {
-        	   return new ModelAndView("LoginPage");
+        	    return new ModelAndView("LoginPage");
             }
         } else {
     	    return new ModelAndView("LoginPage");
@@ -107,42 +108,34 @@ public class ApplicationController {
    
    @RequestMapping(value = "/SearchBus")
    public ModelAndView getSearchForm() {
-       return new ModelAndView("SearchBus");
-       
+       return new ModelAndView("SearchBus");       
    }
    @RequestMapping(value = "/Search",method = RequestMethod.POST)
    public ModelAndView test(@RequestParam("source") String source,
 		                    @RequestParam("destination") String destination,@RequestParam("date") String date) {
 
-       System.out.println("Date not empty");
        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
        Date travelDate =null;
        try {
            travelDate = df.parse(date);
            System.out.println("dateOfTravel:"+travelDate);
        } catch (ParseException e) {
-           e.printStackTrace();
+           GenericService.exceptionWriter(e);
        }
    	   java.sql.Date dateOfTravel = new java.sql.Date(travelDate.getTime());
-   	   System.out.println("sqlDate:"+dateOfTravel);
 	   Map<String, Object> model = new HashMap<String, Object>();
-       System.out.println(source);
-       System.out.println(destination);
-       System.out.println(date);
        List<Route> routes = null;
        try {
            routes = routeService.getRoute(source, destination);
        } catch (DatabaseException e) {
-    	   e.printStackTrace();
+    	   GenericService.exceptionWriter(e);
        }
        System.out.println(routes);
-       List<TripRoute> tripRoutes = null;
        for (Route route : routes) {
            try {
-        	  /* tripRoutes = tripRouteService.getTripRoutes(route, dateOfTravel);*/
         	   model.put("tripRoutes", tripRouteService.getTripRoutes(route, dateOfTravel));
            } catch (DatabaseException e) {
-    	       e.printStackTrace();
+    	       GenericService.exceptionWriter(e);
            }
        }
        System.out.println(model);
@@ -150,10 +143,8 @@ public class ApplicationController {
     	   return new ModelAndView("ResultBus",model);
        }
        return new ModelAndView("NoBusAlertPage");
-       
-    	   
-
    }   
+   
    @RequestMapping(value = "/ConfirmBooking")
    public ModelAndView getBookingForm(@RequestParam("tripRoutes")int tripRoute) {
 	   System.out.println(tripRoute);
