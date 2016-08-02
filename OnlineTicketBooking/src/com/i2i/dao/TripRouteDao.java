@@ -24,6 +24,7 @@ import com.i2i.model.TripRoute;
  */
 @Repository("tripRouteDao")
 public class TripRouteDao extends GenericDao {
+	
 	/**
      * <p>
      * Retrieves a list of Trip Route records for given route object and date of travel from the database.

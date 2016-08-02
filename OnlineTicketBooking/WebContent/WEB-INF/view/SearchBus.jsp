@@ -87,7 +87,7 @@
 Online Bus Ticket Booking With Zero Booking Fee!!!!</h2>
 
  
-<form  id="searchBus" name="searchBus" action="Search.html" method="post">
+<form  id="searchBus" name="searchBus" onsubmit="return formValidation()" action="Search.html" method="post">
    <table style="margin-bottom: 2cm;">
     <tr>
         <td>
@@ -95,7 +95,7 @@ Online Bus Ticket Booking With Zero Booking Fee!!!!</h2>
       
             <p  >From</p>
       <select class="form-control"style="width:250Px; " name="source" id="source" >
-        <option > -- Select Source -- </option>
+        <option >--Select Source--</option>
         <option>Chennai</option>
         <option>Trichy</option>
         <option>Madurai</option>
@@ -107,7 +107,7 @@ Online Bus Ticket Booking With Zero Booking Fee!!!!</h2>
             <div class="form-group">
              <p>To</p>
       <select class="form-control"style="width:250Px" name="destination"  id="destination" >
-         <option > -- Select Destination -- </option>
+         <option >--Select Destination--</option>
         <option>Chennai</option>
         <option>Trichy</option>
         <option>Madurai</option>
@@ -125,7 +125,7 @@ Online Bus Ticket Booking With Zero Booking Fee!!!!</h2>
      <input name="date" id="date"  onchange="dateofTavel()" style="position:absolute;left:2Px;color:black" type="text"  /></p>
      </p>
      
-     <button style="position:absolute;left:2Px;top:380px;"type="submit" onClick="sourceAndDestinationEvaluation()" class="btn btn-danger" >Select My Trip</button>
+     <button style="position:absolute;left:2Px;top:380px;" type="submit" class="btn btn-danger" >Select My Trip</button>
      <script>
   $(document).ready(
   
@@ -138,31 +138,36 @@ Online Bus Ticket Booking With Zero Booking Fee!!!!</h2>
     });
   }
 );
-  function sourceAndDestinationEvaluation() {
+  function formValidation() {
       var source = document.searchBus.source.value;
       var destination = document.searchBus.destination.value;
       var dateOfTravel =  document.searchBus.date.value;
       if(source == destination ){
     	  alert("Source and Destination Should not be same.Please enter correct value");
+    	  return false;
       }
       else if(source == "-- Select Source --"){
     	  alert("Select Source City");
+    	  return false;
       }
       else if(destination == "-- Select Destination --"){
     	  alert("Select Destination City");
+    	  return false;
       }
-      if(dateOfTravel == ""){
+      else if(dateOfTravel == ""){
 		  alert("Select Travel Date");
-	  }
+    	  return false;
+	  } 
+      else {
+    	  var dateOfTravel =  $('#date').datepicker('getDate');
+    	  var now = new Date();
+    	  if(dateOfTravel < now){
+    		  alert("Please Select Correct Date");
+        	  return false;
+    	  }
+      }
       
   } 
-  function dateofTavel() {
-	  var dateOfTravel =  $('#date').datepicker('getDate');
-	  var now = new Date();
-	  if(dateOfTravel < now){
-		  alert("Please Select Correct Date");
-	  }
-  }
  
   </script>
   
