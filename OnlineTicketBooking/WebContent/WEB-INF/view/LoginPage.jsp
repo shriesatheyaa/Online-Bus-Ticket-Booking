@@ -2,13 +2,13 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 
 <head>
 
     
-    <title>Online Bus Ticket Booking</title>
+    <title>Login Page</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -38,7 +38,10 @@ background : url("img/back.jpg");
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="#page-top"><img style="position:fixed; left:1px;top:24px"class="img-responsive" src="img/bus.gif" alt=""></a>         
+                <a class="navbar-brand" href="#page-top"><img style="position:fixed; left:1px;top:24px"class="img-responsive" src="img/bus.gif" alt=""></a>
+                <a class="navbar-brand" href="#page-top" style = "font-color:green; font-size:40px; font-family:Comic Sans MS;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                BUS STOP</a>           
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -46,6 +49,7 @@ background : url("img/back.jpg");
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
+                    
 
                     
                     <li class="page-scroll">
@@ -88,11 +92,11 @@ background : url("img/back.jpg");
           
           <h1><center>LOGIN</center></h1>
           
-          <form id="user" action="authenticate.html" method="post">
+          <form id="user" action="authenticate.html" method="post" onsubmit = "return validate()">
             &nbsp;&nbsp;&nbsp;&nbsp;<br><br>
             <div class="form-group col-lg-12 col-xs-4 ">
               <center>
-              <input id="email" name="email" style="padding-right: 95px; padding-left: 106px; margin-left: 12px;" placeholder="Enter Email - Id" type="email" value="" autocomplete="off"/></h4>
+              <input id="email" name="email" style="padding-right: 95px; padding-left: 106px; margin-left: 12px;" placeholder="Enter Email - Id" type="email" value="" autocomplete="off"/>
               </center>
             </div><br><br><br><br>
             <div class="form-group col-lg-12 col-xs-4"><center>
@@ -103,10 +107,26 @@ background : url("img/back.jpg");
             <br><br><br><br>
             <button type="submit" style="margin-left: 420px;" class="btn btn-success col-lg-4">LET ME IN </button></center>
             <br><br><br></center><br><br><br><br>
+<script>              
+  function validate() {
+      var email = document.getElementById("email").value;  
+      var password = document.getElementById("password").value;  
+      
+      if (email == "") {
+    	  alert("Email Id Should not be left blank!!!");
+    	  return false;
+      } else if (password == ""){
+    	  alert("Password Should not be left blank!!!");
+    	  return false;
+      }      
+  }  
+  </script>
           </form>
           <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1>
         </div>
 </div>
+
+  
 </body>
 
 </html>

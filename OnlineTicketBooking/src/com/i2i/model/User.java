@@ -3,6 +3,9 @@ package com.i2i.model;
 import java.util.Date;
 import java.sql.Time;
 import java.util.Set;
+
+
+
 import java.util.HashSet;
 
 /**
@@ -13,7 +16,6 @@ import java.util.HashSet;
  * @author Ideas2IT-sivaranjani
  * @created 
  */
-
 public class User {
 
 

@@ -82,93 +82,9 @@
     </nav>
 
 
-<div style="position:fixed; left:80px; top:200px;margin-bottom: 2cm;"  >
-<h2 style="margin-bottom: 2cm;">
-Online Bus Ticket Booking With Zero Booking Fee!!!!</h2>
-
- 
-<form  id="searchBus" name="searchBus" action="Search.html" method="post">
-   <table style="margin-bottom: 2cm;">
-    <tr>
-        <td>
-        <div class="form-group">
-      
-            <p  >From</p>
-      <select class="form-control"style="width:250Px; " name="source" id="source" >
-        <option > -- Select Source -- </option>
-        <option>Chennai</option>
-        <option>Trichy</option>
-        <option>Madurai</option>
-        <option>Tuticorin</option>
-      </select>
-           </div>
-         </td>
-        <td style="position:absolute;right: 350px;">
-            <div class="form-group">
-             <p>To</p>
-      <select class="form-control"style="width:250Px" name="destination"  id="destination" >
-         <option > -- Select Destination -- </option>
-        <option>Chennai</option>
-        <option>Trichy</option>
-        <option>Madurai</option>
-        <option>Tuticorin</option>
-      </select>
-            </div>
-        </td>
-       
-    
-    </tr>
-     
-    
-    </table>
-     <p style="position:absolute;left:2Px;top:250px;margin-bottom: 2cm;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pick a Date
-     <input name="date" id="date"  onchange="dateofTavel()" style="position:absolute;left:2Px;color:black" type="text"  /></p>
-     </p>
-     
-     <button style="position:absolute;left:2Px;top:380px;"type="submit" onClick="sourceAndDestinationEvaluation()" class="btn btn-danger" >Select My Trip</button>
-     <script>
-  $(document).ready(
-  
-  /* This is the function that will get executed after the DOM is fully loaded */
-  function () {
-    $( "#date" ).datepicker({
-      changeMonth: true,//this option for allowing user to select month
-      changeYear: true, //this option for allowing user to select from year range
-      dateFormat: 'yy-mm-dd'
-    });
-  }
-);
-  function sourceAndDestinationEvaluation() {
-      var source = document.searchBus.source.value;
-      var destination = document.searchBus.destination.value;
-      var dateOfTravel =  document.searchBus.date.value;
-      if(source == destination ){
-    	  alert("Source and Destination Should not be same.Please enter correct value");
-      }
-      else if(source == "-- Select Source --"){
-    	  alert("Select Source City");
-      }
-      else if(destination == "-- Select Destination --"){
-    	  alert("Select Destination City");
-      }
-      if(dateOfTravel == ""){
-		  alert("Select Travel Date");
-	  }
-      
-  } 
-  function dateofTavel() {
-	  var dateOfTravel =  $('#date').datepicker('getDate');
-	  var now = new Date();
-	  if(dateOfTravel < now){
-		  alert("Please Select Correct Date");
-	  }
-  }
- 
-  </script>
-  
-  </form>
-  
- </div>
+	<div style="position:fixed; left:80px; top:200px;margin-bottom: 2cm;"  >
+  		
+	</div>
  
 
 </body>

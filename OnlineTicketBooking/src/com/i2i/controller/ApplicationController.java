@@ -73,26 +73,29 @@ public class ApplicationController {
        System.out.println("Authenticate");
        System.out.println(userService);
        System.out.println(user);
-       boolean isValid = userService.isValid(user.getEmail(), user.getPassword());
-       if (isValid){
-    	   /*Map<String, Object> model = new HashMap<String, Object>();
-           model.put("users", userService.getUserByMailId(user.getEmail()));
-           System.out.println(user);*/
-           return new ModelAndView("UserHomePage");
+       
+       if (user.getEmail() != "") {
+    	   if (user.getPassword() != ""){
+    		   boolean isValid = userService.isValid(user.getEmail(), user.getPassword());
+    	       if (isValid) {
+    	           return new ModelAndView("UserHomePage");
+    	       } else {
+    	    	   return new ModelAndView("ReLogin");
+    	       }
+    	   } else {
+        	   return new ModelAndView("LoginPage");
+           }
        } else {
     	   return new ModelAndView("LoginPage");
        }
-       //return new ModelAndView("redirect:/Response.html");
    }
    
    @RequestMapping(value = "/SearchBus")
    public ModelAndView getSearchForm() {
-       /*Map<String, Object> model = new HashMap<String, Object>();
-       model.put("user", user);
-       System.out.println(user.getName());*/
        return new ModelAndView("SearchBus");
        
    }
+   
    @RequestMapping(value = "/Search",method = RequestMethod.POST)
    public ModelAndView test(@RequestParam("source") String source,
 		                    @RequestParam("destination") String destination,@RequestParam("date") String date) {
