@@ -25,11 +25,7 @@ Payment Page</h1>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css"> 
 </head>
-       <!-- <script type="text/javascript">
-	    window.onload = function() {
-	       alert("!!!Welcome to your Booking Page !!!");
-	   	}
-	</script> --> 
+       
 <style>
    .bodyColor {
   text-align: center;
@@ -206,6 +202,5 @@ background:blue;
         }
     </script>
    </div>  
-
 </body>
 </html>
