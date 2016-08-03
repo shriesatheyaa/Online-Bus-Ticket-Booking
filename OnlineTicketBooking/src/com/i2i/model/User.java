@@ -172,5 +172,4 @@ public class User {
 		return "User [name=" + name + ", email=" + email + ", mobileNumber=" + mobileNumber + ", password=" + password
 				+ "]";
 	}
-	
 }

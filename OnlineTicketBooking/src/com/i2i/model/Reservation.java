@@ -8,12 +8,13 @@ package com.i2i.model;
  * @author Ideas2IT-sivaranjani
  * @created 
  */
+
 public class Reservation {
 	private int id;
 	private User user;
 	private TripRoute tripRoute; 
 	private int noOfSeatsBooked;
-	private int totalPrice;
+	private double totalPrice;
 	private String paymentMode;
 	private String status;
 	
@@ -63,11 +64,11 @@ public class Reservation {
 		this.noOfSeatsBooked = noOfSeatsBooked;
 	}
 	
-	public int getTotalPrice() {
+	public double getTotalPrice() {
 		return totalPrice;
 	}
 	
-	public void setTotalPrice(int totalPrice) {
+	public void setTotalPrice(double totalPrice) {
 		this.totalPrice = totalPrice;
 	}
 	

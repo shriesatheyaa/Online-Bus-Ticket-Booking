@@ -19,10 +19,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.i2i.exception.DatabaseException;
+import com.i2i.model.Reservation;
 import com.i2i.model.Route;
 import com.i2i.model.TripRoute;
 import com.i2i.model.User;
 import com.i2i.service.GenericService;
+import com.i2i.service.ReservationService;
 import com.i2i.service.RouteService;
 import com.i2i.service.TripRouteService;
 import com.i2i.service.UserService;
@@ -37,11 +39,22 @@ public class ApplicationController {
     @Autowired
     TripRouteService tripRouteService;
     
-    private User user = null;
+    @Autowired 
+    ReservationService reservationService;
     
+  
+    private User user = null;
+    private TripRoute tripRoute = null;
+    private Reservation reservation = null;
     
     @RequestMapping(value = "/HomePage")
     public ModelAndView getHomePage() {
+        return new ModelAndView("HomePage");
+    }
+    
+    @RequestMapping(value = "/logOut")
+    public ModelAndView getLogOutPage() {
+    	user = null;
         return new ModelAndView("HomePage");
     }
     
@@ -95,30 +108,26 @@ public class ApplicationController {
        System.out.println(userService);
        System.out.println(user);
        
-       this.user = user;
-       
-       if (user.getEmail() != "") {
-           if (user.getPassword() != ""){
-    		   boolean isValid;
-			   try {
-				   isValid = userService.isValid(user.getEmail(), user.getPassword());
-         	       if (isValid) {
-	    	           return new ModelAndView("UserHomePage");
-	    	       } else {
-	    	           return new ModelAndView("ReLogin");
-	    	       }
-         	       
-			    } catch (DatabaseException e) {
-				    GenericService.exceptionWriter(e);
-				    return new ModelAndView("ExceptionPage");
-			    } 
-			} else {
-        	    return new ModelAndView("LoginPage");
-            }
-        } else {
-    	    return new ModelAndView("LoginPage");
-        }
-    }
+	   boolean isValid;
+	   try {
+		   isValid = userService.isValid(user.getEmail(), user.getPassword());
+
+	       if (isValid) {
+	     	   List<User>users = userService.getUserByMailId(user.getEmail());
+	     	   for (User foundUser : users) {
+	     		   this.user = foundUser;
+	     	   }
+	     	   /*Map<String,User> model = new HashMap<String,User>();
+	     	   model.put("user", user);*/
+	           return new ModelAndView("UserHomePage");
+		   } else {
+		       return new ModelAndView("ReLogin");
+		   }
+	   } catch (DatabaseException e) {
+           GenericService.exceptionWriter(e);
+           return new ModelAndView("ExceptionPage");
+	   }
+   }
    
    @RequestMapping(value = "/SearchBus", method = RequestMethod.POST)
    public ModelAndView getSearchForm() {
@@ -130,10 +139,10 @@ public class ApplicationController {
        return new ModelAndView("SearchBus");       
    }
    
-@RequestMapping(value = "/Search",method = RequestMethod.POST)
+   @RequestMapping(value = "/Search",method = RequestMethod.POST)
    public ModelAndView test(@RequestParam("source") String source,
 		                    @RequestParam("destination") String destination,@RequestParam("date") String date) {
-
+       System.out.println(source);
 	   System.out.println("Date not empty");
        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
        Date travelDate =null;
@@ -142,7 +151,6 @@ public class ApplicationController {
            System.out.println("dateOfTravel:"+travelDate);
        } catch (ParseException e) {
            GenericService.exceptionWriter(e);
-
            return new ModelAndView("ExceptionPage");
        }
    	   java.sql.Date dateOfTravel = new java.sql.Date(travelDate.getTime());
@@ -170,7 +178,8 @@ public class ApplicationController {
    
    @RequestMapping(value = "/ConfirmBooking",method = RequestMethod.POST)
    public ModelAndView getBookingForm(@RequestParam("tripRoutes")int tripRouteId) {
-	   System.out.println(tripRouteId);
+	   System.out.println("ID: " + tripRouteId);
+	   System.out.println(user);
 	   Map<String, Object> model = new HashMap<String, Object>();
 	   List<TripRoute> tripRoutes = new ArrayList<TripRoute>();
 	   
@@ -178,19 +187,39 @@ public class ApplicationController {
 		   System.out.println(tripRouteService.getTripRouteById(tripRouteId));
 		   tripRoutes.add(tripRouteService.getTripRouteById(tripRouteId));
 		   model.put("tripRoute", tripRoutes );
+		   for (TripRoute tripRoute : tripRoutes) {
+			   this.tripRoute = tripRoute;
+		   }
+		    
 		   System.out.println("MODEL : " + model);
 	       return new ModelAndView("PayNow",model);  
 		
 	   } catch (DatabaseException e) {
-	    	e.printStackTrace();
+		    GenericService.exceptionWriter(e);
 	    	return new ModelAndView("ExceptionPage");	    	
 	   }
    }
    
    @RequestMapping(value = "/payment")
-   public ModelAndView getPaymentPage() {
-       return new ModelAndView("UserHomePage");
-
+   public ModelAndView getPaymentPage(@RequestParam("tickets")int tickets, @RequestParam("totalPrice") double totalPrice, @RequestParam("paymentMode") String paymentMode) {
+	   System.out.println("PAYMENT MODE  :" + paymentMode);
+	   reservation.setNoOfSeatsBooked(tickets);
+	   reservation.setPaymentMode(paymentMode);
+	   reservation.setTotalPrice(totalPrice);
+	   reservation.setTripRoute(tripRoute);
+	   reservation.setUser(user);
+	   if (paymentMode == "netBanking") {
+		   reservation.setStatus("Success");
+	   } else {
+		   reservation.setStatus("Payment Failed");
+	   }
+	   try {
+		   reservationService.addReservation(reservation);
+	   } catch (DatabaseException e) {
+		   GenericService.exceptionWriter(e);
+		   return new ModelAndView("ExceptionPage");
+	   }
+	   return new ModelAndView("HomePage");
    }
 }
    

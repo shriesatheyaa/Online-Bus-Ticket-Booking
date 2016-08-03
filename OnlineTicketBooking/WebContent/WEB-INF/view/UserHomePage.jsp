@@ -61,12 +61,8 @@ background : url("img/bus1.jpg");
                 <ul class="nav navbar-nav navbar-right">
                     <li class="hidden">
                         <a href="#page-top"></a>
-                    </li> <form id = "user" method = "post">
-                     <c:forEach items="${users}" var="user" >
-                     <input type = "hidden" value = "${user.id}" id = "" />
-                     </c:forEach></form>
                     <li class="page-scroll">
-                        <a href="HomePage.html">Log Out</a>
+                        <a href="logOut.html">Log Out</a>
                     </li>
                     
                     <li class="page-scroll">
