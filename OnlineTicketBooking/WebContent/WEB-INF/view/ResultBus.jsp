@@ -113,9 +113,9 @@ th {
     <table style="border-top-width: 7px; border-top-style: solid;">
          <tr style="border-top-width: 32px; border-top-style: solid;">
              <th>Travels</th>
-             <th width="40%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DepatureTime &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ArrivalTime</th>
+             <th width="40%" align="left">DepatureTime &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ArrivalTime</th>
              <th width="20%">AvailableSeats</th>
-             <th width="20%">Price</th>
+             <th width="30%">Price</th>
              <th></th>
           </tr>
          <c:forEach items="${tripRoutes}" var="tripRoutes">
@@ -130,9 +130,9 @@ th {
              <span style="padding-left:40px"> <b>Non AC</b></span>
              </c:if>
              </td>
-             <td id=""><i class="fa fa-clock-o" style="font-size:24px;color:black"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<c:out value="${tripRoutes.departureTime}"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<c:out value="${tripRoutes.arrivalTime}"/></td>
-             <td><i class="material-icons" style="font-size:24px:color:black"></i><img height="30" width="20"  src="img/seat.png" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<c:out value="${tripRoutes.trip.seatVacancy}"/></td>
-             <td><i class="fa fa-inr" style="font-size:26px;color:black"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<c:out value="${tripRoutes.price}"/></td> 
+             <td id="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-clock-o" style="font-size:24px;color:black"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<c:out value="${tripRoutes.departureTime}"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<c:out value="${tripRoutes.arrivalTime}"/></td>
+             <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="material-icons" style="font-size:24px:color:black"></i><img height="30" width="20"  src="img/seat.png" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<c:out value="${tripRoutes.trip.seatVacancy}"/></td>
+             <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-inr" style="font-size:26px;color:black"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<c:out value="${tripRoutes.price}"/></td> 
              <td><button class="button button2">Book</button></td>
              </tr></b>
              </form:form>
