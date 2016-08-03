@@ -17,6 +17,7 @@
     <style>
         .body {
             background : url("img/back.jpg");
+            height : 150px;
         }
     </style>
 
@@ -100,8 +101,8 @@
                     </center>
                 </div>
                 <br><br><br><br>
-                <button type="submit" style="margin-left: 420px;" class="btn btn-success col-lg-4">LET ME IN</button>
-                <br><br><br><br><br><br><br>
+                <button type="submit" style="margin-left: 458px;" class="btn btn-success col-lg-4">LET ME IN</button>
+                <br><br><br><br><br><br><br><br><br><br><br><br>
                 <script>              
                     function validate() {
                         var email = document.getElementById("email").value;  

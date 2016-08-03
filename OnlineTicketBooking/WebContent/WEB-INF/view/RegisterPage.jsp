@@ -131,7 +131,7 @@
                     </center>
                 </div>
                 <br><br><br><br>
-                <button type="sumbit" style="margin-left: 420px;" class="btn btn-success col-lg-4" >
+                <button type="sumbit" style="margin-left: 458px;" class="btn btn-success col-lg-4" >
                     GET STARTED
                 </button>
                 <br><br><br><br><br><br><br>
