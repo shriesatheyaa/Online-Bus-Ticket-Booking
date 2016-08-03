@@ -181,6 +181,7 @@ background:blue;
                       <td align="center"><a href="SearchBus.html"><center><input type="button" value = "Cancel" name = "cancel"/></center> </a></td>
                       <td align="center"><center><input id = "pay" type = "submit" value = "Confirm"  ></center></td>
                    </tr>
+                   <input type="hidden" id="seatVacancy" name="seatVacancy" value="${tripRoute.trip.seatVacancy}"/>
                 </table><br><br>
                 
                 </div> 
@@ -193,6 +194,7 @@ background:blue;
         function CalculateFare(){
         	var ticketCount = document.getElementById("noOfSeatsBooked").value;
         	var unitprice = document.getElementById("unitprice").value;
+        	
         	if(ticketCount > -1) {
         		var totalprice = ticketCount*unitprice;
            	    document.getElementById("TotalPrice").innerHTML = totalprice;
@@ -203,12 +205,18 @@ background:blue;
         function formValidation(){
         	var numberOfPassengers = document.getElementById("noOfSeatsBooked").value;
         	var paymentMode =  document.getElementById("paymentMode").value;
+        	var seatVacancy = document.getElementById("seatVacancy").value;
+
         	if(numberOfPassengers == '0'){
         		alert("Please!! mention number of passengers");
         		return false;
         	}
         	else if(paymentMode == "--Select PaymentMode--"){
         		alert("Please!! Select mode of payment");
+        		return false;
+        	}
+        	else if(numberOfPassengers > seatVacancy){
+        		alert("sorry!!!we don't have enough seats");
         		return false;
         	}
         	
