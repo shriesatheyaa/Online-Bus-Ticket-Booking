@@ -52,7 +52,7 @@
                     <a class="navbar-brand" href="#page-top">
                     <img style="position:fixed; left:1px;top:7px"class="img-responsive" 
                         src="img/logo_bus_stop.png" alt="" width = "85px" height = "85px"></a>
-                    <a class="navbar-brand" href="#page-top" style = "font-color:green; 
+                    <a class="navbar-brand" href="#page-top" style = "color:white; 
                                                                      font-size:40px; font-family:Comic Sans MS;">&nbsp;
                     BUS STOP</a>                     
                 </div>

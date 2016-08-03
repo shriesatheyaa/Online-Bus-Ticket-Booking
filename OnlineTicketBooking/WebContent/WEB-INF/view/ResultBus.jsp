@@ -75,7 +75,7 @@ th {
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
         <div class="container">
             <a class="navbar-brand" href="#page-top"><img style="position:fixed; left:1px;top:7px"class="img-responsive" src="img/logo_bus_stop.png" alt="" width = "85px" height = "85px"></a>
-                <a class="navbar-brand" href="#page-top" style = "font-color:green; font-size:40px; font-family:Comic Sans MS;">
+                <a class="navbar-brand" href="#page-top" style = "color:white; font-size:40px; font-family:Comic Sans MS; important">
                 &nbsp;
                 BUS STOP</a> 
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -92,9 +92,12 @@ th {
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
+                    <li class="page-scroll">
+                        <a href="logOut.html">Log Out</a>
+                    </li>
                     
                     <li class="page-scroll">
-                      <p>  <a href="SearchBus.html">Back</a></p>
+                      <a href="SearchBus.html">Back</a>
                     </li>
                     
                 </ul>
