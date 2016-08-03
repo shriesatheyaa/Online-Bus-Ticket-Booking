@@ -36,7 +36,7 @@ public class ReservationDao extends GenericDao {
 		System.out.println(factory);
         Session session = createSession();
         Transaction transaction = null;
-        try{
+        try {
             transaction = session.beginTransaction();
             session.save(reservation);
             transaction.commit();

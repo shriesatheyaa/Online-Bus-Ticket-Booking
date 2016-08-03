@@ -6,8 +6,6 @@ package com.i2i.service;
 import java.sql.Date;
 import java.util.List;
 
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

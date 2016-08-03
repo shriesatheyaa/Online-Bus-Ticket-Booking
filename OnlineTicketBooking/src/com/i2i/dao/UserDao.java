@@ -32,8 +32,6 @@ public class UserDao extends GenericDao {
      *     If there is any interruption occurred in the database.
      */
 	public void insertUser(User user) throws DatabaseException{
-		System.out.println("Dao : " +user);
-		System.out.println(factory);
         Session session = createSession();
         Transaction transaction = null;
         try{
@@ -65,7 +63,6 @@ public class UserDao extends GenericDao {
 	public boolean authenticateUser(String email, String password) throws DatabaseException {
         Session session = createSession();
         try {
-        
 		    String sql = "SELECT * FROM Users WHERE Email = :email and Password= :password";
 	    	SQLQuery query = session.createSQLQuery(sql);
  		    query.addEntity(User.class);
@@ -78,6 +75,18 @@ public class UserDao extends GenericDao {
         }
     }
 	
+	/**
+     * <p>Retrieves an User object for the given mail id from the record.</p>
+     *
+     * @param email 
+     *    Mail id of the User to be found
+     *
+     * @return users
+     *    List of User objects retrieved
+     *    
+     * @throws DatabaseException 
+     *    If there is any failure in getting the user object.
+     */
 	public List<User> retrieveUserByMailId(String email) throws DatabaseException {
         Session session = createSession();
         List<User> users = null;

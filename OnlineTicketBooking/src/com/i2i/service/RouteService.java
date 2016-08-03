@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.i2i.service;
 
 import java.util.List;
@@ -22,6 +19,7 @@ public class RouteService {
 	
 	@Autowired 
 	RouteDao routeDao;
+	
 	/*
 	 * <p>Gets a specific Route record for given Source city and Destination city.
 	 * </p>

@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import com.i2i.dao.UserDao;
 import com.i2i.exception.DatabaseException;
 import com.i2i.model.User;
-//import com.i2i.exception.DatabaseException;
 
 /**
  * <h1> UserService </h1>
@@ -27,6 +26,16 @@ public class UserService {
 	
 	@Autowired 
 	UserDao userDao;
+	
+	/**
+     * <p>Adds an User object in the record.</p>
+     *
+     * @param user 
+     *    Object of the User to be added
+     *
+     * @throws DatabaseException 
+     *    If there is any failure in adding the user object.
+     */
 	public void addUser(User user) throws DatabaseException {
 		Date createdAt = new Date();
 		user.setCreatedAt(createdAt);
@@ -34,14 +43,32 @@ public class UserService {
 		userDao.insertUser(user);
 	}
 	
+	/**
+     * <p>Adds an User object in the record.</p>
+     *
+     * @param user 
+     *    Object of the User to be added
+     *
+     * @throws DatabaseException 
+     *    If there is any failure in adding the user object.
+     */
 	public boolean isValid(String email, String password) throws DatabaseException{
-		boolean isValid = false;
-		System.out.println("Email : " +email);
-		System.out.println("Password : " +password);
 		return userDao.authenticateUser(email, password);
 	}
 	
-	public List<User> getUserByMailId(String email) {
+	/**
+     * <p>Gets an User object for the given mail id from the record.</p>
+     *
+     * @param email 
+     *    Mail id of the User to be found
+     *
+     * @return users
+     *    List of User objects found
+     *    
+     * @throws DatabaseException 
+     *    If there is any failure in getting the user object.
+     */
+	public List<User> getUserByMailId(String email) throws DatabaseException {
 		List<User> users = null;
 		try {
 			users = userDao.retrieveUserByMailId(email);

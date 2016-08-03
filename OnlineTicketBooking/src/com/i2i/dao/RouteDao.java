@@ -22,6 +22,7 @@ import com.i2i.model.Route;
  */
 @Repository("routeDao")
 public class RouteDao extends GenericDao {
+	
 	/**
      * <p>
      * Retrieves a specific Route record from the database.
@@ -37,8 +38,6 @@ public class RouteDao extends GenericDao {
      *     If there is any interruption occurred in the database.
      */
 	public List<Route> retrieveRoute (String sourceCityName, String destinationCityName) throws DatabaseException {
-		System.out.println("Dao : " + sourceCityName +"  "+destinationCityName);
-		System.out.println(factory);
 		Route route = null;
         Session session = createSession();
         Transaction transaction = null;
@@ -52,7 +51,6 @@ public class RouteDao extends GenericDao {
             query.setParameter("destinationCityName", destinationCityName);
             routes = query.list();
             transaction.commit();
-            System.out.println("Dao finished");
         } catch (HibernateException e) {
             throw new DatabaseException("Some problem occured while retrieving route records with "+
                                         sourceCityName +" and "+ destinationCityName + " records", e);

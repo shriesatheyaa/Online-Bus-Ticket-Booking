@@ -43,15 +43,13 @@ public class TripRouteDao extends GenericDao {
      *     If there is any interruption occurred in the database.
      */
 	public List<TripRoute> retrieveTripRoutes (Route route, Date dateOfTravel) throws DatabaseException {
-		
-		System.out.println(factory);
         Session session = createSession();
         Transaction transaction = null;
         List<TripRoute> tripRoutes = null;
         try{
             transaction = session.beginTransaction();
             String hql = "FROM " + TripRoute.class.getName() + " tripRoute WHERE tripRoute.route =:route "+
-                          "and tripRoute.dateOfTravel =:dateOfTravel";
+                         "and tripRoute.dateOfTravel =:dateOfTravel";
             Query query = session.createQuery(hql);
             query.setParameter("route", route);
             query.setParameter("dateOfTravel", dateOfTravel);
