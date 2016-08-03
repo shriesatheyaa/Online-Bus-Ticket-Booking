@@ -209,17 +209,18 @@ public class ApplicationController {
 	   reservation.setTripRoute(tripRoute);
 	   reservation.setUser(user);
 	   if (paymentMode == "netBanking") {
-		   reservation.setStatus("Success");
+		   reservation.setStatus("Failure");
+		   return new ModelAndView("UserHomePage");
 	   } else {
-		   reservation.setStatus("Payment Failed");
+		   reservation.setStatus("Success");
+		   try {
+			   reservationService.addReservation(reservation);
+			   return new ModelAndView("PaymentSuccess");
+		   } catch (DatabaseException e) {
+			   GenericService.exceptionWriter(e);
+			   return new ModelAndView("ExceptionPage");
+		   }
 	   }
-	   try {
-		   reservationService.addReservation(reservation);
-	   } catch (DatabaseException e) {
-		   GenericService.exceptionWriter(e);
-		   return new ModelAndView("ExceptionPage");
-	   }
-	   return new ModelAndView("HomePage");
    }
 }
    
