@@ -57,7 +57,7 @@ th {
 }
 .button {
     border-radius: 8px;
-    background-color:  #f44336;
+    background-color:  #4CAF50;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -143,7 +143,7 @@ background:blue;
     <div  id = "main" class = "body" style="border-top-width: 125px;background-color : white;padding-top: 180px;">
           <center><h3>Ticket Confirmation</h3></center>
           <c:forEach items = "${tripRoute}" var = "tripRoute">
-             <form id ="booking_info" action = "payment.html" method = "post"><br><br><br>
+             <form id ="booking_info" action = "payment.html"  onsubmit="return formValidation()"method = "post"><br><br><br>
              	<table align = "center" style = "font-size:20px; font-family:Comic Sans MS;">
              	<tr><td>Travels</td>
                    <td><c:out value="${tripRoute.trip.bus.travels.name}"/></td></tr>
@@ -165,7 +165,7 @@ background:blue;
                   <tr><td>Ticket Fair</td><td>
                   <input type="hidden" id="unitprice" name="unitprice" value="${tripRoute.price}"/>
                   <c:out value="${tripRoute.price}"/></td></tr>
-                  <tr><td>Number of Passengers:</td><td><input type="number" name = "tickets" id="tickets" onclick="CalculateFare()"/></td></tr>
+                  <tr><td>Number of Passengers:</td><td><input type="number" min="0" name = "tickets" id="tickets" onclick="CalculateFare()"/></td></tr>
                   <tr><td>
                   <tr><td>Total Price:</td><td><p  name = "ticketprice" id="ticketprice"></p></td></tr>
                   <tr><td>
@@ -192,8 +192,25 @@ background:blue;
         function CalculateFare(){
         	var ticketCount = document.getElementById("tickets").value;
         	var unitprice = document.getElementById("unitprice").value;
-        	var totalprice = ticketCount*unitprice;
-        	 document.getElementById("ticketprice").innerHTML = totalprice;
+        	if(ticketCount > -1) {
+        		var totalprice = ticketCount*unitprice;
+           	    document.getElementById("ticketprice").innerHTML = totalprice;
+        	}
+        	
+        }
+        function formValidation(){
+        	var numberOfPassengers = document.getElementById("tickets").value;
+        	var paymentMode =  document.getElementById("PaymentMode").value;
+        	if(numberOfPassengers == '0'){
+        		alert("Please!! mention number of passengers");
+        		return false;
+        	}
+        	else if(paymentMode == "--Select PaymentMode--"){
+        		alert("Please!! Select mode of payment");
+        		return false;
+        	}
+        	
+        	
         }
     </script>
    </div>  
