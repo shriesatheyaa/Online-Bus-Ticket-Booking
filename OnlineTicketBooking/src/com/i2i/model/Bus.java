@@ -116,12 +116,4 @@ public class Bus {
 	public void setTrips(Set<Trip> trips) {
 		this.trips = trips;
 	}
-
-	@Override
-	public String toString() {
-		return "Bus [id=" + id + ", registrationNumber=" + registrationNumber + ", travels=" + travels + ", type="
-				+ type + ", isAc=" + isAc + ", totalNumberOfSeats=" + totalNumberOfSeats + ", trips=" + trips + "]";
-	}
-	
-	
 }

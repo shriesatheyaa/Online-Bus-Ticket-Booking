@@ -55,7 +55,6 @@ public class TripRouteDao extends GenericDao {
             query.setParameter("dateOfTravel", dateOfTravel);
             tripRoutes = query.list();
             transaction.commit();
-            System.out.println("Dao finished");
         } catch (HibernateException e) {
             throw new DatabaseException("Some problem occured while retrieving route records with route id"+
                                         route.getId() +" and date:"+ dateOfTravel + " records", e);
@@ -78,10 +77,8 @@ public class TripRouteDao extends GenericDao {
     public TripRoute retrieveTripRouteById (int id) throws DatabaseException {
         Session session = createSession();
         TripRoute tripRoute = null;
-        System.out.println("Dao :"+ id);
         try {
         	tripRoute = (TripRoute)session.get(TripRoute.class, id);
-        	System.out.println("DAO 2 :"+ tripRoute);
         } catch (HibernateException e) {
             throw new DatabaseException("Something went wrong while getting employee details of id:" 
                                         + tripRoute.getId(),e); 

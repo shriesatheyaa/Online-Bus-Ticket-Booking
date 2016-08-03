@@ -88,11 +88,4 @@ public class City {
 	public void setDestinationCityRoutes(Set<Route> destinationCityRoutes) {
 		this.destinationCityRoutes = destinationCityRoutes;
 	}
-
-	@Override
-	public String toString() {
-		return "City [id=" + id + ", name=" + name + "]";
-	}
-    
-	
 }

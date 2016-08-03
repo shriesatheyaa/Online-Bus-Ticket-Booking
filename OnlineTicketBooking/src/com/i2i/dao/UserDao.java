@@ -37,7 +37,7 @@ public class UserDao extends GenericDao {
         try{
             transaction = session.beginTransaction();
             session.save(user);
-            transaction.commit();System.out.println("Inserted Successfully");
+            transaction.commit();
         } catch (HibernateException e) {
             throw new DatabaseException("Some problem occured while inserting " + user.getName() + " records", e);
         } 

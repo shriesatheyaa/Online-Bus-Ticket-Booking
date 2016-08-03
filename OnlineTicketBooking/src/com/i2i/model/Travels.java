@@ -99,10 +99,4 @@ public class Travels {
 		this.buses = buses;
 	}
 
-	@Override
-	public String toString() {
-		return "Travels [id=" + id + ", name=" + name + ", address=" + address + ", contactNumber=" + contactNumber
-				+ ", createdBy=" + createdBy + ", createdAt=" + createdAt + ", modifiedBy=" + modifiedBy
-				+ ", modifiedAt=" + modifiedAt + ","+"]";
-	}
 }

@@ -16,18 +16,17 @@ public class Reservation {
 	private int noOfSeatsBooked;
 	private double totalPrice;
 	private String paymentMode;
-	private String status;
+	private boolean status;
 	
 	public Reservation() {
 	}
 
-	public Reservation(String status, User user, int noOfSeatsBooked, String paymentMode,
-			int id, TripRoute tripRoute,int totalPrice) {
+	public Reservation(User user, TripRoute tripRoute, int noOfSeatsBooked, double totalPrice, 
+			           String paymentMode, boolean status) {
 		this.status = status;
 		this.user = user;
 		this.noOfSeatsBooked = noOfSeatsBooked;
 		this.paymentMode = paymentMode;
-		this.id = id;
 		this.tripRoute = tripRoute;
 		this.totalPrice = totalPrice;
 	}
@@ -80,20 +79,12 @@ public class Reservation {
 		this.paymentMode = paymentMode;
 	}
 	
-	public String getStatus() {
+	public boolean getStatus() {
 		return status;
 	}
 	
-	public void setStatus(String status) {
+	public void setStatus(boolean status) {
 		this.status = status;
 	}
 
-	@Override
-	public String toString() {
-		return "Reservation [id=" + id + ", user=" + user + ", tripRoute=" + tripRoute + ", noOfSeatsBooked="
-				+ noOfSeatsBooked + ", totalPrice=" + totalPrice + ", paymentMode=" + paymentMode + ", status=" + status
-				+ "]";
-	}
-	
-	
 }

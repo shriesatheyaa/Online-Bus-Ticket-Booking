@@ -165,16 +165,17 @@ background:blue;
                   <tr><td>Ticket Fair</td><td>
                   <input type="hidden" id="unitprice" name="unitprice" value="${tripRoute.price}"/>
                   <c:out value="${tripRoute.price}"/></td></tr>
-                  <tr><td>Number of Passengers:</td><td><input type="number" min="0" name = "tickets" id="tickets" onclick="CalculateFare()"/></td></tr>
+                  <tr><td>Number of Passengers:</td><td><input type="number" min="0" name = "noOfSeatsBooked" id="noOfSeatsBooked" onchange="CalculateFare()"/></td></tr>
                   <tr><td>
-                  <tr><td>Total Price:</td><td><p  name = "ticketprice" id="ticketprice"></p></td></tr>
+                  <tr><td>Total Price:</td><td><p  name = "TotalPrice" id="TotalPrice"></p></td></tr>
+                  <input type="hidden" id="totalPrice" name="totalPrice"/>
                   <tr><td>
                   <tr><td>Select PaymentMode</td>
-                  <td><select class="form-control"style="width:250Px" name="PaymentMode"  id="PaymentMode" >
-                      <option >--Select PaymentMode--</option>
+                  <td><select class="form-control"style="width:250Px" name="paymentMode"  id="paymentMode" >
+                      <option >--Select paymentMode--</option>
                       <option value="Credit Card"><b>Credit Card</b></option>
                       <option value="Debit Card"><b>Debit Card</b></option>
-                      <option value="NetBanking"><b>NetBanking</b></option>
+                      <option value="Net Banking"><b>Net Banking</b></option>
       </select></td></tr>
                   <tr align="center" >
                       <td align="center"><a href="SearchBus.html"><center><input type="button" value = "Cancel" name = "cancel"/></center> </a></td>
@@ -190,17 +191,18 @@ background:blue;
     <script type="text/javascript">
         
         function CalculateFare(){
-        	var ticketCount = document.getElementById("tickets").value;
+        	var ticketCount = document.getElementById("noOfSeatsBooked").value;
         	var unitprice = document.getElementById("unitprice").value;
         	if(ticketCount > -1) {
         		var totalprice = ticketCount*unitprice;
-           	    document.getElementById("ticketprice").innerHTML = totalprice;
+           	    document.getElementById("TotalPrice").innerHTML = totalprice;
+           	 document.getElementById("totalPrice").value = totalprice;
         	}
         	
         }
         function formValidation(){
-        	var numberOfPassengers = document.getElementById("tickets").value;
-        	var paymentMode =  document.getElementById("PaymentMode").value;
+        	var numberOfPassengers = document.getElementById("noOfSeatsBooked").value;
+        	var paymentMode =  document.getElementById("paymentMode").value;
         	if(numberOfPassengers == '0'){
         		alert("Please!! mention number of passengers");
         		return false;

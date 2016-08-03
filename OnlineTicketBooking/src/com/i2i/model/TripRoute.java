@@ -133,14 +133,6 @@ public class TripRoute {
 		this.reservations = reservations;
 	}
 
-	@Override
-	public String toString() {
-		return "TripRoute [id=" + id + ", route=" + route + ", trip=" + trip + ", departureTime=" + departureTime
-				+ ", arrivalTime=" + arrivalTime + ", price=" + price + ", dateOfTravel=" + dateOfTravel + ", isActive="
-				+ isActive + ", reservations=" + reservations + "]";
-	}
-	
-	
 }
 
 

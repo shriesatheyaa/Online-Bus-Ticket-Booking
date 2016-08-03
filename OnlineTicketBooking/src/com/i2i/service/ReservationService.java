@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 import com.i2i.dao.ReservationDao;
 import com.i2i.exception.DatabaseException;
 import com.i2i.model.Reservation;
+import com.i2i.model.TripRoute;
+import com.i2i.model.User;
 
 /**
  * <p>Service which permits to perform all the tasks related to Reservation</p>
@@ -25,7 +27,8 @@ public class ReservationService {
      * @throws DatabaseException 
      *     If there is any interruption occurred in the database.
 	 */
-	public void addReservation (Reservation reservation) throws DatabaseException {
+	public void addReservation (User user, TripRoute tripRoute, int noOfSeatsBooked, double totalPrice, String paymentMode, boolean status) throws DatabaseException {
+		Reservation reservation = new Reservation(user, tripRoute, noOfSeatsBooked, totalPrice, paymentMode, status);
 		reservationDao.insertReservation(reservation);
 	}
 	

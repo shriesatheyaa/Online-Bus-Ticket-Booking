@@ -76,7 +76,7 @@ background : url("img/bus1.jpg");
     </nav>
         <script type="text/javascript">
             window.onload = function() {
-                alert("!!!Success !!!");
+                alert("!!!Your Ticket is confirmed !!!");
         	}
         </script>
 

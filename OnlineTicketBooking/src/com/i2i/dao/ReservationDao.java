@@ -32,13 +32,12 @@ public class ReservationDao extends GenericDao {
      *     If there is any interruption occurred in the database.
      */
 	public void insertReservation(Reservation reservation) throws DatabaseException{
-		System.out.println("Dao : " +reservation);
-		System.out.println(factory);
         Session session = createSession();
         Transaction transaction = null;
         try {
-            transaction = session.beginTransaction();
+            transaction = session.beginTransaction(); System.out.println("transaction : " + transaction);
             session.save(reservation);
+            System.out.println("TRYYYYYYY");
             transaction.commit();
             System.out.println("Inserted Successfully");
         } catch (HibernateException e) {

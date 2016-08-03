@@ -89,9 +89,6 @@ public class ApplicationController {
    
     @RequestMapping("/saveUser")
     public ModelAndView saveUserData(@ModelAttribute("user") User user, BindingResult result) {
-        System.out.println("Save User Data");
-        System.out.println(userService);
-        System.out.println(user);
         try {
 			userService.addUser(user);
 	        return new ModelAndView("LoginPage");
@@ -104,9 +101,6 @@ public class ApplicationController {
     
    @RequestMapping("/authenticate")
    public ModelAndView authenticateUser(@ModelAttribute("user") User user, BindingResult result) {
-       System.out.println("Authenticate");
-       System.out.println(userService);
-       System.out.println(user);
        
 	   boolean isValid;
 	   try {
@@ -142,13 +136,10 @@ public class ApplicationController {
    @RequestMapping(value = "/Search",method = RequestMethod.POST)
    public ModelAndView test(@RequestParam("source") String source,
 		                    @RequestParam("destination") String destination,@RequestParam("date") String date) {
-       System.out.println(source);
-	   System.out.println("Date not empty");
        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
        Date travelDate =null;
        try {
            travelDate = df.parse(date);
-           System.out.println("dateOfTravel:"+travelDate);
        } catch (ParseException e) {
            GenericService.exceptionWriter(e);
            return new ModelAndView("ExceptionPage");
@@ -162,7 +153,6 @@ public class ApplicationController {
     	   GenericService.exceptionWriter(e);
     	   return new ModelAndView("ExceptionPage");
        }
-       System.out.println(routes);
        for (Route route : routes) {
            try {
         	   model.put("tripRoutes", tripRouteService.getTripRoutes(route, dateOfTravel));
@@ -171,27 +161,26 @@ public class ApplicationController {
     	       return new ModelAndView("ExceptionPage");
            }
        }
-       System.out.println(model);
        return new ModelAndView("ResultBus",model);
    }         
 
    
    @RequestMapping(value = "/ConfirmBooking",method = RequestMethod.POST)
    public ModelAndView getBookingForm(@RequestParam("tripRoutes")int tripRouteId) {
-	   System.out.println("ID: " + tripRouteId);
-	   System.out.println(user);
+	   
+	   
 	   Map<String, Object> model = new HashMap<String, Object>();
 	   List<TripRoute> tripRoutes = new ArrayList<TripRoute>();
 	   
 	   try {
-		   System.out.println(tripRouteService.getTripRouteById(tripRouteId));
+		   
 		   tripRoutes.add(tripRouteService.getTripRouteById(tripRouteId));
 		   model.put("tripRoute", tripRoutes );
 		   for (TripRoute tripRoute : tripRoutes) {
 			   this.tripRoute = tripRoute;
 		   }
 		    
-		   System.out.println("MODEL : " + model);
+		   
 	       return new ModelAndView("PayNow",model);  
 		
 	   } catch (DatabaseException e) {
@@ -201,24 +190,19 @@ public class ApplicationController {
    }
    
    @RequestMapping(value = "/payment")
-   public ModelAndView getPaymentPage(@RequestParam("tickets")int tickets, @RequestParam("totalPrice") double totalPrice, @RequestParam("paymentMode") String paymentMode) {
-	   System.out.println("PAYMENT MODE  :" + paymentMode);
-	   reservation.setNoOfSeatsBooked(tickets);
-	   reservation.setPaymentMode(paymentMode);
-	   reservation.setTotalPrice(totalPrice);
-	   reservation.setTripRoute(tripRoute);
-	   reservation.setUser(user);
-	   if (paymentMode == "netBanking") {
-		   reservation.setStatus("Failure");
-		   return new ModelAndView("UserHomePage");
+   public ModelAndView getPaymentPage(@RequestParam("noOfSeatsBooked")int noOfSeatsBooked, @RequestParam("totalPrice") double totalPrice, @RequestParam("paymentMode") String paymentMode) {
+       System.out.println("Pay : " + paymentMode);
+	   boolean status = false;
+	   if (paymentMode.equals("Net Banking")) {
+		   return new ModelAndView("PaymentFailure");
 	   } else {
-		   reservation.setStatus("Success");
+		   status = true;
 		   try {
-			   reservationService.addReservation(reservation);
+			   reservationService.addReservation(user, tripRoute, noOfSeatsBooked, totalPrice, paymentMode, status);
 			   return new ModelAndView("PaymentSuccess");
 		   } catch (DatabaseException e) {
-			   GenericService.exceptionWriter(e);
 			   return new ModelAndView("ExceptionPage");
+			   //GenericService.exceptionWriter(e);
 		   }
 	   }
    }
