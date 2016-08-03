@@ -10,7 +10,7 @@
         <property name="connection.url">jdbc:mysql://localhost:3306/OnlineTicketBooking</property>
         <property name="connection.username">root</property>
 
-        <property name="connection.password">admin</property>
+        <property name="connection.password">ubuntu</property>
 
 
         <!-- JDBC connection pool (use the built-in) -->
