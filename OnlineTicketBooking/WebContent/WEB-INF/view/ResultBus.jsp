@@ -1,7 +1,8 @@
-
-
-
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="com.i2i.model.TripRoute" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -108,7 +109,7 @@ th {
     </nav>
  <!-- Printing TripRoutes -->   
 <div style="border-top-width: 125px; border-top-style: solid;">
-
+<c:if test="${!empty tripRoutes}">
     <table style="border-top-width: 7px; border-top-style: solid;">
          <tr style="border-top-width: 32px; border-top-style: solid;">
              <th>Travels</th>
@@ -117,45 +118,34 @@ th {
              <th width="20%">Price</th>
              <th></th>
           </tr>
-         
-         <form id="tripRoute" action="ConfirmBooking.html" method="post">
-         <input type="hidden" id ="tripRoutes" name="tripRoutes" value="1"  />
+         <c:forEach items="${tripRoutes}" var="tripRoutes">
+         <form:form id = "tripRoute" action="ConfirmBooking.html" method="post" >
+         <input type="hidden" id ="tripRoutes" name="tripRoutes" value="${tripRoutes.id}"  />
          <b><tr style="border-top-style: solid; border-top-width: 26px;">
-             <td width="20%"><i class="fa fa-bus" style="font-size:24px;color:black"></i><span style="padding-left:20px"><b>SRM transports</b></span></br><span style="padding-left:40px">Sleeper</span></br>
-             
+             <td width="20%"><i class="fa fa-bus" style="font-size:24px;color:black"></i><span style="padding-left:20px"><b><c:out value="${tripRoutes.trip.bus.travels.name}"/></b></span></br><span style="padding-left:40px"><c:out value="${tripRoutes.trip.bus.type}"/></span></br>
+             <c:if test="${tripRoutes.trip.bus.isAc}">
              <span style="padding-left:40px"> <b>AC</b></span>
-             
-             
+             </c:if>
+             <c:if test="${!tripRoutes.trip.bus.isAc}">
+             <span style="padding-left:40px"> <b>Non AC</b></span>
+             </c:if>
              </td>
-             <td id=""><i class="fa fa-clock-o" style="font-size:24px;color:black"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;19:00:00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;23:45:00</td>
-             <td><i class="material-icons" style="font-size:24px:color:black"></i><img height="30" width="20"  src="img/seat.png" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;50</td>
-             <td><i class="fa fa-inr" style="font-size:26px;color:black"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;490.0</td> 
+             <td id=""><i class="fa fa-clock-o" style="font-size:24px;color:black"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<c:out value="${tripRoutes.departureTime}"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<c:out value="${tripRoutes.arrivalTime}"/></td>
+             <td><i class="material-icons" style="font-size:24px:color:black"></i><img height="30" width="20"  src="img/seat.png" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<c:out value="${tripRoutes.trip.seatVacancy}"/></td>
+             <td><i class="fa fa-inr" style="font-size:26px;color:black"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<c:out value="${tripRoutes.price}"/></td> 
              <td><button class="button button2">Book</button></td>
              </tr></b>
-             </form>
-             
-         <form id="tripRoute" action="ConfirmBooking.html" method="post">
-         <input type="hidden" id ="tripRoutes" name="tripRoutes" value="7"  />
-         <b><tr style="border-top-style: solid; border-top-width: 26px;">
-             <td width="20%"><i class="fa fa-bus" style="font-size:24px;color:black"></i><span style="padding-left:20px"><b>Madurai Radha Travels</b></span></br><span style="padding-left:40px">Sleeper</span></br>
-             
-             <span style="padding-left:40px"> <b>AC</b></span>
-             
-             
-             </td>
-             <td id=""><i class="fa fa-clock-o" style="font-size:24px;color:black"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;07:30:00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11:45:00</td>
-             <td><i class="material-icons" style="font-size:24px:color:black"></i><img height="30" width="20"  src="img/seat.png" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;45</td>
-             <td><i class="fa fa-inr" style="font-size:26px;color:black"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;500.0</td> 
-             <td><button class="button button2">Book</button></td>
-             </tr></b>
-             </form>
-             
+             </form:form>
+             </c:forEach>
     </table>
-
+</c:if>
 <!-- Display No bus if no Triproute bus Available -->
-
+<c:if test="${empty tripRoutes}">
+    <div style="border-top-width: 200px; border-top-style: solid;">
+    <h1 style="color:black">Sorry!!! currently no Buses Available</h1>
+    </div>
+</c:if>
 </div>
 
 </body>
 </html>
-

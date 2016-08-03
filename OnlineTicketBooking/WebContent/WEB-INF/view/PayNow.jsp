@@ -92,7 +92,10 @@ background:blue;
 
     
 </style>
-
+  <script>
+  
+  
+  </script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
@@ -137,7 +140,8 @@ background:blue;
 
     
       
-    <div  id = "main" class = "body" style="border-top-width: 125px; border-top-style: solid; background-color : white;">
+    <div  id = "main" class = "body" style="border-top-width: 125px;background-color : white;padding-top: 180px;">
+          <center><h3>Ticket Confirmation</h3></center>
           <c:forEach items = "${tripRoute}" var = "tripRoute">
              <form id ="booking_info" action = "payment.html" method = "post"><br><br><br>
              	<table align = "center" style = "font-size:20px; font-family:Comic Sans MS;">
@@ -145,56 +149,51 @@ background:blue;
                    <td><c:out value="${tripRoute.trip.bus.travels.name}"/></td></tr>
                    <tr><td>Bus Type</td><td>
                    <c:out value="${tripRoute.trip.bus.type}"/></td></tr>
-                   <tr><td>AC/NON-AC</td><td>
+                   <tr><td>AC/Non-AC</td><td>
                    <c:if test="${tripRoute.trip.bus.isAc}">
                         AC
                    </c:if>
                    <c:if test="${!tripRoute.trip.bus.isAc}">
-                         NON-AC
+                         Non-AC
                    </c:if></td></tr>
                   <tr><td>Departure Time</td><td>                            
                   <c:out value="${tripRoute.departureTime}"/></td></tr>
                   <tr><td>Arrival Time</td><td>
                   <c:out value="${tripRoute.arrivalTime}"/></td></tr>
-                  <tr><td>Number Of Available Seats</td><td>
+                  <tr><td>Number of Available Seats</td><td>
                   <c:out value="${tripRoute.trip.seatVacancy}"/></td></tr>
-                  <tr><td>Cost for One Passenger:</td><td>
+                  <tr><td>Ticket Fair</td><td>
+                  <input type="hidden" id="unitprice" name="unitprice" value="${tripRoute.price}"/>
                   <c:out value="${tripRoute.price}"/></td></tr>
-                  <tr><td>Number of Passengers:</td><td><input type="number" name = "tickets" id="tickets"/></td></tr>
+                  <tr><td>Number of Passengers:</td><td><input type="number" name = "tickets" id="tickets" onclick="CalculateFare()"/></td></tr>
+                  <tr><td>
+                  <tr><td>Total Price:</td><td><p  name = "ticketprice" id="ticketprice"></p></td></tr>
                   <tr><td>
                   <tr><td>Select PaymentMode</td>
                   <td><select class="form-control"style="width:250Px" name="PaymentMode"  id="PaymentMode" >
                       <option >--Select PaymentMode--</option>
-                      <option><b>Credit Card</b></option>
-                      <option><b>Debit Card</b></option>
-                      <option><b>NetBanking</b></option>
+                      <option value="Credit Card"><b>Credit Card</b></option>
+                      <option value="Debit Card"><b>Debit Card</b></option>
+                      <option value="NetBanking"><b>NetBanking</b></option>
       </select></td></tr>
-                  <tr><td>
-                  <input id = "pay" type = "button" value = "Pay" onClick = "return show()" ></td><td><a href="SearchBus.html"><input type="button" value = "Cancel" name = "cancel"/> </a>
+                  <tr align="center" >
+                      <td align="center"><a href="SearchBus.html"><center><input type="button" value = "Cancel" name = "cancel"/></center> </a></td>
+                      <td align="center"><center><input id = "pay" type = "submit" value = "Confirm"  ></center></td>
+                   </tr>
                 </table><br><br>
-                </div>       
+                
+                </div> 
+                     
              </form>
           </c:forEach> 
           
     <script type="text/javascript">
-        function show() { 
-            document.getElementById("PayVisible").style.visibility = 'visible';
-        }
         
-        function showForm() { 
-            hide();
-            if (document.getElementById("credit").checked) {
-                document.getElementById("creditVisible").style.visibility = 'visible';
-            } else if (document.getElementById("debit").checked) {
-                document.getElementById("debitVisible").style.visibility = 'visible'; 
-            } else {
-                document.getElementById("netBankingVisible").style.visibility = 'visible'; 
-            }
-        }
-        function hide() { 
-            document.getElementById("creditVisible").style.visibility = 'hidden';
-            document.getElementById("debitVisible").style.visibility = 'hidden';
-            document.getElementById("netBankingVisible").style.visibility = 'hidden'; 
+        function CalculateFare(){
+        	var ticketCount = document.getElementById("tickets").value;
+        	var unitprice = document.getElementById("unitprice").value;
+        	var totalprice = ticketCount*unitprice;
+        	 document.getElementById("ticketprice").innerHTML = totalprice;
         }
     </script>
    </div>  
