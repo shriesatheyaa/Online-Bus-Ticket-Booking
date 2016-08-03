@@ -37,6 +37,9 @@ public class ApplicationController {
     @Autowired
     TripRouteService tripRouteService;
     
+    private User user = null;
+    
+    
     @RequestMapping(value = "/HomePage")
     public ModelAndView getHomePage() {
         return new ModelAndView("HomePage");
@@ -91,6 +94,9 @@ public class ApplicationController {
        System.out.println("Authenticate");
        System.out.println(userService);
        System.out.println(user);
+       
+       this.user = user;
+       
        if (user.getEmail() != "") {
            if (user.getPassword() != ""){
     		   boolean isValid;
@@ -114,10 +120,16 @@ public class ApplicationController {
         }
     }
    
-   @RequestMapping(value = "/SearchBus")
+   @RequestMapping(value = "/SearchBus", method = RequestMethod.POST)
    public ModelAndView getSearchForm() {
        return new ModelAndView("SearchBus");       
    }
+   
+   @RequestMapping(value = "/SearchBus", method = RequestMethod.GET)
+   public ModelAndView getSearchBusForm() {
+       return new ModelAndView("SearchBus");       
+   }
+   
 @RequestMapping(value = "/Search",method = RequestMethod.POST)
    public ModelAndView test(@RequestParam("source") String source,
 		                    @RequestParam("destination") String destination,@RequestParam("date") String date) {

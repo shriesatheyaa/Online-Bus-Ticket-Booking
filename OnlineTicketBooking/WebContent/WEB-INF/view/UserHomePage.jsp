@@ -21,11 +21,7 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css"> 
 </head>
-        <script type="text/javascript">
-	    window.onload = function() {
-	       alert("!!!Welcome to your Home Page !!!");
-	   	}
-	</script>
+
 <style>
  .body{
 background : url("img/bus1.jpg");
@@ -66,10 +62,10 @@ background : url("img/bus1.jpg");
                 <ul class="nav navbar-nav navbar-right">
                     <li class="hidden">
                         <a href="#page-top"></a>
-                    </li>
+                    </li> <form id = "user" method = "post">
                      <c:forEach items="${users}" var="user" >
-                     <input type = "hidden" value = "${user.id}"/>
-                     </c:forEach>
+                     <input type = "hidden" value = "${user.id}" id = "" />
+                     </c:forEach></form>
                     <li class="page-scroll">
                         <a href="HomePage.html">Log Out</a>
                     </li>
