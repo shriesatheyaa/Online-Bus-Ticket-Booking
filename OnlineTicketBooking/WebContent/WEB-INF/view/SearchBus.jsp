@@ -61,7 +61,9 @@
                         <li class="hidden">
                             <a href="#page-top"></a>
                         </li>
-                        
+                        <li class="page-scroll">
+                            <a href="logOut.html">Log Out</a>
+                        </li>
                         <li class="page-scroll">
                             <a href="UserHomePage.html">Back</a>
                         </li>                    
