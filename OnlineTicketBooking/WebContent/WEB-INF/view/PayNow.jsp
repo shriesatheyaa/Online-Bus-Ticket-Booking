@@ -176,7 +176,7 @@ background:blue;
                       <option value="Credit Card"><b>Credit Card</b></option>
                       <option value="Debit Card"><b>Debit Card</b></option>
                       <option value="Net Banking"><b>Net Banking</b></option>
-      </select></td></tr>
+                      </select></td></tr>
                   <tr align="center" >
                       <td align="center"><a href="SearchBus.html"><center><input type="button" value = "Cancel" name = "cancel"/></center> </a></td>
                       <td align="center"><center><input id = "pay" type = "submit" value = "Confirm"  ></center></td>
@@ -191,7 +191,7 @@ background:blue;
           
     <script type="text/javascript">
         
-        function CalculateFare(){
+        function CalculateFare() {
         	var ticketCount = document.getElementById("noOfSeatsBooked").value;
         	var unitprice = document.getElementById("unitprice").value;
         	
@@ -202,20 +202,20 @@ background:blue;
         	}
         	
         }
-        function formValidation(){
+        function formValidation() {
         	var numberOfPassengers = document.getElementById("noOfSeatsBooked").value;
         	var paymentMode =  document.getElementById("paymentMode").value;
         	var seatVacancy = document.getElementById("seatVacancy").value;
 
-        	if(numberOfPassengers == '0'){
+        	if (numberOfPassengers == '0') {
         		alert("Please!! mention number of passengers");
         		return false;
         	}
-        	else if(paymentMode == "--Select PaymentMode--"){
+        	else if (paymentMode == "--Select PaymentMode--") {
         		alert("Please!! Select mode of payment");
         		return false;
         	}
-        	else if(numberOfPassengers > seatVacancy){
+        	else if (numberOfPassengers > seatVacancy) {
         		alert("sorry!!!we don't have enough seats");
         		return false;
         	}

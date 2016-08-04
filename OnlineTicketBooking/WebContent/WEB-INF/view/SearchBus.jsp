@@ -69,6 +69,10 @@
                     </li>
                     
                     <li class="page-scroll">
+                        <a href="logOut.html">Log Out</a>
+                    </li>
+                    
+                    <li class="page-scroll">
 
                       <p>  <a href="UserHomePage.html">Back</a></p>
 
