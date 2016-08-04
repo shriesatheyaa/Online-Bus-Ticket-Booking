@@ -30,6 +30,7 @@ public class ReservationService {
 	public void addReservation (User user, TripRoute tripRoute, int noOfSeatsBooked, double totalPrice, String paymentMode, boolean status) throws DatabaseException {
 		Reservation reservation = new Reservation(user, tripRoute, noOfSeatsBooked, totalPrice, paymentMode, status);
 		reservationDao.insertReservation(reservation);
+		
 	}
 	
 }
