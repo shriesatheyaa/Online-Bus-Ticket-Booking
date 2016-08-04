@@ -202,8 +202,12 @@ public class ApplicationController {
 		   status = true;
 		   try {
 			   reservationService.addReservation(user, tripRoute, noOfSeatsBooked, totalPrice, paymentMode, status);
-
-               return new ModelAndView("PaymentSuccess");
+			   try {
+			       tripService.modifySeatVacancy(noOfSeatsBooked, tripRoute.getTrip());
+			   } catch (DatabaseException e) {
+				   return new ModelAndView("ExceptionPage");
+			   }
+			   return new ModelAndView("PaymentSuccess");
 		   } catch (DatabaseException e) {
 			   return new ModelAndView("ExceptionPage");
 			   //GenericService.exceptionWriter(e);
