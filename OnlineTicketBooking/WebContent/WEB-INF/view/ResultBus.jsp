@@ -94,11 +94,11 @@ th {
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="logOut.html">Log Out</a>
+                        <a href="logOut.html" style = " font-size:large;">Log Out</a>
                     </li>
                     
                     <li class="page-scroll">
-                      <a href="SearchBus.html">Back</a>
+                      <a href="SearchBus.html" style = " font-size:large;">Back</a>
                     </li>
                     
                 </ul>

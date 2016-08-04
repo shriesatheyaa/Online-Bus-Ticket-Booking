@@ -62,11 +62,11 @@ background : url("img/bus1.jpg");
                     <li class="hidden">
                         <a href="#page-top"></a>
                     <li class="page-scroll">
-                        <a href="logOut.html">Log Out</a>
+                        <a href="logOut.html" style = " font-size:large;">Log Out</a>
                     </li>
                     
                     <li class="page-scroll">
-                        <a href="searchBusPage.html">Search Bus</a>
+                        <a href="searchBusPage.html" style = " font-size:large;">Search Bus</a>
                     </li>
                 </ul></form>
             </div>

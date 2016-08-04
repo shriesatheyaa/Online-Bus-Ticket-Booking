@@ -62,10 +62,10 @@
                             <a href="#page-top"></a>
                         </li>
                         <li class="page-scroll">
-                            <a href="loginPage.html">Login</a>
+                            <a href="loginPage.html" style = " font-size:large;">Login</a>
                         </li>
                         <li class="page-scroll">
-                            <a href="registerPage.html">SignUp</a>
+                            <a href="registerPage.html" style = " font-size:large;" >SignUp</a>
                         </li>
                     </ul>
                 </div>

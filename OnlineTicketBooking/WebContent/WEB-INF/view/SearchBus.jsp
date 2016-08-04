@@ -69,13 +69,11 @@
                     </li>
                     
                     <li class="page-scroll">
-                        <a href="logOut.html">Log Out</a>
+                        <a href="logOut.html" style = " font-size:large;">Log Out</a>
                     </li>
                     
                     <li class="page-scroll">
-
-                      <p>  <a href="UserHomePage.html">Back</a></p>
-
+                      <a href="UserHomePage.html" style = "text-decoration : none; font-size:large;"  >Back</a>
                     </li>
                     
                 </ul>
@@ -119,17 +117,18 @@ Online Bus Ticket Booking With Zero Booking Fee!!!!</h2>
       </select>
             </div>
         </td>
-       
-    
-    </tr>
-     
-    
+    </tr>    
     </table>
-     <p style="position:absolute;left:2Px;top:250px;margin-bottom: 2cm;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pick a Date
-     <input name="date" id="date"  onchange="dateofTavel()" style="position:absolute;left:2Px;color:black" type="text"  /></p>
-     </p>
+    
+    <table style="margin-bottom: 2cm;">
+    <tr><td>
+     <p style="color : white">Pick a Date</p></td></tr>
+     <tr><td>
+     <input name="date" id="date"  onchange="dateofTavel()" style="left:2Px;color:black" type="text"  /></p>
+     </td>
+     <td style = "padding : 10px" > <button style="left:2Px;top:380px;" type="submit" class="btn btn-danger" >Select My Trip</button> </td>
+     </tr></table>
      
-     <button style="position:absolute;left:2Px;top:380px;" type="submit" class="btn btn-danger" >Select My Trip</button>
      <script>
   $(document).ready(
   

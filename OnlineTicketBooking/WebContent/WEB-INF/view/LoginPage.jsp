@@ -16,8 +16,7 @@
     </head>
     <style>
         .body {
-            background : url("img/back.jpg");
-            height : 150px;
+            background-color : black;
         }
     </style>
 
@@ -47,10 +46,10 @@
                             <a href="#page-top"></a>
                         </li>
                         <li class="page-scroll">
-                            <a href="loginPage.html">Login</a>
+                            <a href="loginPage.html" style = " font-size:large;">Login</a>
                         </li>
                         <li class="page-scroll">
-                            <a href="registerPage.html">SignUp</a>
+                            <a href="registerPage.html" style = " font-size:large;">SignUp</a>
                         </li>
                     </ul>
                 </div>
@@ -80,28 +79,32 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </center>
             </h1>
-            <h1>
+            <h1 style = "color : white;">
                 <center>LOGIN</center>
             </h1>
             <form id="user" action="authenticate.html" method="post" onsubmit = "return validate()">
                 &nbsp;&nbsp;&nbsp;&nbsp;<br><br>
-                <div class="form-group col-lg-12 col-xs-4 ">
+                <div class="form-group col-lg-12 col-xs-12 ">
                   <center>
-                      <input id="email" name="email" style="padding-right: 95px; padding-left: 106px;
-                          margin-left: 12px;" placeholder="Enter Email - Id" 
-                              type="email" value="" autocomplete="off"/>
+                      <input style = "height:50px; width : 450px; padding :12px 20px;
+                       border-radius : 8px; font-size: 16px; " id="email" name="email" style="padding-right: 95px;
+                       padding-left: 106px;
+                       margin-left: 12px;" placeholder="Enter Email - Id" 
+                       type="email" value="" autocomplete="off"/>
                   </center>
                 </div>
                 <br><br><br><br>
-                <div class="form-group col-lg-12 col-xs-4">
+                <div class="form-group col-lg-12 col-xs-12">
                     <center>
-                        <input id="password" name="password" style="padding-right: 95px; padding-left: 106px; 
-                            margin-left: 12px;" placeholder ="Enter Password" type="password" 
-                                value="" autocomplete="off"/>
+                        <input style = "height:50px; width : 450px; padding :12px 20px; 
+                        border-radius : 8px; font-size: 16px; "
+                        id="password" name="password"
+                        placeholder ="Enter Password" type="password" 
+                        value="" autocomplete="off"/>
                     </center>
                 </div>
                 <br><br><br><br>
-                <button type="submit" style="margin-left: 458px;" class="btn btn-success col-lg-4">LET ME IN</button>
+                <button type="submit" style="border-radius : 8px; margin-left: 458px; height:50px; width : 450px  font-size: 16px; " class="btn btn-success col-lg-4">LET ME IN</button>
                 <br><br><br><br><br><br><br><br><br><br><br><br>
                 <script>              
                     function validate() {

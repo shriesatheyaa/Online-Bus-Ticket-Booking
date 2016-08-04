@@ -20,9 +20,9 @@
                 rel="stylesheet" type="text/css">  
     </head>
     <style>
-        .body{
-            background : url("img/back.jpg");
-         }
+        .body {
+            background-color : black;
+        }
     </style>
 
     <body id="page-top" >
@@ -54,10 +54,10 @@
                             <a href="#page-top"></a>
                         </li>
                         <li class="page-scroll">
-                            <a href="loginPage.html">Login</a>
+                            <a href="loginPage.html" style = " font-size:large;">Login</a>
                         </li>
                         <li class="page-scroll">
-                            <a href="registerPage.html">SignUp</a>
+                            <a href="registerPage.html" style = " font-size:large;">SignUp</a>
                         </li>
                     </ul>
                 </div>
@@ -86,7 +86,7 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </center>
             </h1>
-            <h1>
+            <h1 style = "color : white;" >
                 <center>SIGN UP</center>
             </h1>
           
@@ -94,44 +94,44 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;<br><br>
                 <div class="form-group col-lg-12 col-xs-4 ">
                     <center>
-                        <input id="name" name="name" style="padding-right: 95px; padding-left: 106px; 
-                            margin-left: 12px;" placeholder="Enter Your Name" type="text" 
+                        <input id="name" name="name" style = "height:50px; width : 450px; padding :12px 20px; 
+                        border-radius : 8px; font-size: 16px; " placeholder="Enter Your Name" type="text" 
                                 value="" autocomplete="off"/>
                     </center>
                 </div><br><br><br><br>
                 <div class="form-group col-lg-12 col-xs-4 ">
                     <center>
-                        <input id="email" name="email" style="padding-right: 95px; padding-left: 106px;
-                            margin-left: 12px;" placeholder="Enter Your Email" type="email" 
+                        <input id="email" name="email" style = "height:50px; width : 450px; padding :12px 20px; 
+                        border-radius : 8px; font-size: 16px; " placeholder="Enter Your Email" type="email" 
                                 value="" autocomplete="off"/>
                     </center>
                 </div>
                 <br><br><br><br>
                 <div class="form-group col-lg-12 col-xs-4 ">
                     <center>
-                        <input id="mobileNumber" name="mobileNumber" style="padding-right: 95px;
-                            padding-left: 106px; margin-left: 12px;" placeholder="Enter Your Mobile Number"
+                        <input id="mobileNumber" name="mobileNumber" style = "height:50px; width : 450px; padding :12px 20px; 
+                        border-radius : 8px; font-size: 16px; " placeholder="Enter Your Mobile Number"
                                 type="int" value="0" autocomplete="off"/>
                     </center>
                 </div>
                 <br><br><br><br>
                 <div class="form-group col-lg-12 col-xs-4">
                     <center>
-                        <input id="password" name="password" style="padding-right: 95px; 
-                            padding-left: 106px; margin-left: 12px;" placeholder="Enter Your Password"
+                        <input id="password" name="password" style = "height:50px; width : 450px; padding :12px 20px; 
+                        border-radius : 8px; font-size: 16px; " placeholder="Enter Your Password"
                                 type="password" value="" autocomplete="off"/>
                     </center>
                 </div>
                 <br><br><br><br>
                 <div class="form-group col-lg-12 col-xs-4 ">
                     <center>
-                        <input id="repeatPassword" name="repeatPassword" style="padding-right: 95px;
-                            padding-left: 106px; margin-left: 12px;" placeholder="Repeat Your Password"
+                        <input id="repeatPassword" name="repeatPassword" style = "height:50px; width : 450px; padding :12px 20px; 
+                        border-radius : 8px; font-size: 16px; " placeholder="Repeat Your Password"
                                 type="password" value="" autocomplete="off"/>
                     </center>
                 </div>
                 <br><br><br><br>
-                <button type="sumbit" style="margin-left: 458px;" class="btn btn-success col-lg-4" >
+                <button type="sumbit" style="border-radius : 8px; margin-left: 458px; height:50px; width : 450px  font-size: 16px; " class="btn btn-success col-lg-4" >
                     GET STARTED
                 </button>
                 <br><br><br><br><br><br><br>
