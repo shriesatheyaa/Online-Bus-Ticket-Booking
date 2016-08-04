@@ -203,7 +203,7 @@ background:blue;
         	
         }
         function formValidation() {
-        	var numberOfPassengers = document.getElementById("noOfSeatsBooked").value;
+        	var numberOfPassengers = Number(document.getElementById("noOfSeatsBooked").value);
         	var paymentMode =  document.getElementById("paymentMode").value;
         	var seatVacancy = document.getElementById("seatVacancy").value;
 

@@ -121,7 +121,7 @@ public class ApplicationController {
 		       return new ModelAndView("ReLogin");
 		   }
 	   } catch (DatabaseException e) {
-           GenericService.exceptionWriter(e);
+           //GenericService.exceptionWriter(e);
            return new ModelAndView("ExceptionPage");
 	   }
    }

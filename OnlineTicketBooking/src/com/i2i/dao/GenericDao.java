@@ -102,9 +102,9 @@ public class GenericDao {
         if (null == factory) {
             throw new DatabaseException(" Could not Proceed : No SessionFactory Object !! ");
         } 
-        try {
+        try {System.out.println("Session Created");
             return factory.openSession();
-        } catch (HibernateException e) {
+        } catch (HibernateException e) {System.out.println("Session NOT Created");
             throw new DatabaseException(" Could not Proceed : No Session Object created !!",e);
         }
     }
