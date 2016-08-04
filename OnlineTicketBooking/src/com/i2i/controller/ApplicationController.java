@@ -27,6 +27,7 @@ import com.i2i.service.GenericService;
 import com.i2i.service.ReservationService;
 import com.i2i.service.RouteService;
 import com.i2i.service.TripRouteService;
+import com.i2i.service.TripService;
 import com.i2i.service.UserService;
 @Controller
 public class ApplicationController {
@@ -42,6 +43,8 @@ public class ApplicationController {
     @Autowired 
     ReservationService reservationService;
     
+    @Autowired
+    TripService tripService;
   
     private User user = null;
     private TripRoute tripRoute = null;
@@ -199,6 +202,11 @@ public class ApplicationController {
 		   status = true;
 		   try {
 			   reservationService.addReservation(user, tripRoute, noOfSeatsBooked, totalPrice, paymentMode, status);
+			   try {
+			       tripService.modifySeatVacancy(noOfSeatsBooked, tripRoute.getTrip());
+			   } catch (DatabaseException e) {
+				   return new ModelAndView("ExceptionPage");
+			   }
 			   return new ModelAndView("PaymentSuccess");
 		   } catch (DatabaseException e) {
 			   return new ModelAndView("ExceptionPage");
