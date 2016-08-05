@@ -57,7 +57,7 @@ public class ApplicationController {
     
     @RequestMapping(value = "/logOut")
     public ModelAndView getLogOutPage() {
-    	user = null;
+    	this.user = null;
         return new ModelAndView("HomePage");
     }
     

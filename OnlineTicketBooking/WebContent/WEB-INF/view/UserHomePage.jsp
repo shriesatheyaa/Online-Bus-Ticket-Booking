@@ -30,7 +30,10 @@
                 display: none;
             }
         }
+        a:hover{ background-color: #18BC9C;
+        }
     </style>
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <body id="page-top" >
@@ -60,18 +63,21 @@
                             <li class="hidden">
                                 <a href="#page-top"></a>
                             </li>
+                            <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" style = " font-size:large;" "href="#">Hi ${user.name} !!
+                            <span></span></a>
+                            <ul class="dropdown-menu">
+                            <li><a href="#" style = " font-size:large;color:black">My Profile</a></li>
+                           <li><a href="#" style = " font-size:large;color:black">Logout</a></li>
+                           </ul>
                                                        
-                            <li class="page-scroll">
-                                <a href="#page-top" style = " font-size:large;">Hi ${user.name} !!</a>
-                            </li>
+                            
 
                             <li class="page-scroll">
                                 <a href="searchBusPage.html" style = " font-size:large;">Search Bus</a>
                             </li>
                             
-                            <li class="page-scroll">
-                                <a href="logOut.html" style = " font-size:large;">Log Out</a>
-                            </li>
+                            
                         </ul>
                     </form>
                 </div>
