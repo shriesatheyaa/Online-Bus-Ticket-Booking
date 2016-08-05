@@ -27,10 +27,10 @@ public class ReservationService {
      * @throws DatabaseException 
      *     If there is any interruption occurred in the database.
 	 */
-	public void addReservation (User user, TripRoute tripRoute, int noOfSeatsBooked, double totalPrice, String paymentMode, boolean status) throws DatabaseException {
+	public Reservation addReservation (User user, TripRoute tripRoute, int noOfSeatsBooked, double totalPrice, String paymentMode, boolean status) throws DatabaseException {
 		Reservation reservation = new Reservation(user, tripRoute, noOfSeatsBooked, totalPrice, paymentMode, status);
 		reservationDao.insertReservation(reservation);
-		
+		return reservation;
 	}
 	
 }

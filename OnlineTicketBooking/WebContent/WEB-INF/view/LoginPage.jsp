@@ -44,7 +44,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li class="hidden">
                             <a href="#page-top"></a>
-                        </li>
+                        </li>                        
                         <li class="page-scroll">
                             <a href="loginPage.html" style = " font-size:large;">Login</a>
                         </li>
@@ -116,7 +116,7 @@
                         } else if (password == ""){
                             alert("Password Should not be left blank!!!");
                             return false;
-                        }      
+                        }
                     }  
                 </script>
             </form>

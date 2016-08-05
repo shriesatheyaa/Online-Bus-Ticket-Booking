@@ -102,7 +102,7 @@ public class ApplicationController {
     }
    
     
-   @RequestMapping("/authenticate")
+   @RequestMapping(value = "/authenticate") 
    public ModelAndView authenticateUser(@ModelAttribute("user") User user, BindingResult result) {
        
 	   boolean isValid;
@@ -114,9 +114,9 @@ public class ApplicationController {
 	     	   for (User foundUser : users) {
 	     		   this.user = foundUser;
 	     	   }
-	     	   /*Map<String,User> model = new HashMap<String,User>();
-	     	   model.put("user", user);*/
-	           return new ModelAndView("UserHomePage");
+	     	   Map<String,User> model = new HashMap<String,User>();
+	     	   model.put("user",this. user);
+	           return new ModelAndView("UserHomePage",model);
 		   } else {
 		       return new ModelAndView("ReLogin");
 		   }
@@ -201,13 +201,15 @@ public class ApplicationController {
 	   } else {
 		   status = true;
 		   try {
-			   reservationService.addReservation(user, tripRoute, noOfSeatsBooked, totalPrice, paymentMode, status);
+			   Reservation reservation = reservationService.addReservation(user, tripRoute, noOfSeatsBooked, totalPrice, paymentMode, status);
 			   try {
 			       tripService.modifySeatVacancy(noOfSeatsBooked, tripRoute.getTrip());
 			   } catch (DatabaseException e) {
 				   return new ModelAndView("ExceptionPage");
 			   }
-			   return new ModelAndView("PaymentSuccess");
+			   Map<String,Reservation> model = new HashMap<String,Reservation>();
+	     	   model.put("reservation",reservation);
+			   return new ModelAndView("PaymentSuccess", model);
 		   } catch (DatabaseException e) {
 			   return new ModelAndView("ExceptionPage");
 			   //GenericService.exceptionWriter(e);

@@ -23,7 +23,7 @@
 </head>
 <style>
  .body{
-background : url("img/bus1.jpg");
+      background-color : black;
  }
   .carousel-inner img {
       width: 100%; /* Set width to 100% */
@@ -73,69 +73,54 @@ background : url("img/bus1.jpg");
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container-fluid -->
-    </nav>
-        <script type="text/javascript">
-            window.onload = function() {
-                alert("!!!Your Ticket is confirmed !!!");
-        	}
-        </script>
+    </nav>     
+    <div  id = "main" class = "body" style="border-top-width: 125px;background-color : 	#FFE4C4;padding-top: 180px;">
+         <center><h3 style = "color : black;">Hai ${reservation.user.name} ... Here is your Ticket</h3></center><br>           	
+             <table class = "table table-striped" align = "center" style = "font-size:20px; font-family:Comic Sans MS; width:75%;">
+             	<tr><td>Travels</td>
+                   <td>${reservation.tripRoute.trip.bus.travels.name}</td></tr>
+                   <tr><td>Bus Number</td>
+                   <td>${reservation.tripRoute.trip.bus.registrationNumber}</td></tr>
+                   <tr><td>Bus Type</td><td>
+                   ${reservation.tripRoute.trip.bus.type}</td></tr>
+                   <tr><td>AC/Non-AC</td><td>
+                   <c:if test="${reservation.tripRoute.trip.bus.isAc}">
+                        AC
+                   </c:if>
+                   <c:if test="${!reservation.tripRoute.trip.bus.isAc}">
+                         Non-AC
+                   </c:if></td></tr>
+                   <tr><td>Source </td>
+                   <td>${reservation.tripRoute.route.sourceCity.name}</td></tr>
+                   <tr><td>Destination </td>
+                   <td>${reservation.tripRoute.route.destinationCity.name}</td></tr>
+                   <tr><td>Date Of Travel </td>
+                   <td>${reservation.tripRoute.dateOfTravel}</td></tr>
+                  <tr><td>Departure Time</td><td>                            
+                  ${reservation.tripRoute.departureTime}</td></tr>
+                  <tr><td>Arrival Time</td><td>
+                  ${reservation.tripRoute.arrivalTime}</td></tr>
+                  <tr><td>Number of Seats Booked:</td><td>
+                  ${reservation.noOfSeatsBooked}
+                  </td></tr>
+                  <tr><td>Ticket Fare for one passenger</td><td>
+                  ${reservation.tripRoute.price}</td></tr>
+                  <tr><td>Total Price:</td><td>${reservation.totalPrice}</td></tr>
+                  <tr><td>PaymentMode</td>
+                  <td>Your payment is done through ${reservation.paymentMode} </td></tr>
+                </table><br><center>
+                <input type = "button" value = "Mail Ticket" onclick = "show()"/></center>
+                <center>
+                <h4 style = "color = black;"> Note :</h4></center><center>
+                <p> Come 15 mins prior to your departure time</p></center><center>
+                <h3>!!! Have A Safe Journey dear ${reservation.user.name} !!!</h3></center>
 
-    <!-- Header -->
-    <header>
-      
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <img class="img-responsive" src="img/load.gif" alt="">
-                    <div class="intro-text" style="
-                                                   height: 100px;
-                                                   padding-bottom: 8px;
-                                                   padding-top: 0px;
-                                                  ">
-                        <span class="name">Start Journey</span>
-                        <hr class="star-light">
-                        <span class="skills">Welcome -Experience Travel Together</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-
-    </ol>
-
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox">
-      <div class="item active">
-        <img src="img/slide5.jpg" alt="Image">
-      </div>
-
-      <div class="item">
-        <img src="img/slide2.jpg" alt="Image">
-      </div>
-      
-      <div class="item">
-        <img src="img/slide6.jpg" alt="Image">
-      </div>
-
-    </div>
-
-    <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-    </div>
-</div>
+     </div> 
+                 <script>              
+                    function show() {
+                        alert("Your ticket has been sent tou your registered mobile number and to your registered Mail");
+                    } 
+                </script>
 </body>
 </html>
 

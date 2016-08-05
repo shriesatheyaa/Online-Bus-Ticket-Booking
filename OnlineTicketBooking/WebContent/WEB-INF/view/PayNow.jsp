@@ -141,7 +141,7 @@ background:blue;
     
       
     <div  id = "main" class = "body" style="border-top-width: 125px;background-color : white;padding-top: 180px;">
-          <center><h3>Ticket Confirmation</h3></center>
+          <center><h3>!!! Book Your Ticket Now !!!</h3></center>
           <c:forEach items = "${tripRoute}" var = "tripRoute">
              <form id ="booking_info" action = "payment.html"  onsubmit="return formValidation()" method = "post"><br><br><br>
              	<table align = "center" style = "font-size:20px; font-family:Comic Sans MS;">

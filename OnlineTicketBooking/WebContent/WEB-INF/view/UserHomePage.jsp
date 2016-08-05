@@ -50,7 +50,7 @@
                     </a>
                     <a class="navbar-brand" href="#page-top" style = "color:white; 
                         font-size:40px; font-family:Comic Sans MS;">&nbsp;
-                        BUS STOP
+                        BUS STOP 
                     </a>                     
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -60,11 +60,17 @@
                             <li class="hidden">
                                 <a href="#page-top"></a>
                             </li>
+                                                       
                             <li class="page-scroll">
-                                <a href="logOut.html" style = " font-size:large;">Log Out</a>
+                                <a href="#page-top" style = " font-size:large;">Hi ${user.name} !!</a>
                             </li>
+
                             <li class="page-scroll">
                                 <a href="searchBusPage.html" style = " font-size:large;">Search Bus</a>
+                            </li>
+                            
+                            <li class="page-scroll">
+                                <a href="logOut.html" style = " font-size:large;">Log Out</a>
                             </li>
                         </ul>
                     </form>
