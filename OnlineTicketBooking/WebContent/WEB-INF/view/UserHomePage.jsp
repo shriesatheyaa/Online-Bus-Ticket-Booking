@@ -71,7 +71,9 @@
                            <li><a href="#" style = " font-size:large;color:black">Logout</a></li>
                            </ul>
                                                        
-                            
+                            <li class="page-scroll">
+                                <a href="MyProfile.html" style = " font-size:large;">Hi ${user.name} !!</a>
+                            </li>
 
                             <li class="page-scroll">
                                 <a href="searchBusPage.html" style = " font-size:large;">Search Bus</a>

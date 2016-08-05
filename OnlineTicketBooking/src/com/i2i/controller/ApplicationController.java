@@ -61,6 +61,13 @@ public class ApplicationController {
         return new ModelAndView("HomePage");
     }
     
+    @RequestMapping(value = "/MyProfile")
+    public ModelAndView getProfilePage() {
+    	Map<String,User> model = new HashMap<String,User>();
+  	    model.put("user",this.user);System.out.println("MY USER IS :"+user);
+        return new ModelAndView("MyProfile",model);
+    }
+    
     @RequestMapping(value = "/registerPage")
     public ModelAndView getRegisterForm() {
         return new ModelAndView("RegisterPage");
@@ -92,6 +99,18 @@ public class ApplicationController {
    
     @RequestMapping("/saveUser")
     public ModelAndView saveUserData(@ModelAttribute("user") User user, BindingResult result) {
+        try {
+			userService.addUser(user);
+	        return new ModelAndView("LoginPage");
+		} catch (DatabaseException e) {
+			GenericService.exceptionWriter(e);
+			return new ModelAndView("ExceptionPage");
+		}
+    }
+    
+    @RequestMapping("/updateUser")
+    public ModelAndView updateUserData(@RequestParam("email") String email,
+            @RequestParam("mobileNumber") long mobileNumber,@RequestParam("password") String password) {
         try {
 			userService.addUser(user);
 	        return new ModelAndView("LoginPage");
