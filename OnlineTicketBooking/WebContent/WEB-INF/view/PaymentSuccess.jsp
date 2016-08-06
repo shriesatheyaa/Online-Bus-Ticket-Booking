@@ -61,9 +61,12 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li class="hidden">
                         <a href="#page-top"></a>
-                    <li class="page-scroll">
-                        <a href="logOut.html" style = " font-size:large;">Log Out</a>
-                    </li>
+                            <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" style = " font-size:large;" "href="#">Hi ${sessionObj.name} !!
+                            <span></span></a>
+                            <ul class="dropdown-menu">
+                           <li><a href="logOut.html" style = " font-size:large;color:black">Logout</a></li>
+                           </ul>
                     
                     <li class="page-scroll">
                         <a href="searchBusPage.html" style = " font-size:large;">Search Bus</a>
@@ -118,7 +121,7 @@
      </div> 
                  <script>              
                     function show() {
-                        alert("Your ticket has been sent tou your registered mobile number and to your registered Mail");
+                        alert("Your ticket has been sent tou your registered mobile number and mail-id");
                     } 
                 </script>
 </body>

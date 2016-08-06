@@ -9,7 +9,7 @@ import com.i2i.exception.DatabaseException;
 import com.i2i.model.Trip;
 
 /**
- * <p>Dao which permits all tasks related to Trip related database tasks using Hibernate.
+ * <p>Dao which permits all tasks related to Trip.
  * </p>
  * @author Shrie Satheyaa
  * @created 2016-08-03
@@ -18,26 +18,28 @@ import com.i2i.model.Trip;
 public class TripDao extends GenericDao {
     
 	/**
-     * <p>
-     * Updates Trip details in the database.
-     * </p>
+     * Updates a Trip object in the record.
      *
      * @param trip 
-     *     Trip object that is to be updated in the database. 
+     *    Trip object which is to be updated
+     *
+     * @return Trip
+     *     Trip object after updation 
      *     
      * @throws DatabaseException 
      *     If there is any interruption occurred in the database.
      */
-	public void updateTrip(Trip trip) throws DatabaseException{
+	public Trip updateTrip(Trip trip) throws DatabaseException{
         Session session = createSession();
         Transaction transaction = null;
         try{
             transaction = session.beginTransaction();
             session.update(trip);
             transaction.commit();
+            return trip;
         } catch (HibernateException e) {
             throw new DatabaseException("Some problem occured while updating trip with id: " + trip.getId() +
-            		                    " records", e);
+            		                   " records", e);
         } 
 	}
 }

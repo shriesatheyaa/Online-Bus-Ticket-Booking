@@ -16,7 +16,7 @@ import com.i2i.exception.DatabaseException;
 
  * @created 2016-07-08
  */
-public class GenericService /*extends com.i2i.dao.GenericDao */ {
+public class GenericService {
 
     private static BufferedWriter bufferedWriter =null;
     private static PrintWriter printWriter;
@@ -32,7 +32,7 @@ public class GenericService /*extends com.i2i.dao.GenericDao */ {
      * Writes the exception stack trace to the log file.
      *
      * @param e
-     *    object of the Exception thrown
+     *    Exception Object which is to be written into the log file.
      */
     public static void exceptionWriter(Exception e) {
     	try {

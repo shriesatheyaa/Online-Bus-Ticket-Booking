@@ -15,7 +15,7 @@ import com.i2i.exception.DatabaseException;
 import com.i2i.model.Route;
 
 /**
- * <p>Dao which permits all tasks related to Route related database tasks using Hibernate.
+ * <p>Dao which permits all tasks related to Route.
  * </p>
  * @author Shrie Satheyaa
  * @created 2016-08-01
@@ -29,13 +29,13 @@ public class RouteDao extends GenericDao {
      * </p>
      *
      * @param sourceCityName 
-     *     Name of the source city of the route which is to be retrieved. 
+     *     Source city of the route which is to be retrieved. 
      * 
      * @param destinationCityName 
-     *     Name of the destination city of the route which is to be retrieved. 
+     *     Destination city of the route which is to be retrieved. 
      *     
      * @throws DatabaseException 
-     *     If there is any interruption occurred in the database.
+     *     If there is any interruption occurred in the database while retrieving the record.
      */
 	public List<Route> retrieveRoute (String sourceCityName, String destinationCityName) throws DatabaseException {
 		Route route = null;

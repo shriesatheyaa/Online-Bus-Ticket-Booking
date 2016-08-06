@@ -21,13 +21,13 @@ public class RouteService {
 	RouteDao routeDao;
 	
 	/*
-	 * <p>Gets a specific Route record for given Source city and Destination city.
+	 * <p>Retrieves a specific Route record for given Source city and Destination city.
 	 * </p>
 	 * @param sourceCityName 
-     *     Name of the source city of the route which is to be retrieved. 
+     *     Source city of the route which is to be retrieved. 
      * 
      * @param destinationCityName 
-     *     Name of the destination city of the route which is to be retrieved. 
+     *     Destination city of the route which is to be retrieved. 
      *     
      * @throws DatabaseException 
      *     If there is any interruption occurred in the database.

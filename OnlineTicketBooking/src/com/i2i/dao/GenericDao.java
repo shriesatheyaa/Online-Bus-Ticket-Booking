@@ -58,8 +58,8 @@ public class GenericDao {
         } 
         try {
             factory.close();
-        } catch (HibernateException ex) {
-            throw new DatabaseException("Failed to close sessionFactory object", ex); 
+        } catch (HibernateException e) {
+            throw new DatabaseException("Failed to close sessionFactory object", e); 
         }
     }
     

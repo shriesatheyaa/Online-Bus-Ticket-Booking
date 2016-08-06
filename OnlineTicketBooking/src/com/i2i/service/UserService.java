@@ -13,7 +13,7 @@ import com.i2i.model.User;
 /**
  * <h1> UserService </h1>
  * <p>  
- * service which permits to perform all the User operations
+ * service which permits to perform the User operations
  * </p>
  *
  * @author Sivaranjani
@@ -28,13 +28,13 @@ public class UserService {
 	UserDao userDao;
 	
 	/**
-     * <p>Adds an User object in the record.</p>
+     * <p>Adds an User object into the database.</p>
      *
      * @param user 
-     *    Object of the User to be added
+     *    User Object to be added
      *
      * @throws DatabaseException 
-     *    If there is any failure in adding the user object.
+     *    If there is any interruption occurred in adding the user object.
      */
 	public void addUser(User user) throws DatabaseException {
 		Date createdAt = new Date();
@@ -44,20 +44,23 @@ public class UserService {
 	}
 	
 	/**
-     * <p>Adds an User object in the record.</p>
+     * <p>Authenticates the user by comparing their mail-id and password</p>
      *
-     * @param user 
-     *    Object of the User to be added
+     * @param email 
+     *    Mail-Id given by the user
+     *    
+     * @param password
+     *    Password given by the user
      *
      * @throws DatabaseException 
-     *    If there is any failure in adding the user object.
+     *    If there is any interruption occurred while validating the user.
      */
 	public boolean isValid(String email, String password) throws DatabaseException{
 		return userDao.authenticateUser(email, password);
 	}
 	
 	/**
-     * <p>Gets an User object for the given mail id from the record.</p>
+     * <p>Returns the user object when the given mail-id matches the mail-id in the database</p>
      *
      * @param email 
      *    Mail id of the User to be found
@@ -66,7 +69,7 @@ public class UserService {
      *    List of User objects found
      *    
      * @throws DatabaseException 
-     *    If there is any failure in getting the user object.
+     *    If there is any interruption occurred while retrieving the user from the database.
      */
 	public List<User> getUserByMailId(String email) throws DatabaseException {
 		List<User> users = null;
@@ -77,9 +80,4 @@ public class UserService {
 		}
 		return users;
 	}
-	
-	public void modifyUser(User user) {
-		userDao.updateUser(user);
-	}
-	
 }

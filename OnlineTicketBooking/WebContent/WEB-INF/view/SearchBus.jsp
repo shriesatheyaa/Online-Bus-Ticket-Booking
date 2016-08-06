@@ -68,9 +68,12 @@
                         <a href="#page-top"></a>
                     </li>
                     
-                    <li class="page-scroll">
-                        <a href="logOut.html" style = " font-size:large;">Log Out</a>
-                    </li>
+                            <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" style = " font-size:large;" "href="#">Hi ${sessionObj.name} !!
+                            <span></span></a>
+                            <ul class="dropdown-menu">
+                           <li><a href="logOut.html" style = " font-size:large;color:black">Logout</a></li>
+                           </ul>
                     
                     <li class="page-scroll">
                       <a href="UserHomePage.html" style = "text-decoration : none; font-size:large;"  >Back</a>

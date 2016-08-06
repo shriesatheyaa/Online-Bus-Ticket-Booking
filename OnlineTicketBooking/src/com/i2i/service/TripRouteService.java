@@ -25,7 +25,8 @@ public class TripRouteService {
     TripRouteDao tripRouteDao;
     
     /*
-	 * <p>Gets TripRoute records for given route and Date of travel.
+	 * <p>Gets Route object and Date of travel as input and returns the TripRoute object 
+	 *  for the corresponding route and date of travel.
 	 * </p>
 	 * @param route 
      *     Object of Route for which Trip Route object is to be found. 
@@ -47,10 +48,10 @@ public class TripRouteService {
      *    Id of the Trip Route to be found
      *
      * @return tripRoute
-     *    TripRoute object found
+     *    TripRoute object which matches the given id
      *
      * @throws DatabaseException 
-     *    If there is any failure in retrieving the employee object.
+     *     If there is any interruption occurred in the database.
      */
     public TripRoute getTripRouteById (int id) throws DatabaseException {
     	System.out.println("Service :"+ id);

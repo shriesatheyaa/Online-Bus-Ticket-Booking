@@ -17,7 +17,7 @@ import com.i2i.model.Route;
 import com.i2i.model.TripRoute;
 
 /**
- * <p>Dao which permits all tasks related to Trip Route related database tasks using Hibernate.
+ * <p>Dao which permits all tasks related to Trip Route related.
  * </p>
  * @author Shrie Satheyaa
  * @created 2016-08-01
@@ -27,14 +27,14 @@ public class TripRouteDao extends GenericDao {
 	
 	/**
      * <p>
-     * Retrieves a list of Trip Route records for given route object and date of travel from the database.
+     * Retrieves a list of Trip Route objects for given route object and date of travel from the database.
      * </p>
      *
      * @param route 
      *     Route object for TripRoute which is to be retrieved. 
      * 
      * @param dateOfTravel 
-     *     date of travel for Trip. 
+     *     Date of travel for Trip. 
      * 
      * @return tripRoutes
      *    List of TripRoute objects retrieved
@@ -63,16 +63,16 @@ public class TripRouteDao extends GenericDao {
 	} 
 	
 	/**
-     * Retrieves a Trip Route record for the given Id from database.
+     * Retrieves a Trip Route object for the given Id from database.
      *
      * @param id 
      *    Id of the Trip Route to be retrieved
      *
      * @return tripRoute
-     *    TripRoute object retrieved
+     *    TripRoute object that matches the given Id.
      *
      * @throws DatabaseException 
-     *    If there is any failure in retrieving the employee object.
+     *     If there is any interruption occurred in the database while retrieving the record.
      */
     public TripRoute retrieveTripRouteById (int id) throws DatabaseException {
         Session session = createSession();

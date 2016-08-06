@@ -16,22 +16,23 @@ import com.i2i.model.Trip;
 public class TripService {
     @Autowired
     TripDao tripDao;
+    
 	/**
      * Updates a Trip object in the record.
      *
-     * @param trip 
-     *    Object of the Trip to be updated.
+     * @param noOfSeatsBooked 
+     *    noOfSeatsBooked booked by the updated.
      *
+     * @return Trip
+     *     Trip object after modifying number of seat vacancies
+     *     
      * @throws DatabaseException 
-     *    If there is any failure in retrieving the employee object.
+     *     If there is any interruption occurred in the database.
      */
-    public void modifySeatVacancy (int noOfSeatsBooked, Trip trip) throws DatabaseException {
-    	System.out.println("Service :"+ trip.getId());
+    public Trip modifySeatVacancy (int noOfSeatsBooked, Trip trip) throws DatabaseException {
     	int seatCount = trip.getSeatVacancy();
     	seatCount = seatCount - noOfSeatsBooked;
-    	System.out.println("Seat count :" +seatCount);
     	trip.setSeatVacancy(seatCount);
-    	System.out.println("Seat count :" +trip.getSeatVacancy());
-        tripDao.updateTrip(trip);
+        return tripDao.updateTrip(trip);
     }
 }
