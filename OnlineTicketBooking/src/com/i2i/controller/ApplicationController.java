@@ -109,15 +109,24 @@ public class ApplicationController {
     }
     
     @RequestMapping("/updateUser")
-    public ModelAndView updateUserData(@RequestParam("email") String email,
-            @RequestParam("mobileNumber") long mobileNumber,@RequestParam("password") String password) {
-        try {
-			userService.addUser(user);
+    public ModelAndView updateUserData(@ModelAttribute("user") User currentUser, BindingResult result) {
+        //try {
+    	String password = currentUser.getPassword();
+    	String pwd = user.getPassword(); System.out.println("form pwd : " + password);System.out.println("ori pwd : " + pwd);
+        	if (!(password.equals(pwd))){
+        		Map<String,User> model = new HashMap<String,User>();
+          	    model.put("user",this.user);
+        	    return new ModelAndView("notUpdatedPage",model);
+        	} else {
+        		userService.modifyUser(user);
+        		return new ModelAndView("ReLogin");
+        	}
+		/*	userService.modifyUser(email, mobileNumber, password);
 	        return new ModelAndView("LoginPage");
 		} catch (DatabaseException e) {
 			GenericService.exceptionWriter(e);
 			return new ModelAndView("ExceptionPage");
-		}
+		}*/
     }
    
     

@@ -77,4 +77,9 @@ public class UserService {
 		}
 		return users;
 	}
+	
+	public void modifyUser(User user) {
+		userDao.updateUser(user);
+	}
+	
 }

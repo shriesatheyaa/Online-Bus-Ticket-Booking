@@ -30,6 +30,12 @@
     
 
 </head>
+
+        <script type="text/javascript">
+            window.onload = function() {
+                alert("!!!The current password you have given is wrong.. Try Again with correct password !!!");
+        	}
+        </script>
 <style>
    .bodyColor {
   text-align: center;
@@ -93,14 +99,14 @@
 
 
 <div style="position:fixed; left:80px; top:200px;margin-bottom: 2cm;"  ><br><br><br>
-<form id ="updateUser" action = "updateUser.html"method = "post" >
+<form id ="updateUser" action = "updateUser.html"method = "post">
 <h2 style="margin-bottom: 2cm;color:black;">
 ${user.name} </h2>
          	
              <table class = "table table-hover" align = "left" style = "color :yellow; font-size:20px; font-family:Comic Sans MS; width:75%;">
              <col width="530">
               	<tr><td>E-Mail Id</td>
-                   <td><input id = "email"  name="email" type="email"   disabled value  = ${user.email}></td>
+                   <td><input id = "email"  name="email" type="text"   disabled value  = ${user.email}></td>
                    <td><input style = "color: teal;" type = "button" name = "update" value = "Edit" onclick = "enableEmailEditing()"/></td>
                 </tr>
                 <tr><td>Mobile Number</td>
@@ -108,17 +114,20 @@ ${user.name} </h2>
                    <td><input style = "color: teal;" type = "button" name = "update" value = "Edit" onclick = "enableMobileEditing()"/></td>
                 </tr>
                 <tr><td></td>
-                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                    <td><input style = "color: teal;" type = "button" name = "update" value = "Change My Password" onclick = "enablePwd()"/></td>
                 </tr>      
                 <tr><td><div id="pwd_chg" style="visibility:hidden">
-                          Enter Current Password <input type="password" name="password" id="password"/>
+                          Enter Current Password <input type="text" name="pwd" id="pwd"/>
                         </td></tr>
                 <tr><td> <div id="pwd_chg1" style="visibility:hidden">
-                Enter New Password <input type="password" name="pwd" id="pwd"/></div></tr>   
+                Enter New Password <input type="text" name="password" id="password"/></div><td>
+                <div id="pwd_chg2" style="visibility:hidden">
+                <input type = "button" value = "save" ></td>
+                        </div> </td></tr>   
         </table><br><br><br><br><br><br><br><br><br><br><br>
         
         <input type  = "submit" value = "Update MY Changes" style = " color : teal; font-size:30px; font-family:Comic Sans MS;" >
@@ -155,6 +164,8 @@ ${user.name} </h2>
             document.getElementById("pwd_chg").style.visibility = 'visible';
             document.getElementById("pwd_chg1").style.visibility = 'visible';
             document.getElementById("pwd_chg2").style.visibility = 'visible';
-        } </script>
+        }
+        
+        </script>
 </body>
 </html>
